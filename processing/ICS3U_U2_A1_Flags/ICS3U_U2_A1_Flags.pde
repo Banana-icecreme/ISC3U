@@ -63,13 +63,13 @@ void keyPressed() {
       cuba();
       break;
     case '4':
-      //mauritania();
+      mauritania();
       break;
     case '5':
-      //kuwait();
+      kuwait();
       break;
     case '6':
-      //seychelles();
+      seychelles();
       break;
     case '7':
       //southAfrica();

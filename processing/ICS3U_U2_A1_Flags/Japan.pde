@@ -19,3 +19,6 @@ void japan() {
   ellipse( xFlagCenter, yFlagCenter, FLAG_SIZE / 2, FLAG_SIZE / 2 );
 
 }
+
+
+//0

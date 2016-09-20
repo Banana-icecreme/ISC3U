@@ -13,7 +13,7 @@ void kuwait() {
     FLAG_FACTOR_HEIGHT * FLAG_SIZE 
   );
   
-  // red part of the flag
+  // red part of the flag55
   fill( 255, 0, 0 );
   stroke(0);
   rect( 
@@ -32,7 +32,9 @@ void kuwait() {
   stroke(0);
   rect( 
     xFlagCenter+(FLAG_FACTOR_WIDTH* FLAG_SIZE)/6, yFlagCenter, 
-   FLAG_FACTOR_WIDTH * FLAG_SIZE-FLAG_FACTOR_WIDTH * FLAG_SIZE/6, 
+   FLAG_FACTOR_WIDTH * FLAG_SIZE-FLAG_FACTOR_WIDTH * FLAG_SIZE*0.334, 
     (FLAG_FACTOR_HEIGHT * FLAG_SIZE)/3
   );
 }
+
+//5

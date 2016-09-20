@@ -13,20 +13,20 @@ void cuba() {
     FLAG_FACTOR_HEIGHT * FLAG_SIZE 
   );
   
-   // white stirps of the flag #1
+   // white stirps of the flag 
   fill( 255, 255, 255 );
   stroke(0);
   rect( 
-    xFlagCenter, yFlagCenter-yFlagCenter/4, 
+    xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
-    (FLAG_FACTOR_HEIGHT * FLAG_SIZE) * 0.2
+    (FLAG_FACTOR_HEIGHT * FLAG_SIZE) * 0.6
   );
   
      // white stirps of the flag
-  fill( 255, 255, 255 );
+  fill( 0, 0, 255 );
   stroke(0);
   rect( 
-    xFlagCenter, yFlagCenter+yFlagCenter/4, 
+    xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
     (FLAG_FACTOR_HEIGHT * FLAG_SIZE) * 0.2);
   
@@ -39,6 +39,8 @@ void cuba() {
   // STAR SHAPE
   fill(255,255,255);
   stroke(0);
-  star(xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/4, yFlagCenter, 70, 35, 5);
+  star(xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/3, yFlagCenter, 70, 30, 5);
 
 }
+
+//3
