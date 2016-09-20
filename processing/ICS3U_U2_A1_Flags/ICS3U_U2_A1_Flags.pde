@@ -5,12 +5,23 @@
  *
  * Author:   Mr. Muir
  * Date:     2016-17.S1
- * Version:  2016.17.S1.01
+ * Version:  2016.17.S1.02
  */
+ 
+// CONSTANTS
+int FLAG_SIZE = 200;
+int FLAG_FACTOR_WIDTH = 3;
+int FLAG_FACTOR_HEIGHT = 2;
+
+// VARIABLES
+int xFlagCenter;
+int yFlagCenter;
 
 // WINDOW SETUP
 void setup() {
   size(800, 600);
+  xFlagCenter = width / 2;
+  yFlagCenter = height / 2;
   background( 255 );
   menu();
 }
@@ -40,17 +51,16 @@ void keyPressed() {
   menu();
   switch( key ) {
     case '0': 
-      System.out.println( "x" );
       japan();
       break;
     case '1':
-      //botswana();
+      botswana();
       break;
     case '2':
-      //botswana();
+      bahamas();
       break;
     case '3':
-      //cuba();
+      cuba();
       break;
     case '4':
       //mauritania();
