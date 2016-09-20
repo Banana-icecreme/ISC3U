@@ -6,7 +6,7 @@ void botswana() {
   
   // BLUE PART OF FLAG
   fill( 119, 169, 218 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -15,7 +15,7 @@ void botswana() {
   
   // WHITE PART OF FLAG
   fill( 255, 255, 255 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -24,7 +24,7 @@ void botswana() {
   
   // BLACK PART OF FLAG
   fill( 0, 0, 0 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 

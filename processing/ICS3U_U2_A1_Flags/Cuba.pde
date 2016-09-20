@@ -6,7 +6,7 @@ void cuba() {
   
   // blue part of the flag
   fill( 0, 0, 255 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -15,7 +15,7 @@ void cuba() {
   
    // white stirps of the flag 
   fill( 255, 255, 255 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -24,7 +24,7 @@ void cuba() {
   
      // white stirps of the flag
   fill( 0, 0, 255 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -32,13 +32,13 @@ void cuba() {
   
   //red triangle of the flag
   fill(255,0,0);
-  stroke(0);
+  noStroke();
   triangle(xFlagCenter-xFlagCenter/5, yFlagCenter, xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/2, yFlagCenter - FLAG_FACTOR_HEIGHT * FLAG_SIZE/2, xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/2, yFlagCenter + FLAG_FACTOR_HEIGHT * FLAG_SIZE/2); 
 
   
   // STAR SHAPE
   fill(255,255,255);
-  stroke(0);
+  noStroke();
   star(xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/3, yFlagCenter, 70, 30, 5);
 
 }

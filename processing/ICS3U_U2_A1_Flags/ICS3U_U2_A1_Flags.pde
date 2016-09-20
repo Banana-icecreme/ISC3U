@@ -44,6 +44,7 @@ void menu() {
   text("5. Kuwait", 10, 90); 
   text("6. Seychelles", 10, 105); 
   text("7. South Africa", 10, 120);
+  text("8. COOOOOOOOOOOOOOOOL FLAGS", 10, 135);  
 }
 
 // MENU LOGIC
@@ -72,8 +73,11 @@ void keyPressed() {
       seychelles();
       break;
     case '7':
-      //southAfrica();
+      southAfrica();
       break;
+    case '8':
+      COOOOOOOOOOOOOOOOL_FLAGS();
+      break;      
   }
 }
 

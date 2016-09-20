@@ -6,7 +6,7 @@ void bahamas() {
   
   // teal part of the flag
   fill( 0, 171, 201 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -15,7 +15,7 @@ void bahamas() {
   
    // yellow part of the flag
   fill( 255, 255, 0 );
-  stroke(0);
+  noStroke();
   rect( 
     xFlagCenter, yFlagCenter, 
     FLAG_FACTOR_WIDTH * FLAG_SIZE, 
@@ -24,8 +24,10 @@ void bahamas() {
   
   //black triangle of the flag
   fill(0);
-  stroke(0);
-  triangle(xFlagCenter, yFlagCenter, xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/2, yFlagCenter - FLAG_FACTOR_HEIGHT * FLAG_SIZE/2, xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/2, yFlagCenter + FLAG_FACTOR_HEIGHT * FLAG_SIZE/2); 
+  noStroke();
+  triangle(xFlagCenter, yFlagCenter, xFlagCenter - FLAG_FACTOR_WIDTH * FLAG_SIZE/2, 
+  yFlagCenter - FLAG_FACTOR_HEIGHT * FLAG_SIZE/2, xFlagCenter - FLAG_FACTOR_WIDTH * 
+  FLAG_SIZE/2, yFlagCenter + FLAG_FACTOR_HEIGHT * FLAG_SIZE/2); 
 }
 
 //2
