@@ -15,7 +15,8 @@ public class smile {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        double value = 3556656.244;
+        System.out.println("A short: " + value);
     }
-    
+
 }
