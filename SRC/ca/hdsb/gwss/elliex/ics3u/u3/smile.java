@@ -15,8 +15,9 @@ public class smile {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double value = 3556656.244;
-        System.out.println("A short: " + value);
+        float x = 22;
+        System.out.println(x);
+                
     }
 
 }
