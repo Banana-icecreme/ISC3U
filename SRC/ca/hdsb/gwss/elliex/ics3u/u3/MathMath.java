@@ -102,6 +102,47 @@ public class MathMath {
         int side3 = 2;
         int s = (side1 + side2 + side3)/2;
         double area = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+        double perimeter = 2*s;
+        System.out.println(" ");        
+        System.out.println("Heron's Formula");
+        System.out.println("Side 1: " + side1);
+        System.out.println("Side 2: " + side2);
+        System.out.println("Side 3: " + side3);
+        System.out.println("Perimeter: " + perimeter);
+        System.out.println("Area: " + area);
+        
+        //Days to hours
+//        Scanner input = new Scanner (System.in);
+//        System.out.println(" ");        
+//        System.out.println("Total hours: ");
+//        int hours = input.nextInt();
+//        int days = Math.round (hours/24);
+//        int hours2 = hours - days * 24; 
+//        System.out.println("Days: " + days);
+//        System.out.println("Hours: " + hours2);
+//        
+        //Cosine Law
+//        int x; 
+//        int y;
+//        int angle;
+//        Scanner input = new Scanner (System.in);
+//        
+//        System.out.println(" ");
+//        System.out.println("Side a:");
+//        x = input.nextInt();
+//        System.out.println("Side b:" );
+//        y = input.nextInt();
+//        System.out.println("Angle: ");
+//        angle = input.nextInt();
+//        double cosangle = Math.cos(angle);        
+//        double z = Math.sqrt(x*x + y*y - 2 * x * y * cosangle);
+//        System.out.println("Side c = " + z);
+        
+       
+                
+                
+        
+      
     }
     
 }
