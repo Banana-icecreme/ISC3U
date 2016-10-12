@@ -20,8 +20,8 @@ public class QuestionsAndAnswers {
      */
     public static void main(String[] args) {
         // Questions and Answers
-        int age = 16;
         String name; 
+        int age = 16; 
         ///Objects
         Scanner input = new Scanner (System.in);
         ///Example
