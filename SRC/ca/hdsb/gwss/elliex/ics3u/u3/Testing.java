@@ -5,11 +5,9 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u3;
 
-import java.text.NumberFormat;
-
 /**
  *
- * @author elli
+ * @author 1xuell
  */
 public class Testing {
 
@@ -17,10 +15,14 @@ public class Testing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-    NumberFormat number = NumberFormat.getIntegerInstance();
-int num = 1234;
-System.out.println( number.format( num ) );
+        // TODO code application logic here
+        int a = 90;
+        if (a <= 5) {
+            System.out.println("true");
+        }
+        else {
+            System.out.println("false");
+        }
     }
     
 }
