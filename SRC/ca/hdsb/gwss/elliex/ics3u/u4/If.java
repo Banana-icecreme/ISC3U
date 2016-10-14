@@ -4,7 +4,7 @@
  * V.1.0
  * If statments
  */
-package ca.hdsb.gwss.elliex.ics3u.u3;
+package ca.hdsb.gwss.elliex.ics3u.u4;
 
 import java.util.Scanner;
 
@@ -22,6 +22,8 @@ public class If {
         System.out.println("Type 1 for 'Y2K PROBLEM DETECTOR'.");
         System.out.println("Type 2 for 'WHICH ALIEN'.");
         System.out.println("Type 3 for 'THE CELL SELL'.");
+        System.out.println("Type 4 for 'ORDER CHECKER'");
+        System.out.println("Type 5 for 'DISCOUNT PRICES'");
         int answer = input.nextInt();
         if (answer == 1) {
             //Y2K PROBLEM DETECTOR
@@ -44,7 +46,7 @@ public class If {
                 System.out.println("Invalid data.");
             }
         }
-        if (answer == 2) {
+        else if (answer == 2) {
             //WHICH ALIEN
             //data collection
             System.out.println("How many antenna(s) does the alien have?");
@@ -71,7 +73,7 @@ public class If {
             }
         }
 
-        if (answer == 3) {
+        else if (answer == 3) {
             //THE CELL SELL
             //data collection
 
@@ -83,13 +85,21 @@ public class If {
             double wkend = input.nextDouble();
 
             //results
+            //plan A
             double daym = (day - 100) * 0.25;
+            if (daym < 0) {
+                daym = 0;
+            }
             double evem = eve * 0.15;
             double wkendm = wkend * 0.2;
             double total = daym + evem + wkendm;
             System.out.println("Plan A costs " + total);
 
+            //plan B
             double daym2 = (day - 250) * 0.45;
+            if (daym2 < 0) {
+                daym2 = 0;
+            }
             double evem2 = eve * 0.35;
             double wkendm2 = wkend * 0.25;
             double total2 = daym2 + evem2 + wkendm2;
@@ -97,10 +107,62 @@ public class If {
             if (total < total2) {
                 System.out.println("Plan A is cheaper.");
             }
-            if (total > total2){
+            if (total > total2) {
                 System.out.println("Plan B is cheaper.");
             }
-        } else {
+        }
+        else if (answer == 4) {
+            //ORDER CHECKER
+            System.out.println("How many bolts?");
+            int bolt = input.nextInt();
+            System.out.println("How many nuts?");
+            int nut = input.nextInt();
+            System.out.println("How many washers?");
+            int washer = input.nextInt();
+            
+            //check the order
+            System.out.println("Check the order: ");
+            if (bolt < nut && bolt >=0 && nut >=0) {
+                System.out.println("too few bolts.");
+            }
+            if (nut < bolt && bolt >=0 && nut >=0) {
+                System.out.println("too few nuts.");
+            }
+            if (washer < bolt*2 && bolt >=0 && washer >=0) {
+                System.out.println("too few washers");
+            }
+            else if (nut == bolt && bolt >=0 && nut >=0) {
+                System.out.println("Order is good.");
+            }
+            else if (nut < 0 || bolt < 0 || washer <0) {
+                System.out.println("INVALID DATA");
+            }
+            
+            //price 
+            if (bolt >= 0 && nut >=0 && washer >=0){
+            final double totalc = bolt *0.05 + nut *0.03 + washer*0.01;
+            System.out.println("Total cost: " + "$" + totalc );
+        }
+        }
+        
+        else if (answer == 5) {
+            //DISCOUNT PRICES
+            System.out.println("Enter amount of purchases: ");
+            double pur = input.nextDouble();
+            
+            //result 
+            if (pur >= 0) {
+                double dis = pur*0.9;
+                        System.out.println("Discounted price: " + "$" + dis);
+        }
+            else {
+                System.out.println("INVALID DATA");
+            }
+        }
+        else if (answer == 0) {
+            System.out.println(" :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :)");
+        }
+        else {
             System.out.println("There is no such program... yet.");
         }
     }
