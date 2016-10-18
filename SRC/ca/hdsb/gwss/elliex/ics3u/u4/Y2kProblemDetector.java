@@ -61,6 +61,7 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
         old.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         old.setText("Your age: ");
 
+        ageAns.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ageAns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageAnsActionPerformed(evt);
@@ -98,15 +99,15 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
                         .addComponent(yearAns, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(old)
-                                .addGap(18, 18, 18)
-                                .addComponent(ageAns, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(year)))
+                        .addComponent(year))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(213, 213, 213)
-                        .addComponent(Calculate)))
+                        .addComponent(Calculate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(old)
+                        .addGap(18, 18, 18)
+                        .addComponent(ageAns, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -180,7 +181,7 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
     private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new ProgramMenu().setVisible(true);
+        new IfMenu().setVisible(true);
     }//GEN-LAST:event_MenuActionPerformed
 
     /**

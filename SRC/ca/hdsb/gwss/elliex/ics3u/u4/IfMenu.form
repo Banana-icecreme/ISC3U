@@ -26,6 +26,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="OrderChecker" min="-2" max="-2" attributes="0"/>
+                  <Component id="theCellSell" min="-2" max="-2" attributes="0"/>
                   <Component id="alien" min="-2" max="-2" attributes="0"/>
                   <Component id="Y2K" min="-2" max="-2" attributes="0"/>
                   <Component id="DiscountGUI" min="-2" max="-2" attributes="0"/>
@@ -43,7 +45,11 @@
               <Component id="Y2K" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="alien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="theCellSell" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="OrderChecker" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="79" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,6 +78,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alienActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="theCellSell">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="The Cell Sell"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="theCellSellActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="OrderChecker">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Order Checker"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OrderCheckerActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -155,7 +155,7 @@ public class DiscountGUI extends javax.swing.JFrame {
     private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new ProgramMenu().setVisible(true);
+        new IfMenu().setVisible(true);
     }//GEN-LAST:event_MenuActionPerformed
 
     /**

@@ -176,7 +176,7 @@ public class whichAlien extends javax.swing.JFrame {
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new ProgramMenu().setVisible(true);
+        new IfMenu().setVisible(true);
     }//GEN-LAST:event_menuActionPerformed
 
     private void identifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identifyActionPerformed

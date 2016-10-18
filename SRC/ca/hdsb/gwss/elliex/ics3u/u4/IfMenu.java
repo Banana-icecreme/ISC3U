@@ -9,12 +9,12 @@ package ca.hdsb.gwss.elliex.ics3u.u4;
  *
  * @author elli
  */
-public class ProgramMenu extends javax.swing.JFrame {
+public class IfMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form IfFrame
      */
-    public ProgramMenu() {
+    public IfMenu() {
         initComponents();
     }
 
@@ -30,6 +30,8 @@ public class ProgramMenu extends javax.swing.JFrame {
         DiscountGUI = new javax.swing.JButton();
         Y2K = new javax.swing.JButton();
         alien = new javax.swing.JButton();
+        theCellSell = new javax.swing.JButton();
+        OrderChecker = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +57,20 @@ public class ProgramMenu extends javax.swing.JFrame {
             }
         });
 
+        theCellSell.setText("The Cell Sell");
+        theCellSell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                theCellSellActionPerformed(evt);
+            }
+        });
+
+        OrderChecker.setText("Order Checker");
+        OrderChecker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderCheckerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,6 +78,8 @@ public class ProgramMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(OrderChecker)
+                    .addComponent(theCellSell)
                     .addComponent(alien)
                     .addComponent(Y2K)
                     .addComponent(DiscountGUI))
@@ -76,7 +94,11 @@ public class ProgramMenu extends javax.swing.JFrame {
                 .addComponent(Y2K)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alien)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(theCellSell)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(OrderChecker)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,6 +124,18 @@ public class ProgramMenu extends javax.swing.JFrame {
         new whichAlien().setVisible(true);
     }//GEN-LAST:event_alienActionPerformed
 
+    private void theCellSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theCellSellActionPerformed
+        // TODO add your handling code here:
+        this.dispose ();
+        new TheCellSell().setVisible(true);
+    }//GEN-LAST:event_theCellSellActionPerformed
+
+    private void OrderCheckerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderCheckerActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new OrderChecker().setVisible(true);
+    }//GEN-LAST:event_OrderCheckerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -119,28 +153,32 @@ public class ProgramMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProgramMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IfMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProgramMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IfMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProgramMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IfMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProgramMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IfMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProgramMenu().setVisible(true);
+                new IfMenu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DiscountGUI;
+    private javax.swing.JButton OrderChecker;
     private javax.swing.JButton Y2K;
     private javax.swing.JButton alien;
+    private javax.swing.JButton theCellSell;
     // End of variables declaration//GEN-END:variables
 }

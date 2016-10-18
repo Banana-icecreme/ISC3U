@@ -122,20 +122,20 @@ public class If {
             
             //check the order
             System.out.println("Check the order: ");
-            if (bolt < nut && bolt >=0 && nut >=0) {
+            if (nut < 0 || bolt < 0 || washer <0) {
+                System.out.println("INVALID DATA");
+            }
+            else if (bolt < nut && bolt >=0 && nut >=0) {
                 System.out.println("too few bolts.");
             }
-            if (nut < bolt && bolt >=0 && nut >=0) {
+            else if (nut < bolt && bolt >=0 && nut >=0) {
                 System.out.println("too few nuts.");
             }
-            if (washer < bolt*2 && bolt >=0 && washer >=0) {
+            else if (washer < bolt*2 && bolt >=0 && washer >=0) {
                 System.out.println("too few washers");
             }
             else if (nut == bolt && bolt >=0 && nut >=0) {
                 System.out.println("Order is good.");
-            }
-            else if (nut < 0 || bolt < 0 || washer <0) {
-                System.out.println("INVALID DATA");
             }
             
             //price 
