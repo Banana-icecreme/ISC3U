@@ -156,8 +156,10 @@ public class IfAssignment {
             int ans = input.nextInt();
 
             if (ans == 1) {
-                System.out.println("Your BMI is: ");
+                NumberFormat number
+                    = NumberFormat.getIntegerInstance();
                 double bmi = (weight * 703) / (height * height);
+                System.out.println("Your BMI is: " + number.format(bmi));
                 if (weight >= 0 && height >= 0 && weight < 1000 && height < 110) {
                     if (bmi < 16) {
                         System.out.println("Starvation");
@@ -179,8 +181,10 @@ public class IfAssignment {
                     System.out.println("BAD DATA");
                 }
             } else if (ans == 2) {
-                System.out.println("Your BMI is: ");
+                NumberFormat number
+                    = NumberFormat.getIntegerInstance();
                 double bmi = weight / (height * height);
+                System.out.println("Your BMI is: "+ number.format(bmi));
                 if (weight >= 0 && height >= 0 && weight < 500 && height < 3) {
                     if (bmi < 16 && bmi >= 0 && weight >= 0 && height >= 0) {
                         System.out.println("Starvation");
@@ -208,33 +212,66 @@ public class IfAssignment {
 
         }
 
-        if (answer == 5) {
+        else if (answer == 5) {
             //Canada Post
             System.out.println("Canada Post");
             System.out.println("This program will calculate the cost of sending"
                     + " a first class or second class letter depending on the mass "
                     + "of the letter.");
+            System.out.println("");
             System.out.println("Enter letter class: 1 for first class; 2 for second class");
             int cass = input.nextInt();
             System.out.println("Enter the mass of the letter (in grams).");
-            double wgt = input.nextDouble();
-NumberFormat currency
+            double mass = input.nextDouble();
+            NumberFormat currency
                     = NumberFormat.getCurrencyInstance();
 
             if (cass == 1) {
                 System.out.println("The Cost of sending a letter is: ");
-                if (wgt >= 0 && wgt <= 30) {
-                    System.out.println(currency.format("0.4"));
-                  
+                if (mass >= 0 && mass <= 30) {
+                    final double price = 0.4;
+                    System.out.println(currency.format(price));
+
+                } else if (mass > 30 && mass <= 50) {
+                    final double price = 0.6;
+                    System.out.println(currency.format(price));
+                } else if (mass > 50) {
+                    final double price = 0.8;
+                    if (mass <= 100) {
+                        System.out.println(currency.format(price));
+                    }
+                    if (mass > 100) {
+                        double cost2 = price + Math.floor((mass - 100) / 50) * 0.29;
+                        System.out.println(currency.format(cost2));
+                    }
+                } else {
+                    System.out.println("BAD DATA");
                 }
-                else if (wgt > 30 && wgt<=50){
-                    System.out.println(currency.format("0.6"));
+            } else if (cass == 2) {
+                System.out.println("The Cost of sending a letter is: ");
+                if (mass >= 0 && mass <= 30) {
+                    final double price = 0.3;
+                    System.out.println(currency.format(price));
+
+                } else if (mass > 30 && mass <= 50) {
+                    final double price = 0.5;
+                    System.out.println(currency.format(price));
+                } else if (mass > 50) {
+                    final double price = 0.6;
+                    if (mass <= 100) {
+                        System.out.println(currency.format(price));
+                    }
+                    if (mass > 100) {
+                        double cost2 = price + Math.floor((mass - 100) / 50) * 0.19;
+                        System.out.println(currency.format(cost2));
+                    }
+                } else {
+                    System.out.println("BAD DATA");
                 }
-                else if (wgt > 50 ){
-                    double cost = wgt % 100;
-                    System.out.println(cost);
-                }
+            } else {
+                System.out.println("There is no such class.");
             }
+
         } else {
             System.out.println("There is no such program... yet.");
         }
