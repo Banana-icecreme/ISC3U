@@ -42,7 +42,7 @@ public class IfAssignment {
             ph = input.nextDouble();
             lowPh = 6.45;
             highPh = 7.45;
-            
+
             if (ph <= highPh && ph >= lowPh) {
                 System.out.println("NEUTRAL - FISH IN STREAMS, RIVERS AND LAKES WILL SURVIVE.");
             } else if (ph >= 0 && ph < lowPh) {
@@ -57,7 +57,7 @@ public class IfAssignment {
             } else {
                 System.out.println("BAD DATA");
             }
-            
+
         } else if (answer == 2) {
             //Is this a triangle?
             //variables
@@ -78,35 +78,24 @@ public class IfAssignment {
             c = input.nextDouble();
 
             if (a > 0 && b > 0 && c > 0) {
-                if (a >= b && a >= c) {
-                    if (a < b + c) {
-                        System.out.println("These sides can make a triangle");
-                    } else {
-                        System.out.println("These sides cannot make a triangle");
-                    }
-                } else if (b >= a && b >= c) {
-                    if (b < a + c) {
-                        System.out.println("These sides can make a triangle");
-                    } else {
-                        System.out.println("These sides cannot make a triangle");
-                    }
-                } else if (c >= a && c >= b) {
-                    if (c < b + a) {
-                        System.out.println("These sides can make a triangle");
-                    } else {
-                        System.out.println("These sides cannot make a triangle");
-                    }
+                if (a >= b + c || b >= a + c || c >= b + a) {
+                    System.out.println("These won't make any triangles.");
+                } else {
+                    System.out.println("These sides will make a triangle.");
                 }
+
             } else {
                 System.out.println("BAD DATA");
             }
+
         } else if (answer == 3) {
-            //Is this a Right-Angled Triangle?
+            //Is this a Right-Angeled Triangle?
 
             //Variables
             double a;
             double b;
             double c;
+            
             System.out.println("Right Triangle");
             System.out.println("A right-angled triangle has the property that when the values of the lengths of the sides are squared, the sum of two smaller"
                     + "values is equal to the larger value. This program asks the user to enter three values and then determines wether the triangle "
@@ -120,39 +109,20 @@ public class IfAssignment {
             c = input.nextDouble();
 
             if (a > 0 && b > 0 && c > 0) {
-                if (a >= b && a >= c) {
-                    if (b * b + c * c == a * a) {
-                        System.out.println("These sides will make a right angle triangle.");
-                    } else {
-                        System.out.println("These sides will not make a right angle triangle.");
-                        if (a >= b + c) {
-                            System.out.println("These won't make any triangles.");
-                        }
-                    }
-                } else if (b >= a && b >= c) {
-                    if (a * a + c * c == b * b) {
-                        System.out.println("These sides will make a right angle triangle.");
-                    } else {
-                        System.out.println("These sides will not make a right angle triangle.");
-                        if (b >= a + c) {
-                            System.out.println("These won't make any triangles.");
-                        }
-                    }
-                } else if (c >= a && c >= b) {
-                    if (a * a + b * b == c * c) {
-                        System.out.println("These sides will make a right angle triangle.");
-                    } else {
-                        System.out.println("These sides will not make a right angle triangle.");
-                        if (c >= b + a) {
-                            System.out.println("These won't make any triangles.");
-                        }
-                    }
+                if (a >= b + c || b >= a + c || c >= b + a) {
+                    System.out.println("These won't make any triangles.");
+                } else if (b * b + c * c == a * a || a * a + c * c == b * b || a * a + b * b == c * c) {
+                    System.out.println("These sides will make a right angle triangle.");
+                } else {
+                    System.out.println("These sides will not make a right angle triangle.");
                 }
+
             } else if ((a == 0 || b == 0 || c == 0) && a + b + c > 0) {
                 System.out.println("Dude, that's not even a triangle. That's a line.");
             } else {
                 System.out.println("BAD DATA");
             }
+
         } else if (answer == 4) {
             //BMI 
             /*Measure of  the weight of a 
@@ -254,7 +224,6 @@ public class IfAssignment {
                 d = 0;
                 System.out.println("There is no such class.");
             }
-
             if ((cass == 1 || cass == 2) && a > 0) {
                 System.out.println("The Cost of sending a letter is: ");
                 if (mass >= 0 && mass <= 30) {
