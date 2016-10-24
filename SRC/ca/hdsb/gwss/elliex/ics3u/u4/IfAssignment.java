@@ -43,16 +43,16 @@ public class IfAssignment {
             lowPh = 6.45;
             highPh = 7.45;
 
-            if (ph <= highPh && ph >= lowPh) {
-                System.out.println("NEUTRAL - FISH IN STREAMS, RIVERS AND LAKES WILL SURVIVE.");
-            } else if (ph >= 0 && ph < lowPh) {
-                System.out.println("TOO ACIDIC - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
-            } else if (ph > highPh && ph <= 14) {
-                System.out.println("TOO ALKALINE - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
-            } else if (ph < 0) {
+            if (ph < 0) {
                 System.out.println("BAD DATA");
                 System.out.println("If something that acidic ever come into being, please "
                         + "don't drink it.");
+            } else if (ph < lowPh) {
+                System.out.println("TOO ACIDIC - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
+            } else if (ph > highPh && ph <= 14) {
+                System.out.println("TOO ALKALINE - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
+            } else if (ph <= highPh ) {
+                System.out.println("NEUTRAL - FISH IN STREAMS, RIVERS AND LAKES WILL SURVIVE.");
 
             } else {
                 System.out.println("BAD DATA");
@@ -149,13 +149,16 @@ public class IfAssignment {
             ans = input.nextInt();
 
             // IF metric vs imperial
-            if (ans == 1) {
+            switch(ans) {
+                case 1:
                 bmi = (weight * 703) / (height * height);
                 System.out.println("Your BMI is: " + number.format(bmi));
-            } else if (ans == 2) {
+                break;
+                case 2:
                 bmi = weight / (height * height);
                 System.out.println("Your BMI is: " + number.format(bmi));
-            } else {
+                break;
+                default:
                 bmi = 0;
                 System.out.println("I think you have a typo.");
             }
@@ -205,19 +208,22 @@ public class IfAssignment {
             System.out.println("Enter the mass of the letter (in grams).");
             mass = input.nextDouble();
 
-            if (cass == 1) {
+            switch (cass){
+                case 1:
                 //variables 
                 a = 0.4;
                 b = 0.6;
                 c = 0.8;
                 d = 0.29;
-            } else if (cass == 2) {
+                break;
+                case 2:
                 //variables 
                 a = 0.3;
                 b = 0.5;
                 c = 0.6;
                 d = 0.19;
-            } else {
+                break;
+                default:
                 a = 0;
                 b = 0;
                 c = 0;
@@ -243,7 +249,10 @@ public class IfAssignment {
                     System.out.println("BAD DATA");
                 }
             }
-        } else {
+        } 
+        
+        
+        else {
             System.out.println("There is no such program... yet.");
         }
     }
