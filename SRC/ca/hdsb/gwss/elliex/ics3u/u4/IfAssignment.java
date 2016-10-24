@@ -32,9 +32,8 @@ public class IfAssignment {
             //Acid rain 
             // To see if the rain is suitable for fish.
             //variable
-            final double lowPh;
+            final double lowPh, highPh;
             double ph;
-            final double highPh;
             System.out.println("ACIDIC RAIN");
             System.out.println("Acid rain is an environmental problem. This program determines if the pH level in water is safe for fish.");
             System.out.println("");
@@ -51,7 +50,7 @@ public class IfAssignment {
                 System.out.println("TOO ACIDIC - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
             } else if (ph > highPh && ph <= 14) {
                 System.out.println("TOO ALKALINE - FISH IN STREAMS, RIVERS AND LAKES WILL NOT SURVIVE.");
-            } else if (ph <= highPh ) {
+            } else if (ph <= highPh) {
                 System.out.println("NEUTRAL - FISH IN STREAMS, RIVERS AND LAKES WILL SURVIVE.");
 
             } else {
@@ -61,9 +60,7 @@ public class IfAssignment {
         } else if (answer == 2) {
             //Is this a triangle?
             //variables
-            double a;
-            double b;
-            double c;
+            double a, b, c;
 
             System.out.println("Triangle");
             System.out.println("Three numbers represent the sides of a triangle when the sum of "
@@ -92,10 +89,8 @@ public class IfAssignment {
             //Is this a Right-Angeled Triangle?
 
             //Variables
-            double a;
-            double b;
-            double c;
-            
+            double a, b, c;
+
             System.out.println("Right Triangle");
             System.out.println("A right-angled triangle has the property that when the values of the lengths of the sides are squared, the sum of two smaller"
                     + "values is equal to the larger value. This program asks the user to enter three values and then determines wether the triangle "
@@ -131,36 +126,34 @@ public class IfAssignment {
         * of their height. It is almost always expressed in the unit kg/m2.
              */
             // VARIABLES
-            double bmi;
+            double bmi, height, weight;
             int ans;
-            double height;
-            double weight;
             // OBJECTS
             NumberFormat number = NumberFormat.getIntegerInstance();
 
             System.out.println("BMI");
             System.out.println("");
-            System.out.println("What is your height in meters/inches?");
+            System.out.println("What is your height in meters or inches?");
             height = input.nextDouble();
-            System.out.println("What is your weight in kg/lbs?");
+            System.out.println("What is your weight in kg or lbs?");
             weight = input.nextDouble();
             System.out.println("");
             System.out.println("Type 1 for imperial system; type 2 for metric system.");
             ans = input.nextInt();
 
             // IF metric vs imperial
-            switch(ans) {
+            switch (ans) {
                 case 1:
-                bmi = (weight * 703) / (height * height);
-                System.out.println("Your BMI is: " + number.format(bmi));
-                break;
+                    bmi = (weight * 703) / (height * height);
+                    System.out.println("Your BMI is: " + number.format(bmi));
+                    break;
                 case 2:
-                bmi = weight / (height * height);
-                System.out.println("Your BMI is: " + number.format(bmi));
-                break;
+                    bmi = weight / (height * height);
+                    System.out.println("Your BMI is: " + number.format(bmi));
+                    break;
                 default:
-                bmi = 0;
-                System.out.println("I think you have a typo.");
+                    bmi = 0;
+                    System.out.println("I think you have a typo.");
             }
 
             if ((ans == 1 || ans == 2) && bmi > 0) {
@@ -190,11 +183,7 @@ public class IfAssignment {
             //Canada Post
             //variables
             int cass;
-            double mass;
-            double a;
-            double b;
-            double c;
-            double d;
+            double mass, a, b, c, d;
             //objects
             NumberFormat currency = NumberFormat.getCurrencyInstance();
 
@@ -208,27 +197,27 @@ public class IfAssignment {
             System.out.println("Enter the mass of the letter (in grams).");
             mass = input.nextDouble();
 
-            switch (cass){
+            switch (cass) {
                 case 1:
-                //variables 
-                a = 0.4;
-                b = 0.6;
-                c = 0.8;
-                d = 0.29;
-                break;
+                    //variables 
+                    a = 0.4;
+                    b = 0.6;
+                    c = 0.8;
+                    d = 0.29;
+                    break;
                 case 2:
-                //variables 
-                a = 0.3;
-                b = 0.5;
-                c = 0.6;
-                d = 0.19;
-                break;
+                    //variables 
+                    a = 0.3;
+                    b = 0.5;
+                    c = 0.6;
+                    d = 0.19;
+                    break;
                 default:
-                a = 0;
-                b = 0;
-                c = 0;
-                d = 0;
-                System.out.println("There is no such class.");
+                    a = 0;
+                    b = 0;
+                    c = 0;
+                    d = 0;
+                    System.out.println("There is no such class.");
             }
             if ((cass == 1 || cass == 2) && a > 0) {
                 System.out.println("The Cost of sending a letter is: ");
@@ -249,10 +238,7 @@ public class IfAssignment {
                     System.out.println("BAD DATA");
                 }
             }
-        } 
-        
-        
-        else {
+        } else {
             System.out.println("There is no such program... yet.");
         }
     }
