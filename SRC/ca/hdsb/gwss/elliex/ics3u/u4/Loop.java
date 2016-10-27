@@ -19,7 +19,8 @@ public class Loop {
      */
     public static void main(String[] args) {
         // loop
-        int a, b, c, d, d2;
+        int a, b, c;
+        double d, d2;
         String e;
 
         Scanner input = new Scanner(System.in);
@@ -44,14 +45,25 @@ public class Loop {
                 System.out.println(a);
             }
         } else if (e.equals("/")) {
-            for (; a >= b && a <= c; a /= d) {
-                System.out.println(a);
-                //how do i stop the loop once a certain number has been repeated multiple times?
+            if (a == 0 || d == 0) {
+                System.out.println("0\n0");
+            } else {
+                for (; a >= b && a <= c; a /= d) {
+                    System.out.println(a);
+                }
             }
         } else if (e.equals("*")) {
-            for (; a >= b && a <= c; a *= d) {
-                System.out.println(a);
+
+            if (a == 0 || d == 0) {
+                System.out.println("0\n0");
+            } else {
+                for (; a >= b && a <= c; a *= d) {
+                    System.out.println(a);
+                }
+
             }
+        } else {
+            System.out.println("There is no such assignment statement.");
         }
     }
 }
