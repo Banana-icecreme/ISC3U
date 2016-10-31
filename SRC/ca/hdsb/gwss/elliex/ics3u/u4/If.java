@@ -18,6 +18,8 @@ public class If {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int over = 1; 
+        while (over == 1){
         Scanner input = new Scanner(System.in);
         System.out.println("Type 1 for 'Y2K PROBLEM DETECTOR'.");
         System.out.println("Type 2 for 'WHICH ALIEN'.");
@@ -165,5 +167,8 @@ public class If {
         else {
             System.out.println("There is no such program... yet.");
         }
+        
+        System.out.println("\nWould you like to start over?\nType 1 for yes. Type any other numbers to exit.");
+        over = input.nextInt();
     }
-}
+}}

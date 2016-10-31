@@ -26,10 +26,10 @@ public class PictureFramming {
         n = input.nextInt();
         System.out.println("What is the height of the picture?");
         m = input.nextInt();
-        System.out.println("What is the width of the mat?");
-        p = input.nextInt();
-        System.out.println("What is the width of the frame?");
-        q = input.nextInt();
+        //System.out.println("What is the width of the mat?");
+        //p = input.nextInt();
+        //System.out.println("What is the width of the frame?");
+        //q = input.nextInt();
         
         for (int f = 0; f < m ; f++){
             System.out.println(".");
