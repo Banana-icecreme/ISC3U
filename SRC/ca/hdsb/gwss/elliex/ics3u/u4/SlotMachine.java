@@ -19,6 +19,7 @@ public class SlotMachine extends javax.swing.JFrame {
     public SlotMachine() {
         initComponents();
         token.setText(tokens + "");
+        attempts.setText(count + "");
     }
 
     /**
@@ -44,9 +45,11 @@ public class SlotMachine extends javax.swing.JFrame {
         token = new javax.swing.JLabel();
         enough = new javax.swing.JLabel();
         win = new javax.swing.JLabel();
-        exit = new javax.swing.JButton();
+        menu = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        colour = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        attempts = new javax.swing.JLabel();
+        emoji = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,10 +75,10 @@ public class SlotMachine extends javax.swing.JFrame {
 
         jLabel7.setText("3 fours = 10 tokens");
 
-        exit.setText("exit");
-        exit.addActionListener(new java.awt.event.ActionListener() {
+        menu.setText("Menu");
+        menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitActionPerformed(evt);
+                menuActionPerformed(evt);
             }
         });
 
@@ -83,12 +86,7 @@ public class SlotMachine extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 153));
         jLabel8.setText("SLOT MACHINE");
 
-        colour.setIcon(new javax.swing.ImageIcon("G:\\unnamed.png")); // NOI18N
-        colour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                colourActionPerformed(evt);
-            }
-        });
+        jLabel9.setText("Your attempts:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,22 +96,27 @@ public class SlotMachine extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Play)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(239, 239, 239))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel6)
                                         .addComponent(jLabel3))
-                                    .addGap(239, 239, 239))
-                                .addComponent(Play)))
-                        .addContainerGap(61, Short.MAX_VALUE))
+                                    .addGap(198, 198, 198))))
+                        .addContainerGap(123, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exit)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(73, 73, 73)
+                                .addComponent(emoji, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(menu)
                         .addGap(34, 34, 34))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
@@ -128,124 +131,130 @@ public class SlotMachine extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(token, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(153, 153, 153))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(attempts, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(enough, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(77, 77, 77))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(win, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
-                    .addComponent(colour, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(win, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(colour, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(Play)
-                            .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(win, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(token, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9)
+                                .addComponent(attempts, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(win, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(token, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enough, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(menu)
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(emoji, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)))
                         .addComponent(jLabel7)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(exit)
-                        .addGap(21, 21, 21))))
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayActionPerformed
+        count++;
+        attempts.setText(count + "");
+        int face = (int) (Math.random() * 4) + 1;
+        if (face == 1){
+            emoji.setText("(ง ͠° ͟ل͜ ͡°)ง");
+        }
+        else if (face == 2)
+            
+            
+        if (tokens > 0) {
+            token.setText(tokens - 1 + "");
+            tokens--;
+            int numm1 = (int) (Math.random() * 4) + 1;
+            num1.setText(numm1 + "");
+            int numm2 = (int) (Math.random() * 4) + 1;
+            num2.setText(numm2 + "");
+            int numm3 = (int) (Math.random() * 4) + 1;
+            num3.setText(numm3 + "");
 
-        int color = (int) (Math.random() * 4) + 1;
-if (color == 1){
-    colour.setIcon(RED.jpg);
-}
-if (color == 2){
-    colour.setIcon(RED.jpg);
-}
-if (tokens > 0){
-        token.setText(tokens -1 + "");
-        tokens --;
-        int numm1 = (int) (Math.random() * 4) + 1;
-        num1.setText((int) (Math.random() * 4) + 1 +"" );
-        int numm2 = (int) (Math.random() * 4) + 1;
-        num2.setText(numm2 +"" );
-        int numm3 = (int) (Math.random() * 4) + 1;
-        num3.setText(numm3 +"" );
-        if (numm1 + numm2 + numm3 == 3){
-            tokens = tokens + 4;
-            token.setText(tokens + "");
-            win.setText("YOU WON 4 TOKENS");
+            if (numm1 != numm2 || numm2 != numm3) {
+                win.setText("YOU LOSE...");
+            } else {
+                int won;
+                if (numm1 + numm2 + numm3 == 3) {
+                    tokens += 4;
+                    won = 4;
+                } else if (numm1 + numm2 + numm3 == 6) {
+                    tokens += 6;
+                    won = 6;
+                } else if (numm1 + numm2 + numm3 == 9) {
+                    tokens += 8;
+                    won = 8;
+                } else {
+                    tokens += 10;
+                    won = 10;
+                }
+                token.setText(tokens + "");
+                win.setText("YOU WON " + won + " TOKENS");
+            }
+        } else {
+            enough.setText("You don't have enough tokens.");
         }
-        else if (numm1 == 2 && numm2 == 2 && numm3 == 2){
-            tokens = tokens + 6;
-            token.setText(tokens + "");
-            win.setText("YOU WON 6 TOKENS");
-        }
-        else if (numm1 == 3 && numm2 == 3 && numm3 == 3){
-            tokens = tokens + 8;
-            token.setText(tokens + "");
-            win.setText("YOU WON 8 TOKENS");
-        }
-        else if (numm1 == 4 && numm2 == 4 && numm3 == 4){
-            tokens = tokens + 10;
-            token.setText(tokens + "");
-            win.setText("YOU WON 10 TOKENS");
-        }
-        else {
-            win.setText("YOU LOSE...");
-        }
-}
-else {
-    enough.setText("You don't have enough tokens.");
-}
     }//GEN-LAST:event_PlayActionPerformed
 
-    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // 
+    private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         this.dispose();
-    }//GEN-LAST:event_exitActionPerformed
-
-    private void colourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_colourActionPerformed
+        new IfMenu().setVisible(true);
+    }//GEN-LAST:event_menuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,14 +290,14 @@ else {
             }
         });
     }
-
+    int count = 0;
     int tokens = 50;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Play;
-    private javax.swing.JButton colour;
+    private javax.swing.JLabel attempts;
+    private javax.swing.JLabel emoji;
     private javax.swing.JLabel enough;
-    private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -297,6 +306,8 @@ else {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton menu;
     private javax.swing.JLabel num1;
     private javax.swing.JLabel num2;
     private javax.swing.JLabel num3;

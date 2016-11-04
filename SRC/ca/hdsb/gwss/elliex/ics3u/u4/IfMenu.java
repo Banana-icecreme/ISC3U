@@ -32,6 +32,8 @@ public class IfMenu extends javax.swing.JFrame {
         alien = new javax.swing.JButton();
         theCellSell = new javax.swing.JButton();
         OrderChecker = new javax.swing.JButton();
+        SlotMachine = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +73,16 @@ public class IfMenu extends javax.swing.JFrame {
             }
         });
 
+        SlotMachine.setText("Slot Machine");
+        SlotMachine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SlotMachineActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Vineta BT", 0, 24)); // NOI18N
+        jLabel1.setText("MENU");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,19 +90,28 @@ public class IfMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OrderChecker)
-                    .addComponent(theCellSell)
-                    .addComponent(alien)
-                    .addComponent(Y2K)
-                    .addComponent(DiscountGUI))
-                .addContainerGap(216, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SlotMachine)
+                            .addComponent(OrderChecker)
+                            .addComponent(theCellSell)
+                            .addComponent(alien)
+                            .addComponent(Y2K))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(DiscountGUI)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(56, 56, 56))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(DiscountGUI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DiscountGUI)
+                    .addComponent(jLabel1))
+                .addGap(11, 11, 11)
                 .addComponent(Y2K)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(alien)
@@ -98,7 +119,9 @@ public class IfMenu extends javax.swing.JFrame {
                 .addComponent(theCellSell)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OrderChecker)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SlotMachine)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +158,11 @@ public class IfMenu extends javax.swing.JFrame {
         this.dispose();
         new OrderChecker().setVisible(true);
     }//GEN-LAST:event_OrderCheckerActionPerformed
+
+    private void SlotMachineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SlotMachineActionPerformed
+        this.dispose();
+        new SlotMachine().setVisible(true);
+    }//GEN-LAST:event_SlotMachineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,8 +205,10 @@ public class IfMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DiscountGUI;
     private javax.swing.JButton OrderChecker;
+    private javax.swing.JButton SlotMachine;
     private javax.swing.JButton Y2K;
     private javax.swing.JButton alien;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton theCellSell;
     // End of variables declaration//GEN-END:variables
 }
