@@ -37,6 +37,7 @@ public class DiscountGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Discount = new javax.swing.JTextField();
         Menu = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,13 @@ public class DiscountGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,6 +106,8 @@ public class DiscountGUI extends javax.swing.JFrame {
                 .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Menu)
                 .addGap(22, 22, 22))
         );
@@ -119,7 +129,9 @@ public class DiscountGUI extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(Discount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(Menu)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Menu)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -157,6 +169,10 @@ public class DiscountGUI extends javax.swing.JFrame {
         this.dispose();
         new IfMenu().setVisible(true);
     }//GEN-LAST:event_MenuActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,6 +213,7 @@ public class DiscountGUI extends javax.swing.JFrame {
     private javax.swing.JTextField Discount;
     private javax.swing.JButton Menu;
     private javax.swing.JButton buttonDiscount;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

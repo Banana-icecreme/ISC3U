@@ -40,6 +40,7 @@ public class whichAlien extends javax.swing.JFrame {
         typea = new javax.swing.JTextField();
         identify = new javax.swing.JButton();
         menu = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +113,13 @@ public class whichAlien extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("exit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,6 +149,8 @@ public class whichAlien extends javax.swing.JFrame {
                         .addGap(0, 65, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(menu)))
                 .addContainerGap())
         );
@@ -162,7 +172,9 @@ public class whichAlien extends javax.swing.JFrame {
                     .addComponent(Type)
                     .addComponent(typea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(menu)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(menu)
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
@@ -202,6 +214,10 @@ public class whichAlien extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_identifyActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +265,7 @@ public class whichAlien extends javax.swing.JFrame {
     private javax.swing.JTextField eyea;
     private javax.swing.JTextField eyea1;
     private javax.swing.JButton identify;
+    private javax.swing.JButton jButton3;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JButton menu;
     private javax.swing.JTextField typea;

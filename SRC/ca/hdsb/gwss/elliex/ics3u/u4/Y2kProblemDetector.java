@@ -37,6 +37,7 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
         ageAns = new javax.swing.JTextField();
         Calculate = new javax.swing.JButton();
         Menu = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,13 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("exit");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,6 +119,8 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Menu)
                 .addGap(25, 25, 25))
         );
@@ -132,7 +142,9 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
                     .addComponent(old)
                     .addComponent(ageAns, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addComponent(Menu)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Menu)
+                    .addComponent(jButton3))
                 .addContainerGap())
         );
 
@@ -184,6 +196,10 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
         new IfMenu().setVisible(true);
     }//GEN-LAST:event_MenuActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +242,7 @@ public class Y2kProblemDetector extends javax.swing.JFrame {
     private javax.swing.JTextField ageAns;
     private javax.swing.JLabel born;
     private javax.swing.JTextField bornAns;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel old;
     private javax.swing.JLabel year;
     private javax.swing.JTextField yearAns;
