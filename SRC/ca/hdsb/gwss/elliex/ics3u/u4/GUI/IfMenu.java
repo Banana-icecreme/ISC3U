@@ -3,11 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.hdsb.gwss.elliex.ics3u.u4;
+package ca.hdsb.gwss.elliex.ics3u.u4.GUI;
+
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.OrderChecker;
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.Y2kProblemDetector;
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.TheCellSell;
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.SlotMachine;
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.whichAlien;
 
 /**
  *
- * @author elli
+ * @author ellie
  */
 public class IfMenu extends javax.swing.JFrame {
 

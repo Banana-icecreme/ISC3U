@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.hdsb.gwss.elliex.ics3u.u4;
+package ca.hdsb.gwss.elliex.ics3u.u4.GUI;
 
+import ca.hdsb.gwss.elliex.ics3u.u4.GUI.IfMenu;
 import java.text.NumberFormat;
 import java.util.Scanner;
 

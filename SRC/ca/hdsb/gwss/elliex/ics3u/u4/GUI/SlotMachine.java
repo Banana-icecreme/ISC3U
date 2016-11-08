@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.hdsb.gwss.elliex.ics3u.u4;
+package ca.hdsb.gwss.elliex.ics3u.u4.GUI;
 
 import java.text.NumberFormat;
 
@@ -55,7 +55,6 @@ public class SlotMachine extends javax.swing.JFrame {
         enough = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(449, 400));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 153));
 
@@ -280,11 +279,11 @@ public class SlotMachine extends javax.swing.JFrame {
             token.setText(tokens - 1 + "");
             tokens--;
             int numm1 = (int) (Math.random() * 4) + 1;
-            num1.setText(numm1 + "");
+            num1.setText(" " + numm1);
             int numm2 = (int) (Math.random() * 4) + 1;
-            num2.setText(numm2 + "");
+            num2.setText(" " + numm2);
             int numm3 = (int) (Math.random() * 4) + 1;
-            num3.setText(numm3 + "");
+            num3.setText(" " + numm3);
 
             if (numm1 != numm2 || numm2 != numm3) {
                 win.setText("YOU LOSE...");
