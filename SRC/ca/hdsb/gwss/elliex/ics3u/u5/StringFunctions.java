@@ -20,7 +20,8 @@ public class StringFunctions {
         // TODO code application logic here
         int count;
         Scanner input = new Scanner(System.in);
-        System.out.print("1 for counting vowels.\n2 for word square.\n3 for compass.\n4 for palindrome. \n");
+        System.out.print("1 for counting vowels.\n2 for word square.\n3 for compass.\n4 for "
+                + "palindrome. \n5 for SIN check.\n");
         count = input.nextInt();
 
         switch (count) {
@@ -36,6 +37,9 @@ public class StringFunctions {
             case 4:
                 Palindrome();
                 break;
+            case 5:
+                SINCheck();
+                break;
             default:
                 System.out.println("There is no such program.");
         }
@@ -45,6 +49,7 @@ public class StringFunctions {
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in a sentence where you wish the vowel to be counted.");
         String vowel = input.nextLine();
+        vowel.toLowerCase();
         int count = 0;
         for (int i = 0; i < vowel.length(); i++) {
             switch (vowel.charAt(i)) {
@@ -91,22 +96,19 @@ public class StringFunctions {
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in the compass direction.");
         com = input.nextLine();
+        com.toUpperCase();
         System.out.println(" ");
 
         switch (com.charAt(0)) {
-            case 's':
             case 'S':
                 face = "South";
                 break;
-            case 'n':
             case 'N':
                 face = "North";
                 break;
-            case 'w':
             case 'W':
                 face = "West";
                 break;
-            case 'e':
             case 'E':
                 face = "East";
                 break;
@@ -114,19 +116,15 @@ public class StringFunctions {
                 System.out.println("You have a typo.");
         }
         switch (com.charAt(3)) {
-            case 's':
             case 'S':
                 direction = "South";
                 break;
-            case 'n':
             case 'N':
                 direction = "North";
                 break;
-            case 'w':
             case 'W':
                 direction = "West";
                 break;
-            case 'e':
             case 'E':
                 direction = "East";
                 break;
@@ -137,8 +135,8 @@ public class StringFunctions {
     }
 
     public static void Palindrome() {
-        String pal, check = null;
-        int i;
+        String pal, check = "", blank = "", letter, endletter;
+        int i, length;
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in the word.");
         pal = input.nextLine();
@@ -147,15 +145,50 @@ public class StringFunctions {
         i = pal.length() - 1;
 
         while (i >= 0) {
+            letter = pal.charAt(i) + blank;
+            length = pal.length()/2;
+            endletter = pal.charAt(length) + blank;
+            letter.equalsIgnoreCase(endletter);
             System.out.print(pal.charAt(i));
-            i--;
             check = check + pal.charAt(i);
+            i--;
         }
-        //if (check == pal) {
-        //    System.out.println("/n" + pal + " is a palindrome.");
-        //} else {
-        //    System.out.println("/n" + pal + " is not a palindrome.");
-        //}
+        if (check.equalsIgnoreCase(pal)) {
+            System.out.println("\n" + pal + " IS a palindrome.");
+        } else {
+            System.out.println("\n" + pal + " is NOT a palindrome.");
+        }
     }
+
+    public static void SINCheck() {
+        //Double.parseDouble
+        int i = 1, b = 0, e = 0, f = 0, odd = 0;
+        String num, word = "", blank = "", c, d = "", g;
+        Scanner input = new Scanner(System.in);
+        System.out.println("\nType in your Social Insurance Number:");
+        num = input.nextLine();
+        while (i < num.length()) {
+            word = num.charAt(i) + blank;
+            b = Integer.parseInt(word) * 2;
+            c = Integer.toString(b);
+            d = d + c;
+            i += 2;
+        }
+        //130692544  
+        while (e < d.length()) {
+            g = d.charAt(e) + blank;
+            f = Integer.parseInt(g) + f;
+            e++;
+        }
+        System.out.println(f);
+    }
+
+    while (odd< num.length () 
     
+
+) {
+        
+        
+    }
+
 }
