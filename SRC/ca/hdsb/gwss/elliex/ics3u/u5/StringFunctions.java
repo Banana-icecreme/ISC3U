@@ -135,25 +135,23 @@ public class StringFunctions {
     }
 
     public static void Palindrome() {
-        String pal, check = "", blank = "", letter, endletter;
-        int i, length;
+        String pal, blank = "", beg = "", end = "";
+        int endnum, begnum = 0;
+        double a;
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in the word.");
         pal = input.nextLine();
         System.out.println(" ");
         pal.toUpperCase();
-        i = pal.length() - 1;
+        endnum = pal.length() - 1;
+        a = Math.ceil(pal.length() / 2);
 
-        while (i >= 0) {
-            letter = pal.charAt(i) + blank;
-            length = pal.length()/2;
-            endletter = pal.charAt(length) + blank;
-            letter.equalsIgnoreCase(endletter);
-            System.out.print(pal.charAt(i));
-            check = check + pal.charAt(i);
-            i--;
+        for (; beg.equalsIgnoreCase(end) && endnum > a; endnum--, begnum++) {
+            beg = pal.charAt(begnum) + blank;
+            end = pal.charAt(endnum) + blank;
         }
-        if (check.equalsIgnoreCase(pal)) {
+
+        if (begnum == endnum || begnum == endnum - 1) {
             System.out.println("\n" + pal + " IS a palindrome.");
         } else {
             System.out.println("\n" + pal + " is NOT a palindrome.");
@@ -162,7 +160,8 @@ public class StringFunctions {
 
     public static void SINCheck() {
         //Double.parseDouble
-        int i = 1, b = 0, e = 0, f = 0, odd = 0;
+        int i = 1, b = 0, e = 0, f = 0, odd = 0, h = 0;
+        double yay;
         String num, word = "", blank = "", c, d = "", g;
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in your Social Insurance Number:");
@@ -180,15 +179,18 @@ public class StringFunctions {
             f = Integer.parseInt(g) + f;
             e++;
         }
-        System.out.println(f);
+        while (odd < num.length()-1) {
+            h = Integer.parseInt(num.charAt(odd) + blank) + h;
+            odd +=2;
+        }
+        int lastDigit = num.charAt(num.length()-1);
+        System.out.println(lastDigit);
+        yay = (Math.floor((h+f)/10))*10 + 10;
+        if (yay - (h+f) == lastDigit){
+            System.out.println("This is correct.");
+        }
+        else {
+            System.out.println("This is INcorrect");
+        }
     }
-
-    while (odd< num.length () 
-    
-
-) {
-        
-        
     }
-
-}
