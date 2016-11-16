@@ -1,7 +1,7 @@
 /* Ellie Xu             
- * Remebrance day. 2016.
- * String Methods. 
- * Version 1.1. 
+ * 11. 16. 2016.
+ * using exisiting Methods. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
@@ -183,11 +183,10 @@ public class StringFunctions {
             h = Integer.parseInt(num.charAt(odd) + blank) + h;
             odd +=2;
         }
-        int lastDigit = num.charAt(num.length()-1);
-        System.out.println(lastDigit);
+        int lastDigit = Integer.parseInt(num.charAt(num.length()-1) + blank);
         yay = (Math.floor((h+f)/10))*10 + 10;
         if (yay - (h+f) == lastDigit){
-            System.out.println("This is correct.");
+            System.out.println("This is CORRECT.");
         }
         else {
             System.out.println("This is INcorrect");
