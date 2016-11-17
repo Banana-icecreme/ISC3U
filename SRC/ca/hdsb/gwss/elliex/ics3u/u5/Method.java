@@ -52,12 +52,20 @@ public class Method {
 
     public static void NumbersToWords() {
         Scanner input = new Scanner(System.in);
-        System.out.println("\nType in a numner between 10 and 999.");
+        System.out.println("\nType in a numner between 0 and 999.");
         num = input.nextInt();
-        if (num > 9 && num < 20) {
+        if (num < 10 && num > -1) {
+            ones();
+        } else if (num > 9 && num < 20) {
             teens();
         } else if (num > 19 && num < 100) {
             tens();
+        } else if (num > 99 && num < 1000) {
+            ones();
+            hundreds();
+            tens();
+        } else {
+            System.out.println("Nope, chose a number between 0 and 999.");
         }
     }
 
@@ -90,43 +98,90 @@ public class Method {
             case 18:
                 System.out.println("EIGHTEEN");
                 break;
-            default:
+            case 19:
                 System.out.println("NINETEEN");
         }
     }
 
+    public static void hundreds() {
+        System.out.print("HUNDRED ");
+    }
+
     public static void tens() {
         String num1 = Integer.toString(num);
-        switch (num1.charAt(0)) {
+        switch (num1.charAt(num1.length() - 2)) {
             case '2':
-                System.out.println("TWENTY");
+                System.out.print("TWENTY");
                 break;
             case '3':
-                System.out.println("THIRTY");
+                System.out.print("THIRTY");
                 break;
             case '4':
-                System.out.println("FOURTY");
+                System.out.print("FOURTY");
                 break;
             case '5':
-                System.out.println("FIFTY");
+                System.out.print("FIFTY");
                 break;
             case '6':
-                System.out.println("SIXTY");
+                System.out.print("SIXTY");
                 break;
             case '7':
-                System.out.println("SEVENTY");
+                System.out.print("SEVENTY");
                 break;
             case '8':
-                System.out.println("EIGHTY");
+                System.out.print("EIGHTY");
                 break;
-            default:
-                System.out.println("NINETY");
-                break;
+            case '9':
+                System.out.print("NINETY");
+        }
+        if (num > 100) {
+            String a = num1.charAt(num1.length() - 3) + "";
+            int aasint = Integer.parseInt(a);
+            num = num - aasint * 100;
         }
         ones();
     }
 
     public static void ones() {
+        String num1 = Integer.toString(num);
+        int number;
+        if (num < 100) {
+            number = 1;
+        } else {
+            number = 3;
+        }
 
+        switch (num1.charAt(num1.length() - number)) {
+            case '0':
+                if (num < 10) {
+                    System.out.println(" ZERO");
+                }
+                break;
+            case '1':
+                System.out.print(" ONE ");
+            case '2':
+                System.out.print(" TWO ");
+                break;
+            case '3':
+                System.out.print(" THREE ");
+                break;
+            case '4':
+                System.out.print(" FOUR ");
+                break;
+            case '5':
+                System.out.print(" FIVE ");
+                break;
+            case '6':
+                System.out.print(" SIX ");
+                break;
+            case '7':
+                System.out.print(" SEVEN ");
+                break;
+            case '8':
+                System.out.print(" EIGHT ");
+                break;
+            default:
+                System.out.print(" NINE ");
+        }
     }
 }
