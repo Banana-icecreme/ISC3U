@@ -30,7 +30,7 @@ public class Method {
                 Velocity();
                 break;
             case 2:
-                NumbersToWords();
+                NumbersToWords2();
                 break;
             default:
                 System.out.println("There is no such program.");
@@ -50,7 +50,7 @@ public class Method {
         System.out.println(distance / time);
     }
 
-    public static void NumbersToWords() {
+    public static void NumbersToWords2() {
         Scanner input = new Scanner(System.in);
         System.out.println("\nType in a numner between 0 and 999.");
         num = input.nextInt();
@@ -70,7 +70,9 @@ public class Method {
     }
 
     public static void teens() {
-        switch (num) {
+        String num1 = Integer.toString(num);
+        int length = num1.length() - 2;
+        switch (num.substring(length)) {
             case 10:
                 System.out.println("TEN");
                 break;
@@ -110,6 +112,9 @@ public class Method {
     public static void tens() {
         String num1 = Integer.toString(num);
         switch (num1.charAt(num1.length() - 2)) {
+            case '1':
+                teens();
+                break;
             case '2':
                 System.out.print("TWENTY");
                 break;

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.hdsb.gwss.elliex.ics3u.u5;
+package ca.hdsb.gwss.elliex.ics3u.other;
 
 /**
  *
  * @author 1xuell
  */
-public class testing {
+public class SOPL {
 
     /**
      * @param args the command line arguments
