@@ -5,6 +5,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import java.util.Scanner;
 
 /**
@@ -56,14 +57,18 @@ public class Method {
         num = input.nextInt();
         if (num < 10 && num > -1) {
             ones();
+            sopl ("");
         } else if (num > 9 && num < 20) {
             teens();
+            sopl ("");
         } else if (num > 19 && num < 100) {
             tens();
+            sopl ("");
         } else if (num > 99 && num < 1000) {
             ones();
             hundreds();
             tens();
+            sopl ("");
         } else {
             System.out.println("Nope, chose a number between 0 and 999.");
         }
@@ -72,35 +77,35 @@ public class Method {
     public static void teens() {
         String num1 = Integer.toString(num);
         int length = num1.length() - 2;
-        switch (num.substring(length)) {
-            case 10:
+        switch (num1.substring(length)) {
+            case "10":
                 System.out.println("TEN");
                 break;
-            case 11:
+            case "11":
                 System.out.println("ELEVEN");
                 break;
-            case 12:
+            case "12":
                 System.out.println("TWELVE");
                 break;
-            case 13:
+            case "13":
                 System.out.println("THIRTEEN");
                 break;
-            case 14:
+            case "14":
                 System.out.println("FOURTEEN");
                 break;
-            case 15:
+            case "15":
                 System.out.println("FIFTEEN");
                 break;
-            case 16:
+            case "16":
                 System.out.println("SIXTEEN");
                 break;
-            case 17:
+            case "17":
                 System.out.println("SEVENTEEN");
                 break;
-            case 18:
+            case "18":
                 System.out.println("EIGHTEEN");
                 break;
-            case 19:
+            case "19":
                 System.out.println("NINETEEN");
         }
     }
@@ -144,7 +149,9 @@ public class Method {
             int aasint = Integer.parseInt(a);
             num = num - aasint * 100;
         }
+        if (num1.charAt(num1.length() -2) != '1') {
         ones();
+        }
     }
 
     public static void ones() {
@@ -164,6 +171,7 @@ public class Method {
                 break;
             case '1':
                 System.out.print(" ONE ");
+                break;
             case '2':
                 System.out.print(" TWO ");
                 break;
