@@ -5,6 +5,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class Method {
     public static void main(String[] args) {
         int program;
         Scanner input = new Scanner(System.in);
-        System.out.println("\nType 1 for Velocity.\nType 2 for Numbers to Words.");
+        System.out.println("\nType 1 for Velocity.\nType 2 for Numbers to Words 2.");
         program = input.nextInt();
         switch (program) {
             case 1:
@@ -57,18 +58,20 @@ public class Method {
         num = input.nextInt();
         if (num < 10 && num > -1) {
             ones();
-            sopl ("");
+            sopl("");
         } else if (num > 9 && num < 20) {
             teens();
-            sopl ("");
+            sopl("");
         } else if (num > 19 && num < 100) {
             tens();
-            sopl ("");
+            sopl("");
         } else if (num > 99 && num < 1000) {
             ones();
+            sop(" ");
             hundreds();
+            sop(" ");
             tens();
-            sopl ("");
+            sopl("");
         } else {
             System.out.println("Nope, chose a number between 0 and 999.");
         }
@@ -90,28 +93,23 @@ public class Method {
             case "13":
                 System.out.println("THIRTEEN");
                 break;
-            case "14":
-                System.out.println("FOURTEEN");
-                break;
             case "15":
                 System.out.println("FIFTEEN");
-                break;
-            case "16":
-                System.out.println("SIXTEEN");
-                break;
-            case "17":
-                System.out.println("SEVENTEEN");
                 break;
             case "18":
                 System.out.println("EIGHTEEN");
                 break;
+            case "14":
+            case "16":
+            case "17":
             case "19":
-                System.out.println("NINETEEN");
+                ones();
+                System.out.println("TEEN");
         }
     }
 
     public static void hundreds() {
-        System.out.print("HUNDRED ");
+        System.out.print("HUNDRED");
     }
 
     public static void tens() {
@@ -121,36 +119,36 @@ public class Method {
                 teens();
                 break;
             case '2':
-                System.out.print("TWENTY");
+                System.out.print("TWENTY ");
                 break;
             case '3':
-                System.out.print("THIRTY");
+                System.out.print("THIRTY ");
                 break;
             case '4':
-                System.out.print("FOURTY");
+                System.out.print("FOURTY ");
                 break;
             case '5':
-                System.out.print("FIFTY");
+                System.out.print("FIFTY ");
                 break;
             case '6':
-                System.out.print("SIXTY");
+                System.out.print("SIXTY ");
                 break;
             case '7':
-                System.out.print("SEVENTY");
+                System.out.print("SEVENTY ");
                 break;
             case '8':
-                System.out.print("EIGHTY");
+                System.out.print("EIGHTY ");
                 break;
             case '9':
-                System.out.print("NINETY");
+                System.out.print("NINETY ");
         }
         if (num > 100) {
             String a = num1.charAt(num1.length() - 3) + "";
             int aasint = Integer.parseInt(a);
             num = num - aasint * 100;
         }
-        if (num1.charAt(num1.length() -2) != '1') {
-        ones();
+        if (num1.charAt(num1.length() - 2) != '1') {
+            ones();
         }
     }
 
@@ -166,35 +164,35 @@ public class Method {
         switch (num1.charAt(num1.length() - number)) {
             case '0':
                 if (num < 10) {
-                    System.out.println(" ZERO");
+                    System.out.println("ZERO");
                 }
                 break;
             case '1':
-                System.out.print(" ONE ");
+                System.out.print("ONE");
                 break;
             case '2':
-                System.out.print(" TWO ");
+                System.out.print("TWO");
                 break;
             case '3':
-                System.out.print(" THREE ");
+                System.out.print("THREE");
                 break;
             case '4':
-                System.out.print(" FOUR ");
+                System.out.print("FOUR");
                 break;
             case '5':
-                System.out.print(" FIVE ");
+                System.out.print("FIVE");
                 break;
             case '6':
-                System.out.print(" SIX ");
+                System.out.print("SIX");
                 break;
             case '7':
-                System.out.print(" SEVEN ");
+                System.out.print("SEVEN");
                 break;
             case '8':
-                System.out.print(" EIGHT ");
+                System.out.print("EIGHT");
                 break;
             default:
-                System.out.print(" NINE ");
+                System.out.print("NINE");
         }
     }
 }

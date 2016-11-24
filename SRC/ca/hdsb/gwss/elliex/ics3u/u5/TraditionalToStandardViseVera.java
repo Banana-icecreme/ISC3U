@@ -22,7 +22,7 @@ public class TraditionalToStandardViseVera {
         String choice, part2 = "", part1 = "", part3 = "";
         Scanner input = new Scanner(System.in);
         sopl("Type in a time");
-        choice = input.nextLine();
+        choice = input.nextLine().replace(" ", "");
         if (choice.length() < 6) {
             part1 = choice.substring(0, 2);
             part2 = choice.substring(3);

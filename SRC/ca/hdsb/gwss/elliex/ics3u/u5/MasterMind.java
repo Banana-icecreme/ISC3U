@@ -13,8 +13,8 @@ import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
  */
 public class MasterMind extends javax.swing.JFrame {
 
-    static int correctColor = 0;
-    static int correctPosition = 0;
+    int correctColor = 0;
+    int correctPosition = 0;
     String block1 = "";
     String block2 = "";
     String block3 = "";
@@ -41,13 +41,14 @@ public class MasterMind extends javax.swing.JFrame {
         guess1 = new javax.swing.JTextField();
         guess2 = new javax.swing.JTextField();
         guess3 = new javax.swing.JTextField();
-        check = new javax.swing.JButton();
         newgame = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         colours = new javax.swing.JLabel();
         positions = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        check = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,13 +80,6 @@ public class MasterMind extends javax.swing.JFrame {
             }
         });
 
-        check.setText("Check your Answer");
-        check.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkActionPerformed(evt);
-            }
-        });
-
         newgame.setText("New Game");
         newgame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +97,15 @@ public class MasterMind extends javax.swing.JFrame {
 
         jLabel5.setText("R, G, B, Y");
 
+        check.setText("Check your Answer");
+        check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Click new game to start");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,24 +115,8 @@ public class MasterMind extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(131, 131, 131)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(check)
-                                    .addComponent(jLabel2)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(guess1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(55, 55, 55)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(guess3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(guess2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel4)
@@ -138,8 +125,24 @@ public class MasterMind extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel3)
                                             .addGap(37, 37, 37)
-                                            .addComponent(colours, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 84, Short.MAX_VALUE))
+                                            .addComponent(colours, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(guess1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(55, 55, 55)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(guess2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(59, 59, 59)
+                                        .addComponent(guess3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(131, 131, 131)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(check)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel2)))))
+                        .addGap(0, 75, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(newgame)))
@@ -150,7 +153,9 @@ public class MasterMind extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel2)
                 .addGap(5, 5, 5)
                 .addComponent(jLabel5)
@@ -159,9 +164,9 @@ public class MasterMind extends javax.swing.JFrame {
                     .addComponent(guess1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guess3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guess2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addComponent(check)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(colours))
@@ -199,38 +204,6 @@ public class MasterMind extends javax.swing.JFrame {
     private void guess3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guess3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guess3ActionPerformed
-
-    private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-        String answer1 = guess1.getText();
-        String answer2 = guess2.getText();
-        String answer3 = guess3.getText();
-        sopl(block1 + block2 + block2);
-        if (answer1.equalsIgnoreCase(block1)) {
-            correctPosition++;
-        }
-        if (answer2.equalsIgnoreCase(block2)) {
-            correctPosition++;
-        }
-        if (answer3.equalsIgnoreCase(block3)) {
-            correctPosition++;
-        }
-        if (answer1.equalsIgnoreCase(block1) || answer1.equalsIgnoreCase(block2) || answer1.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("1: " + correctColor);
-        }
-        if (answer2.equalsIgnoreCase(block1) || answer2.equalsIgnoreCase(block2) || answer2.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("2: " + correctColor);
-        }
-        if (answer3.equalsIgnoreCase(block1) || answer3.equalsIgnoreCase(block2) || answer3.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("3: " + correctColor);
-        }
-        sopl(correctColor);
-        sopl(correctPosition);
-        colours.setText(Integer.toString(correctColor));
-        positions.setText(Integer.toString(correctPosition));
-    }//GEN-LAST:event_checkActionPerformed
 
     private void newgameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newgameActionPerformed
         int colour1 = (int) (Math.random() * 4) + 1;
@@ -275,39 +248,100 @@ public class MasterMind extends javax.swing.JFrame {
             case 4:
                 block3 = "G";
         }
-        
+
     }//GEN-LAST:event_newgameActionPerformed
-    private void checkActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        String answer1 = guess1.getText();
-        String answer2 = guess2.getText();
-        String answer3 = guess3.getText();
-        sopl(block1 + block2 + block2);
-        if (answer1.equalsIgnoreCase(block1)) {
+
+    private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
+        String answer1 = (guess1.getText()).toUpperCase().trim();
+        String answer2 = (guess2.getText()).toUpperCase().trim();
+        String answer3 = (guess3.getText()).toUpperCase().trim();
+        correctPosition = 0;
+        correctColor = 0;
+        sopl(block1 + block2 + block3);
+        if (answer1.equals(block1)) {
             correctPosition++;
+            sopl("p1: " + correctPosition);
         }
-        if (answer2.equalsIgnoreCase(block2)) {
+        if (answer2.equals(block2)) {
             correctPosition++;
+            sopl("p2: " + correctPosition);
         }
-        if (answer3.equalsIgnoreCase(block3)) {
+        if (answer3.equals(block3)) {
             correctPosition++;
+            sopl("p3: " + correctPosition);
         }
-        if (answer1.equalsIgnoreCase(block1) || answer1.equalsIgnoreCase(block2) || answer1.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("1: " + correctColor);
+        int red = 0;
+        int yellow = 0;
+        int green = 0;
+        int blue = 0;
+
+        int ared = 0;
+        int ayellow = 0;
+        int agreen = 0;
+        int ablue = 0;
+        //red
+        String allBlock = block1 + block2 + block3;
+        for (int i = 0; i < allBlock.length(); i++) {
+            switch (allBlock.charAt(i)) {
+                case 'R':
+                    red++;
+                    break;
+                case 'B':
+                    blue++;
+                    break;
+                case 'G':
+                    green++;
+                    break;
+                case 'Y':
+                    yellow++;
+            }
         }
-        if (answer2.equalsIgnoreCase(block1) || answer2.equalsIgnoreCase(block2) || answer2.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("2: " + correctColor);
+        String allAnswer = answer1 + answer2 + answer3;
+        for (int i = 0; i < allAnswer.length(); i++) {
+            switch (allAnswer.charAt(i)) {
+                case 'R':
+                    ared++;
+                    break;
+                case 'B':
+                    ablue++;
+                    break;
+                case 'G':
+                    agreen++;
+                    break;
+                case 'Y':
+                    ayellow++;
+            }
         }
-        if (answer3.equalsIgnoreCase(block1) || answer3.equalsIgnoreCase(block2) || answer3.equalsIgnoreCase(block3)) {
-            correctColor++;
-            sopl("3: " + correctColor);
-        }
-        sopl(correctColor);
-        sopl(correctPosition);
+        if (red > 0 && ared >0){
+        for (int i = 0; ared == 0 || red ==0; i++){
+            ared -=i;
+            red -=i;
+            correctColor ++;
+        }}
+        if (blue > 0 && ablue >0){
+        for (int i = 0; ablue == 0 || blue ==0; i++){
+            ablue -=i;
+            blue -=i;
+            correctColor ++;
+        }}
+        if (red > 0 && ared >0){
+        for (int i = 0; ared == 0 || red ==0; i++){
+            ared -=i;
+            red -=i;
+            correctColor ++;
+        }}
+        if (red > 0 && ared >0){
+        for (int i = 0; ared == 0 || red ==0; i++){
+            ared -=i;
+            red -=i;
+            correctColor ++;
+        }}
+        
+        sopl("correct colour: " + correctColor);
+        sopl("correct position: " + correctPosition);
         colours.setText(Integer.toString(correctColor));
         positions.setText(Integer.toString(correctPosition));
-    }                                     
+    }//GEN-LAST:event_checkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,16 +357,24 @@ public class MasterMind extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MasterMind.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MasterMind.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MasterMind.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MasterMind.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MasterMind.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MasterMind.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MasterMind.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MasterMind.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -355,6 +397,7 @@ public class MasterMind extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton newgame;
     private javax.swing.JLabel positions;
