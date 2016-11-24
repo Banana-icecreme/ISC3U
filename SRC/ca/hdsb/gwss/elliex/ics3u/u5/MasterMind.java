@@ -257,18 +257,15 @@ public class MasterMind extends javax.swing.JFrame {
         String answer3 = (guess3.getText()).toUpperCase().trim();
         correctPosition = 0;
         correctColor = 0;
-        sopl(block1 + block2 + block3);
+
         if (answer1.equals(block1)) {
             correctPosition++;
-            sopl("p1: " + correctPosition);
         }
         if (answer2.equals(block2)) {
             correctPosition++;
-            sopl("p2: " + correctPosition);
         }
         if (answer3.equals(block3)) {
             correctPosition++;
-            sopl("p3: " + correctPosition);
         }
         int red = 0;
         int yellow = 0;
@@ -279,7 +276,7 @@ public class MasterMind extends javax.swing.JFrame {
         int ayellow = 0;
         int agreen = 0;
         int ablue = 0;
-        //red
+        
         String allBlock = block1 + block2 + block3;
         for (int i = 0; i < allBlock.length(); i++) {
             switch (allBlock.charAt(i)) {
@@ -295,7 +292,7 @@ public class MasterMind extends javax.swing.JFrame {
                 case 'Y':
                     yellow++;
             }
-        }
+        } sopl ("Block red: " + red);
         String allAnswer = answer1 + answer2 + answer3;
         for (int i = 0; i < allAnswer.length(); i++) {
             switch (allAnswer.charAt(i)) {
@@ -312,31 +309,34 @@ public class MasterMind extends javax.swing.JFrame {
                     ayellow++;
             }
         }
-        if (red > 0 && ared >0){
-        for (int i = 0; ared == 0 || red ==0; i++){
-            ared -=i;
-            red -=i;
-            correctColor ++;
-        }}
-        if (blue > 0 && ablue >0){
-        for (int i = 0; ablue == 0 || blue ==0; i++){
-            ablue -=i;
-            blue -=i;
-            correctColor ++;
-        }}
-        if (red > 0 && ared >0){
-        for (int i = 0; ared == 0 || red ==0; i++){
-            ared -=i;
-            red -=i;
-            correctColor ++;
-        }}
-        if (red > 0 && ared >0){
-        for (int i = 0; ared == 0 || red ==0; i++){
-            ared -=i;
-            red -=i;
-            correctColor ++;
-        }}
-        
+        if (red > 0 && ared > 0) {
+            for (int i = 1; ared > 0 && red > 0; i++) {
+                correctColor++;
+                ared -= i;
+                red -= i;
+            }
+        }
+        if (blue > 0 && ablue > 0) {
+            for (int i = 1; ablue > 0 && blue > 0; i++) {
+                correctColor++;
+                ablue -= i;
+                blue -= i;
+            }
+        }
+        if (yellow > 0 && ayellow > 0) {
+            for (int i = 1; ayellow > 0 && yellow > 0; i++) {
+                correctColor++;
+                ayellow -= i;
+                yellow -= i;
+            }
+        }
+        if (green > 0 && agreen > 0) {
+            for (int i = 1; agreen > 0 && green > 0; i++) {
+                correctColor++;
+                agreen -= i;
+                green -= i;
+            }
+        }
         sopl("correct colour: " + correctColor);
         sopl("correct position: " + correctPosition);
         colours.setText(Integer.toString(correctColor));
