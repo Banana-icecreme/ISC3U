@@ -159,24 +159,25 @@ public class StringFunctions {
     }
 
     public static void SINCheck() {
-        //Double.parseDouble
-        int i = 1, b = 0, e = 0, f = 0, odd = 0, h = 0;
+        //Variables
+        int i = 1, a, e = 0, f = 0, odd = 0, h = 0;
         double yay;
-        String num, word = "", blank = "", c, d = "", g;
+        String num, blank = "", b, c = "";
+        
         Scanner input = new Scanner(System.in);
+        
         System.out.println("\nType in your Social Insurance Number:");
         num = input.nextLine();
+        
         while (i < num.length()) {
-            word = num.charAt(i) + blank;
-            b = Integer.parseInt(word) * 2;
-            c = Integer.toString(b);
-            d = d + c;
+            a = Integer.parseInt(num.charAt(i) + blank) * 2;
+            b = Integer.toString(a);
+            c = c + b;
             i += 2;
         }
         //130692544  
-        while (e < d.length()) {
-            g = d.charAt(e) + blank;
-            f = Integer.parseInt(g) + f;
+        while (e < c.length()) {
+            f = Integer.parseInt(c.charAt(e) + blank) + f;
             e++;
         }
         while (odd < num.length()-1) {

@@ -209,7 +209,13 @@ public class MasterMind extends javax.swing.JFrame {
     }//GEN-LAST:event_guess3ActionPerformed
 
     private void newgameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newgameActionPerformed
-        int colour1 = (int) (Math.random() * 4) + 1;
+        //variables 
+        int colour1, colour2, colour3;
+        
+        //colour of the blocks
+        colour1 = (int) (Math.random() * 4) + 1;
+        colour2 = (int) (Math.random() * 4) + 1;
+        colour3 = (int) (Math.random() * 4) + 1;
         switch (colour1) {
             case 1:
                 block1 = "R";
@@ -223,7 +229,6 @@ public class MasterMind extends javax.swing.JFrame {
             case 4:
                 block1 = "G";
         }
-        int colour2 = (int) (Math.random() * 4) + 1;
         switch (colour2) {
             case 1:
                 block2 = "R";
@@ -237,7 +242,6 @@ public class MasterMind extends javax.swing.JFrame {
             case 4:
                 block2 = "G";
         }
-        int colour3 = (int) (Math.random() * 4) + 1;
         switch (colour3) {
             case 1:
                 block3 = "R";
@@ -255,12 +259,18 @@ public class MasterMind extends javax.swing.JFrame {
     }//GEN-LAST:event_newgameActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
-        String answer1 = (guess1.getText()).toUpperCase().trim();
-        String answer2 = (guess2.getText()).toUpperCase().trim();
-        String answer3 = (guess3.getText()).toUpperCase().trim();
+        //variables
+        String allBlock, allAnswer, answer1, answer2, answer3;
+        int red = 0, yellow = 0, green = 0, blue = 0, ared = 0, ayellow = 0, agreen = 0, ablue = 0;
+
+        //user input
+        answer1 = (guess1.getText()).toUpperCase().trim();
+        answer2 = (guess2.getText()).toUpperCase().trim();
+        answer3 = (guess3.getText()).toUpperCase().trim();
         correctPosition = 0;
         correctColor = 0;
 
+        //position match of the answer and the blocks
         if (answer1.equals(block1)) {
             correctPosition++;
         }
@@ -270,17 +280,9 @@ public class MasterMind extends javax.swing.JFrame {
         if (answer3.equals(block3)) {
             correctPosition++;
         }
-        int red = 0;
-        int yellow = 0;
-        int green = 0;
-        int blue = 0;
 
-        int ared = 0;
-        int ayellow = 0;
-        int agreen = 0;
-        int ablue = 0;
-        
-        String allBlock = block1 + block2 + block3;
+        //colour match of the user input and the blocks
+        allBlock = block1 + block2 + block3;
         for (int i = 0; i < allBlock.length(); i++) {
             switch (allBlock.charAt(i)) {
                 case 'R':
@@ -295,8 +297,9 @@ public class MasterMind extends javax.swing.JFrame {
                 case 'Y':
                     yellow++;
             }
-        } sopl ("Block red: " + red);
-        String allAnswer = answer1 + answer2 + answer3;
+        }
+        sopl("Block red: " + red);
+        allAnswer = answer1 + answer2 + answer3;
         for (int i = 0; i < allAnswer.length(); i++) {
             switch (allAnswer.charAt(i)) {
                 case 'R':
@@ -340,6 +343,8 @@ public class MasterMind extends javax.swing.JFrame {
                 green -= i;
             }
         }
+        
+        //output
         sopl("correct colour: " + correctColor);
         sopl("correct position: " + correctPosition);
         colours.setText(Integer.toString(correctColor));
@@ -347,9 +352,9 @@ public class MasterMind extends javax.swing.JFrame {
     }//GEN-LAST:event_checkActionPerformed
 
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
-guess1.setText(block1);
-guess2.setText(block2);
-guess3.setText(block3);
+        guess1.setText(block1);
+        guess2.setText(block2);
+        guess3.setText(block3);
     }//GEN-LAST:event_showActionPerformed
 
     /**

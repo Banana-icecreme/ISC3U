@@ -19,29 +19,34 @@ public class TraditionalToStandardViseVera {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //variables
         String choice, part2 = "", part1 = "", part3 = "";
+        int colon, m;
         Scanner input = new Scanner(System.in);
+
         sopl("Type in a time");
         choice = input.nextLine().replace(" ", "");
         if (choice.length() < 6) {
             part1 = choice.substring(0, 2);
             part2 = choice.substring(3);
             convertToTraditional(part1, part2);
-        }
-        else {;
-            int colon = choice.indexOf(":");
-            part1 = choice.substring(0,colon);
-            part2 = choice.substring(colon+1, colon +3);
-            int m = choice.indexOf("m");
-            part3 = choice.substring (m - 1, m +1);
-            convertToStandardTime( part1, part2, part3);
+        } else {;
+            colon = choice.indexOf(":");
+            part1 = choice.substring(0, colon);
+            part2 = choice.substring(colon + 1, colon + 3);
+            m = choice.indexOf("m");
+            part3 = choice.substring(m - 1, m + 1);
+            convertToStandardTime(part1, part2, part3);
         }
     }
 
     public static void convertToTraditional(String part1, String part2) {
+        //variables
         String zero = "";
-        int hour = Integer.parseInt(part1);
-        int minute = Integer.parseInt(part2);
+        int hour, minute;
+        
+        hour = Integer.parseInt(part1);
+        minute = Integer.parseInt(part2);
         if (minute > 60) {
             minute = minute - 60;
             hour++;
@@ -60,15 +65,18 @@ public class TraditionalToStandardViseVera {
         } else if (hour >= 0 && hour < 24) {
             sopl(hour + ":" + zero + minute + " am");
         } else {
-            sopl("You have a typo");
+            sopl("You have probably a typo.");
         }
     }
-    public static void convertToStandardTime(String part1, String part2, String part3){
+
+    public static void convertToStandardTime(String part1, String part2, String part3) {
+        //variables
         String zeroh = "", zerom = "";
-        int hour = Integer.parseInt(part1);
-        int minute = Integer.parseInt(part2);
-        
-        if (part3.equalsIgnoreCase("pm") && Integer.parseInt(part1) < 12){
+        int hour, minute;
+        hour = Integer.parseInt(part1);
+        minute = Integer.parseInt(part2);
+
+        if (part3.equalsIgnoreCase("pm") && Integer.parseInt(part1) < 12) {
             hour += 12;
         }
         if (minute > 60) {
@@ -78,9 +86,9 @@ public class TraditionalToStandardViseVera {
         if (hour < 10) {
             zeroh = "0";
         }
-         if (minute < 10) {
+        if (minute < 10) {
             zerom = "0";
         }
-        sopl ( zeroh + hour + ":" + zerom + minute);
+        sopl(zeroh + hour + ":" + zerom + minute);
     }
 }
