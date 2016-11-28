@@ -18,8 +18,11 @@ public class StringFunctions {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int count;
+        int count, restart;
         Scanner input = new Scanner(System.in);
+        
+        do {
+            restart = 0; 
         System.out.print("1 for counting vowels.\n2 for word square.\n3 for compass.\n4 for "
                 + "palindrome. \n5 for SIN check.\n");
         count = input.nextInt();
@@ -41,8 +44,9 @@ public class StringFunctions {
                 SINCheck();
                 break;
             default:
-                System.out.println("There is no such program.");
-        }
+                System.out.println("There is no such program.\nType 1 to restart.");
+                restart = input.nextInt();
+        }}while (restart == 1);
     }
 
     public static void CountingVowels() {
