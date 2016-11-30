@@ -5,6 +5,8 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+
 /**
  *
  * @author 1xuell
@@ -15,14 +17,10 @@ public class Testing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        int a = 90;
-        if (a <= 5) {
-            System.out.println("true");
-        }
-        else {
-            System.out.println("false");
-        }
+        String a = "a";
+        String b = "a";
+        if (a.equals(b)){
+            sopl ("cool");
     }
-    
+}
 }
