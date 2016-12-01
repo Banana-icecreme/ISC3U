@@ -5,8 +5,6 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import java.util.Scanner;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
@@ -27,7 +25,7 @@ public class NumbersToWords2 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Type in a numner between 1 and 999.");
+        sopl("Type in a numner between 1 and 999.");
         num = input.nextInt();
 
         //int num2 = num;
@@ -46,7 +44,7 @@ public class NumbersToWords2 {
             sop(" ");
             tens(num1);
         } else {
-            System.out.println("Nope, chose a number between 0 and 999.");
+            sopl("Nope, chose a number between 0 and 999.");
         }
         sopl("");
         // num2++;
@@ -61,22 +59,22 @@ public class NumbersToWords2 {
         length = num1.length() - 2;
         switch (num1.substring(length)) {
             case "10":
-                System.out.print("TEN");
+                sop("TEN");
                 break;
             case "11":
-                System.out.print("ELEVEN");
+                sop("ELEVEN");
                 break;
             case "12":
-                System.out.print("TWELVE");
+                sop("TWELVE");
                 break;
             case "13":
-                System.out.print("THIRTEEN");
+                sop("THIRTEEN");
                 break;
             case "15":
-                System.out.print("FIFTEEN");
+                sop("FIFTEEN");
                 break;
             case "18":
-                System.out.print("EIGHTEEN");
+                sop("EIGHTEEN");
                 break;
             case "14":
             case "16":
@@ -87,12 +85,12 @@ public class NumbersToWords2 {
                     num = num - (a * 100);
                 }
                 ones(num1);
-                System.out.print("TEEN");
+                sop("TEEN");
         }
     }
 
     public static void hundreds() {
-        System.out.print("HUNDRED");
+        sop("HUNDRED");
     }
 
     public static void tens(String num1) {
@@ -104,28 +102,28 @@ public class NumbersToWords2 {
                 teens(num1);
                 break;
             case '2':
-                System.out.print("TWENTY ");
+                sop("TWENTY ");
                 break;
             case '3':
-                System.out.print("THIRTY ");
+                sop("THIRTY ");
                 break;
             case '4':
-                System.out.print("FOURTY ");
+                sop("FOURTY ");
                 break;
             case '5':
-                System.out.print("FIFTY ");
+                sop("FIFTY ");
                 break;
             case '6':
-                System.out.print("SIXTY ");
+                sop("SIXTY ");
                 break;
             case '7':
-                System.out.print("SEVENTY ");
+                sop("SEVENTY ");
                 break;
             case '8':
-                System.out.print("EIGHTY ");
+                sop("EIGHTY ");
                 break;
             case '9':
-                System.out.print("NINETY ");
+                sop("NINETY ");
         }
         if (num > 99) {
             a = Integer.parseInt(num1.charAt(num1.length() - 3) + "");
@@ -148,31 +146,31 @@ public class NumbersToWords2 {
 
         switch (num1.charAt(num1.length() - number)) {
             case '1':
-                System.out.print("ONE");
+                sop("ONE");
                 break;
             case '2':
-                System.out.print("TWO");
+                sop("TWO");
                 break;
             case '3':
-                System.out.print("THREE");
+                sop("THREE");
                 break;
             case '4':
-                System.out.print("FOUR");
+                sop("FOUR");
                 break;
             case '5':
-                System.out.print("FIVE");
+                sop("FIVE");
                 break;
             case '6':
-                System.out.print("SIX");
+                sop("SIX");
                 break;
             case '7':
-                System.out.print("SEVEN");
+                sop("SEVEN");
                 break;
             case '8':
-                System.out.print("EIGHT");
+                sop("EIGHT");
                 break;
             case '9':
-                System.out.print("NINE");
+                sop("NINE");
         }
     }
 }
