@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 11. 31. 2016.
+ * Method parameters
+ * Version 10. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
