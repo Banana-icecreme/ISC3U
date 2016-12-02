@@ -20,7 +20,7 @@ public class Sort {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int choice, restart, i, a = 0;
-
+  
         do {
             restart = 0;
             sopl("Type 1 for bubble sort.\nType 2 for selection sort");
@@ -49,42 +49,62 @@ public class Sort {
     }
 
     public static String bubble(int i, int[] number) {
-        int a = 0, n, x = 0, y = 1, cases = 1, unnessary = 0, switchCount = 0;
+        int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0;
         String output = "";
-        n = i - 1;
-        
-        while (cases <= n) {
-            x  = 0;
+
+        while (cases <= (i -1 )) {
+            x = 0;
             y = 1;
             while (y < i - unnessary) {
                 if (number[x] > number[y]) {
                     int x2 = number[x];
                     number[x] = number[y];
                     number[y] = x2;
+                    swappedCount += 1;
                 }
                 x++;
                 y++;
-                switchCount ++;
+                compareCount++;
             }
-            //unnessary ++;
+            unnessary++;
             cases++;
         }
-
         while (a < i) {
             output = output + number[a] + " ";
             a++;
         }
-      sopl ( switchCount + cases);
+        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount * 3);
         return output;
     }
 
     public static String selection(int i, int[] number) {
-        int a = 0;
+        int a = 0, max, x, sub, unnessary = 0, cases = 1, compareCount = 0, spot, swappedCount = 0;
         String output = "";
+
+        while (cases <= (i - 1)) {
+            spot = 0;
+            x = 1;
+            max = number[0];
+            while (x < i - unnessary) {
+                if (number[x] > max) {
+                    max = number[x];
+                    spot = x;
+                    swappedCount ++;
+                }
+                compareCount ++;
+                x++;
+            }
+            sub = number[(i - unnessary) - 1];
+            number[(i - unnessary) - 1] = max;
+            number[spot] = sub;
+            unnessary++;
+            cases++;
+        }
         while (a < i) {
             output = output + number[a] + " ";
             a++;
         }
+        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         return output;
     }
 }
