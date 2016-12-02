@@ -1,7 +1,7 @@
 /* Ellie Xu             
  * 11. 16. 2016.
  * creating new Methods. 
- * Version 10. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 

@@ -1,7 +1,7 @@
 /* Ellie Xu             
  * 11. 18. 2016.
  * Method parameters
- * Version 10. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 

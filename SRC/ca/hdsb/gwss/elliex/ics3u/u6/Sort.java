@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 12. 2. 2016.
+ * Method parameters
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u6;
 
@@ -20,17 +20,17 @@ public class Sort {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int choice, restart, i, a = 0;
-  
+
         do {
             restart = 0;
             sopl("Type 1 for bubble sort.\nType 2 for selection sort");
             choice = input.nextInt();
             sopl("How many number do you wish to be sorted?");
             i = input.nextInt();
-            int[] number = new int[i];
+            double[] number = new double[i];
             sopl("Type in the numbers:");
             while (a < i) {
-                number[a] = input.nextInt();
+                number[a] = input.nextDouble();
                 a++;
             }
 
@@ -48,23 +48,24 @@ public class Sort {
         } while (restart == 1);
     }
 
-    public static String bubble(int i, int[] number) {
+    public static String bubble(int i, double[] number) {
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0;
         String output = "";
 
-        while (cases <= (i -1 )) {
+        while (cases <= (i - 1)) {
             x = 0;
             y = 1;
             while (y < i - unnessary) {
                 if (number[x] > number[y]) {
-                    int x2 = number[x];
-                    number[x] = number[y];
-                    number[y] = x2;
+                    swapBubble(number, x, y);
                     swappedCount += 1;
                 }
                 x++;
                 y++;
                 compareCount++;
+            }
+            if (swappedCount == 0) {
+                cases = i;
             }
             unnessary++;
             cases++;
@@ -77,8 +78,15 @@ public class Sort {
         return output;
     }
 
-    public static String selection(int i, int[] number) {
-        int a = 0, max, x, sub, unnessary = 0, cases = 1, compareCount = 0, spot, swappedCount = 0;
+    public static void swapBubble(double[] number, int x, int y) {
+        double x2 = number[x];
+        number[x] = number[y];
+        number[y] = x2;
+    }
+
+    public static String selection(int i, double[] number) {
+        int a = 0, x, unnessary = 0, cases = 1, compareCount = 0, spot, swappedCount = 0;
+        double max;
         String output = "";
 
         while (cases <= (i - 1)) {
@@ -89,14 +97,12 @@ public class Sort {
                 if (number[x] > max) {
                     max = number[x];
                     spot = x;
-                    swappedCount ++;
+                    swappedCount++;
                 }
-                compareCount ++;
+                compareCount++;
                 x++;
             }
-            sub = number[(i - unnessary) - 1];
-            number[(i - unnessary) - 1] = max;
-            number[spot] = sub;
+            swapSelection(number, i, max, spot, unnessary);
             unnessary++;
             cases++;
         }
@@ -106,5 +112,13 @@ public class Sort {
         }
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         return output;
+    }
+
+    public static void swapSelection(double[] number, int i, double max, int spot, int unnessary) {
+        double sub;
+        sub = number[(i - unnessary) - 1];
+        number[(i - unnessary) - 1] = max;
+        number[spot] = sub;
+
     }
 }
