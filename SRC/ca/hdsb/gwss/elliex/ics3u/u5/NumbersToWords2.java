@@ -1,13 +1,13 @@
 /* Ellie Xu             
  * 11. 16. 2016.
- * creating new Methods. 
+ * Converting numbers to words. 
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
 import java.util.Scanner;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sop;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
 
 /**
  *

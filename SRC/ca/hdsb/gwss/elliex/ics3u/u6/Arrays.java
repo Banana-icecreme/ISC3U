@@ -1,12 +1,12 @@
 /* Ellie Xu             
  * 12. 2. 2016.
- * Method parameters
+ * How to program arrays. They are like file cabinets. 
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u6;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sop;
 import java.text.NumberFormat;
 import java.util.Scanner;
 

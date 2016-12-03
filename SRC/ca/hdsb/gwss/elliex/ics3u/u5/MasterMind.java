@@ -1,11 +1,11 @@
 /* Ellie Xu             
  * 11. 31. 2016.
- * Method parameters
+ * MasterMind guess the block. 
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
 
 /**
  *

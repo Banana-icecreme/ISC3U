@@ -1,13 +1,12 @@
 /* Ellie Xu             
  * 11. 18. 2016.
- * Method parameters
+ * Chaning time format between traditional and military aka stanard. 
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
 import java.util.Scanner;
-import static jdk.nashorn.internal.objects.NativeString.trim;
 
 /**
  *
@@ -26,12 +25,12 @@ public class TraditionalToStandardViseVera {
 
         sopl("Type in a time");
         choice = input.nextLine().replace(" ", "");
+        colon = choice.indexOf(":");
         if (choice.length() < 6) {
-            part1 = choice.substring(0, 2);
-            part2 = choice.substring(3);
+            part1 = choice.substring(0, colon);
+            part2 = choice.substring(colon+1);
             convertToTraditional(part1, part2);
-        } else {;
-            colon = choice.indexOf(":");
+        } else {
             part1 = choice.substring(0, colon);
             part2 = choice.substring(colon + 1, colon + 3);
             m = choice.indexOf("m");
