@@ -5,7 +5,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u5;
 
-import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 
 /**
  *

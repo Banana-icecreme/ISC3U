@@ -3,8 +3,8 @@
  * methods: bubble, selection, max, average, min, println. 
  * Version 1.0. 
  */
-package ca.hdsb.gwss.elliex.ics3u.methods;
-import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
+package ca.hdsb.gwss.elliex.ics3u.u6;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 
 public class ArrayUtilEllie {
 
@@ -54,6 +54,11 @@ public class ArrayUtilEllie {
             a++;
         }
         bubble(number2, way);
+         a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
     }
 
     public static void bubble(String number[], boolean way) {
@@ -152,6 +157,11 @@ public class ArrayUtilEllie {
             a++;
         }
         selection(number2, way);
+        a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
     }
 
     public static void selection(String number[], boolean way) {
@@ -226,6 +236,11 @@ public class ArrayUtilEllie {
             a++;
         }
         printArray(number2);
+         a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
     }
 
     public static String printArray(String number[]) {
@@ -264,6 +279,11 @@ public class ArrayUtilEllie {
             a++;
         }
         max(number2);
+         a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
     }
 
     public static double average(double number[]) {
@@ -285,6 +305,11 @@ public class ArrayUtilEllie {
             a++;
         }
         average(number2);
+         a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
     }
 
     public static double min(double[] number) {
@@ -311,5 +336,15 @@ public class ArrayUtilEllie {
             a++;
         }
         min(number2);
+         a = 0;
+        while (a < i) {
+            number[a] = (int)number2[a];
+            a++;
+        }
+    }
+    
+    public static void sum (int [] number){
+        int b = 0; 
+        sopl(number[b]);
     }
 }

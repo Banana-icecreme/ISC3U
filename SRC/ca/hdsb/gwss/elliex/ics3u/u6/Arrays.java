@@ -5,8 +5,8 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u6;
 
-import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sopl;
-import static ca.hdsb.gwss.elliex.ics3u.methods.SOPL.sop;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import java.text.NumberFormat;
 import java.util.Scanner;
 

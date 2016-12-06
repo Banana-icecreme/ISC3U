@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*This class is used for testing codes. It's also why it's named Testing. 
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
-import static ca.hdsb.gwss.elliex.ics3u.methods.ArrayUtilEllie.printArray;
-import static ca.hdsb.gwss.elliex.ics3u.methods.ArrayUtilEllie.selection;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 
 /**
  *
@@ -19,18 +16,18 @@ public class Testing {
      */
     public static void main(String[] args) {
         int a = 6;
-        int twoLetters[] = new int[a];
-        twoLetters[0] = 6;
-        twoLetters[1] = 5;
-        twoLetters[2] = 4;
-        twoLetters[3] = 3;
-        twoLetters[4] = 2;
-        twoLetters[5] = 1;
+        String twoLetters[] = new String[a];
+        twoLetters[0] = "f";
+        twoLetters[1] = "e";
+        twoLetters[2] = "a";
+        twoLetters[3] = "g";
+        twoLetters[4] = "g";
+        twoLetters[5] = "b";
         selection(twoLetters, true);
-
-        String average[] = new String[2];
-        average[0] = "r";
-        average[1] = "g";
-        printArray(average);
+        int b =0;
+        while (b < twoLetters.length){
+            sopl(twoLetters[b]);
+            b++;
+        }
     }
 }
