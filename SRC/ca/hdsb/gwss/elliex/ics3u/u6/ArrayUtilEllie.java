@@ -4,6 +4,7 @@
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u6;
+
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 
 public class ArrayUtilEllie {
@@ -21,8 +22,7 @@ public class ArrayUtilEllie {
                         swapBubble(number, x, y);
                         swappedCount += 1;
                     }
-                }
-                else {
+                } else {
                     if (number[x] < number[y]) {
                         swapBubble(number, x, y);
                         swappedCount += 1;
@@ -54,9 +54,9 @@ public class ArrayUtilEllie {
             a++;
         }
         bubble(number2, way);
-         a = 0;
+        a = 0;
         while (a < i) {
-            number[a] = (int)number2[a];
+            number[a] = (int) number2[a];
             a++;
         }
     }
@@ -65,12 +65,10 @@ public class ArrayUtilEllie {
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0, i = number.length;
         String output = "";
 
-        int n = 0;
-        while (n < i) {
+        for (int n = 0; n < i; n++) {
             number[n] = number[n].toUpperCase();
-            n++;
-    }
-        
+        }
+
         while (cases <= (i - 1)) {
             x = 0;
             y = 1;
@@ -80,8 +78,7 @@ public class ArrayUtilEllie {
                         swapBubble(number, x, y);
                         swappedCount += 1;
                     }
-                }
-                else {
+                } else {
                     if (number[x].compareTo(number[y]) < 0) {
                         swapBubble(number, x, y);
                         swappedCount += 1;
@@ -101,7 +98,7 @@ public class ArrayUtilEllie {
             output = output + number[a] + " ";
             a++;
         }
-        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount * 3);
+        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
     }
 
@@ -111,41 +108,35 @@ public class ArrayUtilEllie {
         number[y] = x2;
     }
 
-    public static void swapBubble (String[] number, int x, int y){
+    public static void swapBubble(String[] number, int x, int y) {
         String sub = number[x];
         number[x] = number[y];
         number[y] = sub;
     }
-    
+
     public static void selection(double number[], boolean way) {
-        int a = 0, x, unnessary = 0, cases = 1, compareCount = 0, spot, swappedCount = 0, i = number.length, max;
+        int x, unnessary = 0, compareCount = 0, i = number.length, max;
         String output = "";
 
-        while (cases <= (i - 1)) {
-            x = 1;
+        for (int cases = 1; cases <= (i - 1); cases++) {
             max = 0;
-            while (x < i - unnessary) {
+            for (x = 1; x < i - unnessary; x++) {
                 if (way == true) {
                     if (number[x] > number[max]) {
                         max = x;
-                        swappedCount++;
                     }
                 } else if (number[x] < number[max]) {
                     max = x;
-                    swappedCount++;
                 }
                 compareCount++;
-                x++;
             }
             swapSelection(number, i, max, unnessary);
             unnessary++;
-            cases++;
         }
-        while (a < i) {
+        for (int a = 0; a < i; a++) {
             output = output + number[a] + " ";
-            a++;
         }
-        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
+        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + (i - 1));
         sopl(output);
     }
 
@@ -159,46 +150,38 @@ public class ArrayUtilEllie {
         selection(number2, way);
         a = 0;
         while (a < i) {
-            number[a] = (int)number2[a];
+            number[a] = (int) number2[a];
             a++;
         }
     }
 
     public static void selection(String number[], boolean way) {
-        int a = 0, x, unnessary = 0, cases = 1, compareCount = 0, swappedCount = 0, i = number.length, max;
+        int x, unnessary = 0, cases = 1, compareCount = 0, i = number.length, max;
         String output = "";
 
-        int n = 0;
-        while (n < i) {
+        for (int n = 0; n < i; n++) {
             number[n] = number[n].toUpperCase();
-            n++;
         }
 
-        while (cases <= (i - 1)) {
-            x = 1;
+        for (; cases <= (i - 1); cases++) {
             max = 0;
-            while (x < i - unnessary) {
+            for (x = 1; x < i - unnessary; x++) {
                 if (way == true) {
                     if (number[x].compareTo(number[max]) > 0) {
                         max = x;
-                        swappedCount++;
                     }
                 } else if (number[x].compareTo(number[max]) < 0) {
                     max = x;
-                    swappedCount++;
                 }
                 compareCount++;
-                x++;
             }
             swapSelection(number, i, max, unnessary);
             unnessary++;
-            cases++;
         }
-        while (a < i) {
+        for (int a = 0; a < i; a++) {
             output = output + number[a] + " ";
-            a++;
         }
-        sopl("Times compared: " + compareCount + "\nTimes swapped: " + swappedCount);
+        sopl("Times compared: " + compareCount + "\nTimes swapped: " + (i - 1));
         sopl(output);
     }
 
@@ -215,7 +198,7 @@ public class ArrayUtilEllie {
         number2[(i - unnessary) - 1] = number2[max];
         number2[max] = sub;
     }
-    
+
     public static String printArray(double number[]) {
         int a = 0, i = number.length;
         String output = "";
@@ -228,19 +211,15 @@ public class ArrayUtilEllie {
         return output;
     }
 
-    public static void printArray(int number[]) {
+    public static String printArray(int number[]) {
         int a = 0, i = number.length;
-        double number2[] = new double[i];
+        String output = "";
         while (a < i) {
-            number2[a] = number[a];
+            output = output + number[a] + " ";
             a++;
         }
-        printArray(number2);
-         a = 0;
-        while (a < i) {
-            number[a] = (int)number2[a];
-            a++;
-        }
+        sopl(output);
+        return output;
     }
 
     public static String printArray(String number[]) {
@@ -254,7 +233,7 @@ public class ArrayUtilEllie {
         sopl(output);
         return output;
     }
-    
+
     public static double max(double[] number) {
         int x, i = number.length;
         double max;
@@ -271,19 +250,14 @@ public class ArrayUtilEllie {
         return max;
     }
 
-    public static void max(int[] number) {
+    public static int max(int[] number) {
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
             number2[a] = number[a];
             a++;
         }
-        max(number2);
-         a = 0;
-        while (a < i) {
-            number[a] = (int)number2[a];
-            a++;
-        }
+        return (int) max(number2);
     }
 
     public static double average(double number[]) {
@@ -297,19 +271,14 @@ public class ArrayUtilEllie {
         return total / i;
     }
 
-    public static void average(int number[]) {
+    public static int average(int number[]) {
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
             number2[a] = number[a];
             a++;
         }
-        average(number2);
-         a = 0;
-        while (a < i) {
-            number[a] = (int)number2[a];
-            a++;
-        }
+        return (int) average(number2);
     }
 
     public static double min(double[] number) {
@@ -328,23 +297,53 @@ public class ArrayUtilEllie {
         return min;
     }
 
-    public static void min(int[] number) {
+    public static int min(int[] number) {
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
             number2[a] = number[a];
             a++;
         }
-        min(number2);
-         a = 0;
-        while (a < i) {
-            number[a] = (int)number2[a];
-            a++;
-        }
+        return (int) min(number2);
     }
-    
-    public static void sum (int [] number){
-        int b = 0; 
-        sopl(number[b]);
+
+    public static double sum(double[] number) {
+        int a = 0, i = number.length;
+        double sum = 0;
+        for (; a < i; a++) {
+            sum = number[a] + sum;
+        }
+        sopl(sum);
+        return sum;
+    }
+
+    public static int sum(int[] number) {
+        int a = 0, i = number.length;
+        int sum = 0;
+        for (; a < i; a++) {
+            sum = number[a] + sum;
+        }
+        sopl(sum);
+        return sum;
+    }
+
+    public static int linearSearch(double number[], double search) {
+        int correct = 0;
+        for (int a = 0; a < number.length; a++) {
+            if (search == number[a]) {
+                correct = a;
+                a = number.length;
+            }
+        }
+        sopl(search + " is at" + " [" + correct + "].");
+        return correct;
+    }
+
+    public static int linearSearch(int number[], int search) {
+        double number2[] = new double[number.length];
+        for (int a = 0; a < number.length; a++) {
+            number2[a] = number[a];
+        }
+        return (int) linearSearch(number2, search);
     }
 }

@@ -1,10 +1,10 @@
 /*This class is used for testing codes. It's also why it's named Testing. 
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
-
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.max;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.min;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.sum;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.linearSearch;
 /**
  *
  * @author 1xuell
@@ -16,18 +16,13 @@ public class Testing {
      */
     public static void main(String[] args) {
         int a = 6;
-        String twoLetters[] = new String[a];
-        twoLetters[0] = "f";
-        twoLetters[1] = "e";
-        twoLetters[2] = "a";
-        twoLetters[3] = "g";
-        twoLetters[4] = "g";
-        twoLetters[5] = "b";
-        selection(twoLetters, true);
-        int b =0;
-        while (b < twoLetters.length){
-            sopl(twoLetters[b]);
-            b++;
-        }
+        int twoLetters[] = new int[a];
+        twoLetters[0] = 2;
+        twoLetters[1] = 2;
+        twoLetters[2] = 4;
+        twoLetters[3] = 2;
+        twoLetters[4] = 2;
+        twoLetters[5] = 2;
+        linearSearch(twoLetters, 2);
     }
 }
