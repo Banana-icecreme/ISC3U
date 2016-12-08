@@ -346,4 +346,16 @@ public class ArrayUtilEllie {
         }
         return (int) linearSearch(number2, search);
     }
+    
+    public static int linearSearch(String number[], String search){
+        int correct = 0;
+        for (int a = 0; a < number.length; a++) {
+            if (search.equalsIgnoreCase(number[a])) {
+                correct = a;
+                a = number.length;
+            }
+        }
+        sopl(search + " is at" + " [" + correct + "].");
+        return correct;
+    }
 }

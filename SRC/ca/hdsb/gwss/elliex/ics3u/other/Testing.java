@@ -16,13 +16,13 @@ public class Testing {
      */
     public static void main(String[] args) {
         int a = 6;
-        int twoLetters[] = new int[a];
-        twoLetters[0] = 2;
-        twoLetters[1] = 2;
-        twoLetters[2] = 4;
-        twoLetters[3] = 2;
-        twoLetters[4] = 2;
-        twoLetters[5] = 2;
-        linearSearch(twoLetters, 2);
+        String twoLetters[] = new String[a];
+        twoLetters[0] = "a";
+        twoLetters[1] = "u";
+        twoLetters[2] = "G";
+        twoLetters[3] = "e";
+        twoLetters[4] = "e";
+        twoLetters[5] = "g";
+        linearSearch(twoLetters, "e");
     }
 }
