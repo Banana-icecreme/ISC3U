@@ -69,10 +69,8 @@ public class ArrayUtilEllie {
             number[n] = number[n].toUpperCase();
         }
 
-        while (cases <= (i - 1)) {
-            x = 0;
-            y = 1;
-            while (y < i - unnessary) {
+        for (;cases <= (i - 1); cases++, unnessary++) {
+            for (x = 0, y = 1; y < i - unnessary; x++, y++, compareCount++) {
                 if (way == true) {
                     if (number[x].compareTo(number[y]) > 0) {
                         swapBubble(number, x, y);
@@ -84,19 +82,13 @@ public class ArrayUtilEllie {
                         swappedCount += 1;
                     }
                 }
-                x++;
-                y++;
-                compareCount++;
             }
             if (swappedCount == 0) {
                 cases = i;
             }
-            unnessary++;
-            cases++;
         }
-        while (a < i) {
+        for (;a < i; a++) {
             output = output + number[a] + " ";
-            a++;
         }
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
@@ -329,10 +321,15 @@ public class ArrayUtilEllie {
 
     public static int linearSearch(double number[], double search) {
         int correct = 0;
+        boolean exsistence = false;
         for (int a = 0; a < number.length; a++) {
             if (search == number[a]) {
                 correct = a;
                 a = number.length;
+                exsistence = true;
+            }
+            else {
+                correct = -1;
             }
         }
         sopl(search + " is at" + " [" + correct + "].");
@@ -349,10 +346,15 @@ public class ArrayUtilEllie {
     
     public static int linearSearch(String number[], String search){
         int correct = 0;
+        boolean exsistence = false;
         for (int a = 0; a < number.length; a++) {
             if (search.equalsIgnoreCase(number[a])) {
                 correct = a;
                 a = number.length;
+                exsistence = true;
+            }
+            else {
+                correct = -1;
             }
         }
         sopl(search + " is at" + " [" + correct + "].");
