@@ -401,7 +401,6 @@ public class ArrayUtilEllie {
             number[i] = number[i].toUpperCase();
         }
         if (number[l].compareTo(number[r]) < 0) {
-            sopl("yay" + r + " " + l + " " + mid);
             while (!search.equals(number[mid]) && l < r) {
                 if (search.compareTo(number[mid]) < 0) {
                     r = mid - 1;
