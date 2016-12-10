@@ -1,5 +1,5 @@
 /* Ellie Xu             
- * 12. 5. 2016.
+ * 12. 9. 2016.
  * methods: bubble, selection, max, average, min, println. 
  * Version 1.0. 
  */
@@ -22,11 +22,9 @@ public class ArrayUtilEllie {
                         swapBubble(number, x, y);
                         swappedCount += 1;
                     }
-                } else {
-                    if (number[x] < number[y]) {
-                        swapBubble(number, x, y);
-                        swappedCount += 1;
-                    }
+                } else if (number[x] < number[y]) {
+                    swapBubble(number, x, y);
+                    swappedCount += 1;
                 }
                 x++;
                 y++;
@@ -46,9 +44,9 @@ public class ArrayUtilEllie {
         sopl(output);
     }
 
-    public static void bubble(int number[], int i, boolean way) {
+    public static void bubble(int number[], boolean way) {
+        int a = 0, i = number.length;
         double number2[] = new double[i];
-        int a = 0;
         while (a < i) {
             number2[a] = number[a];
             a++;
@@ -69,25 +67,23 @@ public class ArrayUtilEllie {
             number[n] = number[n].toUpperCase();
         }
 
-        for (;cases <= (i - 1); cases++, unnessary++) {
+        for (; cases <= (i - 1); cases++, unnessary++) {
             for (x = 0, y = 1; y < i - unnessary; x++, y++, compareCount++) {
                 if (way == true) {
                     if (number[x].compareTo(number[y]) > 0) {
                         swapBubble(number, x, y);
                         swappedCount += 1;
                     }
-                } else {
-                    if (number[x].compareTo(number[y]) < 0) {
-                        swapBubble(number, x, y);
-                        swappedCount += 1;
-                    }
+                } else if (number[x].compareTo(number[y]) < 0) {
+                    swapBubble(number, x, y);
+                    swappedCount += 1;
                 }
             }
             if (swappedCount == 0) {
                 cases = i;
             }
         }
-        for (;a < i; a++) {
+        for (; a < i; a++) {
             output = output + number[a] + " ";
         }
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
@@ -327,8 +323,7 @@ public class ArrayUtilEllie {
                 correct = a;
                 a = number.length;
                 exsistence = true;
-            }
-            else {
+            } else {
                 correct = -1;
             }
         }
@@ -343,8 +338,8 @@ public class ArrayUtilEllie {
         }
         return (int) linearSearch(number2, search);
     }
-    
-    public static int linearSearch(String number[], String search){
+
+    public static int linearSearch(String number[], String search) {
         int correct = 0;
         boolean exsistence = false;
         for (int a = 0; a < number.length; a++) {
@@ -352,12 +347,83 @@ public class ArrayUtilEllie {
                 correct = a;
                 a = number.length;
                 exsistence = true;
-            }
-            else {
+            } else {
                 correct = -1;
             }
         }
         sopl(search + " is at" + " [" + correct + "].");
         return correct;
+    }
+
+    public static int binarySearch(double number[], double search) {
+        int l = 0, r = number.length - 1, mid = (l + r) / 2;
+        boolean a = false;
+
+        if (number[l] < number[r]) {
+            while (search != number[mid] && l < r) {
+                if (search > number[mid]) {
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+                mid = (l + r) / 2;
+            }
+        } else {
+            while (search != number[mid] && l < r) {
+                if (search < number[mid]) {
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+                mid = (l + r) / 2;
+            }
+        }
+        if (search != number[mid]) {
+            mid = -1;
+        }
+        sopl(search + " is at" + " [" + mid + "].");
+        return mid;
+    }
+
+    public static int binarySearch(int number[], int search) {
+        double number2[] = new double[number.length];
+        for (int a = 0; a < number.length; a++) {
+            number2[a] = number[a];
+        }
+        return binarySearch(number2, search);
+    }
+
+    public static int binarySearch(String number[], String search) {
+        int l = 0, r = number.length - 1, mid = (l + r) / 2;
+        boolean a = false;
+        search = search.toUpperCase();
+        for (int i = 0; i < number.length; i++) {
+            number[i] = number[i].toUpperCase();
+        }
+        if (number[l].compareTo(number[r]) < 0) {
+            sopl("yay" + r + " " + l + " " + mid);
+            while (!search.equals(number[mid]) && l < r) {
+                if (search.compareTo(number[mid]) < 0) {
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+                mid = (l + r) / 2;
+            }
+        } else {
+            while (!search.equals(number[mid]) && l < r) {
+                if (search.compareTo(number[mid]) < 0) {
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+                mid = (l + r) / 2;
+            }
+        }
+        if (!search.equals(number[mid])) {
+            mid = -1;
+        }
+        sopl(search + " is at" + " [" + mid + "].");
+        return mid;
     }
 }

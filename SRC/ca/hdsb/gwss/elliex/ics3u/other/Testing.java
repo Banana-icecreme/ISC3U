@@ -2,7 +2,8 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
-import static ca.hdsb.gwss.elliex.ics3u.u6.Search.binarySearch;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.bubble;
+import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.linearSearch;
 
 /**
  *
@@ -14,14 +15,18 @@ public class Testing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int a = 6;
-        String twoLetters[] = new String[a];
-        twoLetters[0] = "b";
-        twoLetters[1] = "f";
-        twoLetters[2] = "hp";
-        twoLetters[3] = "r";
-        twoLetters[4] = "r";
-        twoLetters[5] = "e";
-        binarySearch(twoLetters, "e");
+        int b = 6;
+        String twoLetters[] = new String[b];
+        twoLetters[0] = "e";
+        twoLetters[1] = "d";
+        twoLetters[2] = "3";
+        twoLetters[3] = "w";
+        twoLetters[4] = "a";
+        twoLetters[5] = "w";
+        bubble(twoLetters, false);
+//        for (int a = 0; a< twoLetters.length; a++){
+//            sopl(twoLetters[a]);
+//        }
+        linearSearch(twoLetters, "3");
     }
 }
