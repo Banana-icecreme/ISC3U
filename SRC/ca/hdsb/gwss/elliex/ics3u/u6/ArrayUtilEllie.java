@@ -1,13 +1,18 @@
 /* Ellie Xu             
- * 12. 9. 2016.
+ * 12. 11. 2016.
  * methods: bubble, selection, max, average, min, println. 
  * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u6;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import java.text.NumberFormat;
+import java.util.Random;
 
 public class ArrayUtilEllie {
+
+    public static int totalcom = 0;
+    public static int totalswap = 0;
 
     public static void bubble(double number[], boolean way) {
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0, i = number.length;
@@ -36,12 +41,13 @@ public class ArrayUtilEllie {
             unnessary++;
             cases++;
         }
-        while (a < i) {
+        for (; a < i; a++) {
             output = output + number[a] + " ";
-            a++;
         }
-        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount * 3);
+        sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
+        totalcom = compareCount + totalcom;
+        totalswap = swappedCount + totalswap;
     }
 
     public static void bubble(int number[], boolean way) {
@@ -88,6 +94,8 @@ public class ArrayUtilEllie {
         }
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
+        totalcom = compareCount + totalcom;
+        totalswap = swappedCount + totalswap;
     }
 
     public static void swapBubble(double[] number, int x, int y) {
@@ -126,6 +134,8 @@ public class ArrayUtilEllie {
         }
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + (i - 1));
         sopl(output);
+        totalcom = compareCount + totalcom;
+        totalswap = (i-1) + totalswap;
     }
 
     public static void selection(int number[], boolean way) {
@@ -171,6 +181,8 @@ public class ArrayUtilEllie {
         }
         sopl("Times compared: " + compareCount + "\nTimes swapped: " + (i - 1));
         sopl(output);
+        totalcom = compareCount + totalcom;
+        totalswap = (i-1) + totalswap;
     }
 
     public static void swapSelection(double[] number, int i, int max, int unnessary) {
@@ -251,22 +263,20 @@ public class ArrayUtilEllie {
     public static double average(double number[]) {
         double total = 0;
         int a = 0, i = number.length;
-        while (a < i) {
+        for (; a < i; a++) {
             total = number[a] + total;
-            a++;
         }
         sopl(total / i);
         return total / i;
     }
 
     public static int average(int number[]) {
-        int a = 0, i = number.length;
-        double number2[] = new double[i];
-        while (a < i) {
-            number2[a] = number[a];
-            a++;
+        int a = 0, i = number.length, total = 0;
+        for (; a < i; a++) {
+            total = number[a] + total;
         }
-        return (int) average(number2);
+        sopl(total / i);
+        return total / i;
     }
 
     public static double min(double[] number) {
@@ -316,18 +326,22 @@ public class ArrayUtilEllie {
     }
 
     public static int linearSearch(double number[], double search) {
-        int correct = 0;
+        int correct = 0, a = 0, com = 1;
         boolean exsistence = false;
-        for (int a = 0; a < number.length; a++) {
+        for (; a < number.length; a++) {
             if (search == number[a]) {
                 correct = a;
                 a = number.length;
                 exsistence = true;
+                com--;
             } else {
                 correct = -1;
             }
+            com++;
         }
+        sopl("number of comparisons: " + com);
         sopl(search + " is at" + " [" + correct + "].");
+        totalcom = com + totalcom;
         return correct;
     }
 
@@ -340,27 +354,32 @@ public class ArrayUtilEllie {
     }
 
     public static int linearSearch(String number[], String search) {
-        int correct = 0;
+        int correct = 0, a = 0, com = 1;
         boolean exsistence = false;
-        for (int a = 0; a < number.length; a++) {
+        for (; a < number.length; a++) {
             if (search.equalsIgnoreCase(number[a])) {
                 correct = a;
                 a = number.length;
                 exsistence = true;
+                com--;
             } else {
                 correct = -1;
             }
+            com++;
         }
+        sopl("number of comparisons: " + com);
         sopl(search + " is at" + " [" + correct + "].");
+        totalcom = com + totalcom;
         return correct;
     }
 
     public static int binarySearch(double number[], double search) {
-        int l = 0, r = number.length - 1, mid = (l + r) / 2;
+        int l = 0, r = number.length - 1, mid = (l + r) / 2, com = 1;
         boolean a = false;
 
         if (number[l] < number[r]) {
             while (search != number[mid] && l < r) {
+                com++;
                 if (search > number[mid]) {
                     l = mid + 1;
                 } else {
@@ -370,6 +389,7 @@ public class ArrayUtilEllie {
             }
         } else {
             while (search != number[mid] && l < r) {
+                com++;
                 if (search < number[mid]) {
                     l = mid + 1;
                 } else {
@@ -380,8 +400,11 @@ public class ArrayUtilEllie {
         }
         if (search != number[mid]) {
             mid = -1;
+            com = number.length;
         }
+        sopl("number of comparisons: " + com);
         sopl(search + " is at" + " [" + mid + "].");
+        totalcom = com + totalcom;
         return mid;
     }
 
@@ -394,7 +417,7 @@ public class ArrayUtilEllie {
     }
 
     public static int binarySearch(String number[], String search) {
-        int l = 0, r = number.length - 1, mid = (l + r) / 2;
+        int l = 0, r = number.length - 1, mid = (l + r) / 2, com = 1;
         boolean a = false;
         search = search.toUpperCase();
         for (int i = 0; i < number.length; i++) {
@@ -402,6 +425,7 @@ public class ArrayUtilEllie {
         }
         if (number[l].compareTo(number[r]) < 0) {
             while (!search.equals(number[mid]) && l < r) {
+                com++;
                 if (search.compareTo(number[mid]) < 0) {
                     r = mid - 1;
                 } else {
@@ -411,6 +435,7 @@ public class ArrayUtilEllie {
             }
         } else {
             while (!search.equals(number[mid]) && l < r) {
+                com++;
                 if (search.compareTo(number[mid]) < 0) {
                     l = mid + 1;
                 } else {
@@ -421,8 +446,11 @@ public class ArrayUtilEllie {
         }
         if (!search.equals(number[mid])) {
             mid = -1;
+            com = number.length;
         }
+        sopl("number of comparisons: " + com);
         sopl(search + " is at" + " [" + mid + "].");
+        totalcom = com + totalcom;
         return mid;
     }
 }

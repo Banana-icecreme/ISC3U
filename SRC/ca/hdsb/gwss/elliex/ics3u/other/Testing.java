@@ -2,8 +2,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.bubble;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.linearSearch;
+import static ca.hdsb.gwss.elliex.ics3u.u6.SequentialSearch.bubbleSort2;
 
 /**
  *
@@ -16,17 +15,14 @@ public class Testing {
      */
     public static void main(String[] args) {
         int b = 6;
-        String twoLetters[] = new String[b];
-        twoLetters[0] = "e";
-        twoLetters[1] = "d";
-        twoLetters[2] = "3";
-        twoLetters[3] = "w";
-        twoLetters[4] = "a";
-        twoLetters[5] = "w";
-        bubble(twoLetters, false);
-//        for (int a = 0; a< twoLetters.length; a++){
-//            sopl(twoLetters[a]);
-//        }
-        linearSearch(twoLetters, "3");
+        int twoLetters[] = new int[b];
+        twoLetters[0] = 7;
+        twoLetters[1] = 2;
+        twoLetters[2] = 3;
+        twoLetters[3] = 4;
+        twoLetters[4] = 6;
+        twoLetters[5] = 7;
+
+        bubbleSort2(twoLetters, 7 , true);
     }
 }
