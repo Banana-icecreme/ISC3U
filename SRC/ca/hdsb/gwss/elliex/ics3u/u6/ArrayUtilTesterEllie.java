@@ -53,7 +53,7 @@ public class ArrayUtilTesterEllie {
         String[] datastring = new String[6];
         boolean passedTest = true;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
             Random ran = new Random();
@@ -100,7 +100,7 @@ public class ArrayUtilTesterEllie {
         String[] datastring = new String[6];
         boolean passedTest = true;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
             Random ran = new Random();
@@ -129,7 +129,7 @@ public class ArrayUtilTesterEllie {
             }
         }
         assert passedTest == true;
-        sopl("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        sopl("\nTEST CASE #2A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -148,7 +148,7 @@ public class ArrayUtilTesterEllie {
         int mini;
         double mind;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
         }
@@ -172,7 +172,7 @@ public class ArrayUtilTesterEllie {
             }
         }
         assert passedTest == true;
-        sopl("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        sopl("\nTEST CASE #3A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -191,7 +191,7 @@ public class ArrayUtilTesterEllie {
         int maxi;
         double maxd;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
         }
@@ -216,7 +216,7 @@ public class ArrayUtilTesterEllie {
             }
         }
         assert passedTest == true;
-        System.out.println("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        System.out.println("\nTEST CASE #4A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -236,7 +236,7 @@ public class ArrayUtilTesterEllie {
         int avei, sumi = 0;
         double aved, sumd = 0;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
         }
@@ -264,7 +264,7 @@ public class ArrayUtilTesterEllie {
             passedTest = false;
         }
         assert passedTest == true;
-        System.out.println("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        System.out.println("\nTEST CASE #5A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -285,8 +285,8 @@ public class ArrayUtilTesterEllie {
         int sum1 = 0;
         double sum2 = 0;
         for (int a = 0; a < 6; a++) {
-            dataint[a] = (int) (Math.random() * 200) - 100;
-            double random = (Math.random() * 200) - 100;
+            dataint[a] = (int) (Math.random() * 1000);
+            double random = (Math.random() * 1000);
             datadouble[a] = Double.parseDouble(nej.format(random));
         }
 
@@ -311,7 +311,7 @@ public class ArrayUtilTesterEllie {
             passedTest = false;
         }
         assert passedTest == true;
-        System.out.println("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        System.out.println("\nTEST CASE #6A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -332,8 +332,8 @@ public class ArrayUtilTesterEllie {
         double searchd;
         String searchs;
         for (int a = 0; a < 6; a++) {
-            dataint[a] = (int) (Math.random() * 200) - 100;
-            double random = (Math.random() * 200) - 100;
+            dataint[a] = (int) (Math.random() * 1000);
+            double random = (Math.random() * 1000);
             datadouble[a] = Double.parseDouble(nej.format(random));
             Random r = new Random();
             datastring[a] = (char) (r.nextInt(26) + 'a') + "";
@@ -364,7 +364,7 @@ public class ArrayUtilTesterEllie {
             passedTest = false;
         }
         assert passedTest == true;
-        System.out.println("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        System.out.println("\nTEST CASE #7A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 
@@ -385,7 +385,7 @@ public class ArrayUtilTesterEllie {
         double searchd;
         String searchs;
         for (int a = 0; a < 6; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
             Random r = new Random();
@@ -420,7 +420,7 @@ public class ArrayUtilTesterEllie {
             passedTest = false;
         }
         assert passedTest == true;
-        System.out.println("\nTEST CASE #1A RESULTS - passed = " + passedTest);
+        System.out.println("\nTEST CASE #8A RESULTS - passed = " + passedTest);
         return passedTest;
     }
 }

@@ -39,7 +39,7 @@ public class SequentialSearch {
         Random w = new Random();
         //generating random arrays
         for (int a = 0; a < arraysize; a++) {
-            double random = (Math.random() * 200) - 100;
+            double random = (Math.random() * 1000);
             dataint[a] = (int) random;
             datadouble[a] = Double.parseDouble(nej.format(random));
             Random r = new Random();
@@ -53,12 +53,12 @@ public class SequentialSearch {
         boolean way = w.nextBoolean();
         //running methods
         
-//        bubbleSort2(datadouble, searchd, way);
+        bubbleSort2(datadouble, searchd, way);
 //        bubbleSort2(dataint, searchi, way);
-        bubbleSort2(datastring, searchs, way);
-//        selectionSort2(datadouble, searchd, way);
+//        bubbleSort2(datastring, searchs, way);
+        selectionSort2(datadouble, searchd, way);
 //        selectionSort2(dataint, searchi, way);
-        selectionSort2(datastring, searchs, way);
+//        selectionSort2(datastring, searchs, way);
     }
 
     public static void order(boolean way) {
