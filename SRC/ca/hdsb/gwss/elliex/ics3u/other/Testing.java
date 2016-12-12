@@ -1,8 +1,7 @@
 /*This class is used for testing codes. It's also why it's named Testing. 
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
-
-import static ca.hdsb.gwss.elliex.ics3u.u6.SequentialSearch.bubbleSort2;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 
 /**
  *
@@ -23,6 +22,6 @@ public class Testing {
         twoLetters[4] = 6;
         twoLetters[5] = 7;
 
-        bubbleSort2(twoLetters, 7 , true);
+        sopl(twoLetters[0] + twoLetters[9]);
     }
 }

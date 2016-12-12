@@ -1,5 +1,5 @@
 /* Ellie Xu             
- * 12. 11. 2016.
+ * 12. 12. 2016.
  * Tests the methods created in ArrayUtilEllie 
  * Version 1.0. 
  */
@@ -29,14 +29,14 @@ public class ArrayUtilTesterEllie {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        bubbleTest();
-        selectionTest();
-        minTest();
-        maxTest();
-        averageTest();
+//        bubbleTest();
+//        selectionTest();
+//        minTest();
+//        maxTest();
+//        averageTest();
         sumTest();
-        linearSearchTest();
-        binarySearchTest();
+//        linearSearchTest();
+//        binarySearchTest();
     }
 
     public static boolean bubbleTest() {
@@ -280,17 +280,20 @@ public class ArrayUtilTesterEllie {
         int[] dataint = new int[6];
         double[] datadouble = new double[6];
         boolean passedTest = true;
-        int sumi;
-        double sumd;
-        int sum1 = 0;
-        double sum2 = 0;
+        int sumi, sum1 = 0;
+        double sumd, sum2 = 0;
+        int random = (int) (Math.random() * 1000);
+        double randomr = Double.parseDouble(nej.format(Math.random() * 1000));
+        int upby = (int) (Math.random() * 10);
         for (int a = 0; a < 6; a++) {
-            dataint[a] = (int) (Math.random() * 1000);
-            double random = (Math.random() * 1000);
-            datadouble[a] = Double.parseDouble(nej.format(random));
+            dataint[a] = random;
+            random = random + upby;
+            datadouble[a] = randomr;
+            randomr = randomr + upby;
         }
 
         // DISPLAY ARRAY
+        sopl("\nDATA GOING UP BY: " + upby);
         sop("\nDATA BEFORE: \nInt: ");
         printArray(dataint);
         sop("Double: ");
@@ -304,8 +307,8 @@ public class ArrayUtilTesterEllie {
 
         //CONFIRM
         for (int i = 0; i < dataint.length; i++) {
-            sum1 = dataint[i] + sum1;
-            sum2 = datadouble[i] + sum2;
+            sum1 = ((dataint.length) * (dataint[0] + dataint[dataint.length - 1]))/2;
+            sum2 = ((datadouble.length) * (datadouble[0] + datadouble[datadouble.length - 1]))/2;
         }
         if (sum1 != sumi || sum2 != sumd) {
             passedTest = false;
