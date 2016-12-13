@@ -53,6 +53,7 @@ public class SequentialSearch {
         boolean way = w.nextBoolean();
         //running methods
         
+        //Uncomment the codes below to run them:
         bubbleSort2(datadouble, searchd, way);
 //        bubbleSort2(dataint, searchi, way);
 //        bubbleSort2(datastring, searchs, way);

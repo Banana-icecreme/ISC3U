@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -22,18 +23,17 @@ public class file {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        File file = creatingFile();
-        outputFile(file);
-        
+//        File file = creatingFile();
+//        outputFile(file);
+        tokenizer();
     }
 
     public static File creatingFile() throws FileNotFoundException {
         File file = new File("number.txt");
         PrintWriter output = new PrintWriter(file); //relating output to file
 
-
         for (int i = 0; i < 100; i++) {
-            output.println((int)(Math.random() * 100));
+            output.println((int) (Math.random() * 100));
             //this is adding data to file
             //output.println only prints when there are a lot of data
         }
@@ -52,8 +52,24 @@ public class file {
         }
         return data;
     }
-    
-    public static void sort(String[] data){
+
+    public static void sort(String[] data) {
         selection(data, true);
+    }
+
+    public static void tokenizer() throws FileNotFoundException {
+        StringTokenizer str = null;
+        File file = new File("token.txt");
+        Scanner input = new Scanner(file);
+
+        while (input.hasNext()) {
+            str = new StringTokenizer(input.nextLine(), ",", false);
+            // true means , gets leaved in with the tokens
+            // false means , gets left out
+            // nothing means , gets replaced with space.
+            while (str.hasMoreTokens()) {
+                sopl(str.nextToken());
+            }
+        }
     }
 }
