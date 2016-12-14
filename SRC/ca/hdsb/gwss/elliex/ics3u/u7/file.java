@@ -5,6 +5,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.u7;
 
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
 import java.io.File;

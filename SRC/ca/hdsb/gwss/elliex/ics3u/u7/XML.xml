@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<North_Hemisphere>
+    <Continent>
+        <Countries>
+            USA
+            <States>
+                Massachusetts
+            </States>
+            <States>
+                Pennsylvania
+            </States>
+Countries>
+                Canada 
+            </Countries>
+            <Provinces>
+                Ontario
+                <Cities>
+                    Toronto
+                </Cities>
+                Oakville
+                <Cities>
+                    London
+                </Cities>
+            </Provinces>
+            <Provinces>
+                New Brunkswick
+                <Cities>
+                    Fredericton
+                </Cities>
+                <Cities>
+                    St. John
+                </Cities>
+            </Provinces>
+            <Provinces>
+                Nova Scotia
+                <Cities>
+                    Halifax
+                </Cities>
+            </Provinces>
+        </Countries>
+</North_Hemisphere>
+
