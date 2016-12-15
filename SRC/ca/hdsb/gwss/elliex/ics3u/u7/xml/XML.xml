@@ -6,44 +6,65 @@ and open the template in the editor.
 -->
 
 
-<North_Hemisphere>
+<Hemisphere>
+    North
     <Continent>
+        North America
         <Countries>
             USA
             <States>
                 Massachusetts
+                <Cities>
+                Boston
+                </Cities>
             </States>
             <States>
                 Pennsylvania
             </States>
-Countries>
-                Canada 
-            </Countries>
+        </Countries>
+        <Countries>
+            Canada 
             <Provinces>
                 Ontario
                 <Cities>
-                    Toronto
+                Toronto
                 </Cities>
                 Oakville
                 <Cities>
-                    London
+                London
                 </Cities>
             </Provinces>
             <Provinces>
                 New Brunkswick
                 <Cities>
-                    Fredericton
+                Fredericton
                 </Cities>
                 <Cities>
-                    St. John
+                St. John
                 </Cities>
             </Provinces>
             <Provinces>
                 Nova Scotia
                 <Cities>
-                    Halifax
+                Halifax
                 </Cities>
             </Provinces>
         </Countries>
-</North_Hemisphere>
+    </Continent>
+</Hemisphere>
+<Hemisphere>
+South
+    <Continent>
+     Africa
+        <Countries>
+        South Africa
+        </Countries>
+    </Continent>
+    <Continent>
+     Austrlia 
+        <Countries>
+        Australia
+        </Countries>
+    </Continent>
+</Hemisphere>
 
