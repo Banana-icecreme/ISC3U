@@ -15,9 +15,10 @@ public class ArrayUtilEllie {
     public static int totalswap = 0;
 
     public static void bubble(double number[], boolean way) {
+        //variables
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0, i = number.length;
         String output = "";
-
+        
         while (cases <= (i - 1)) {
             x = 0;
             y = 1;
@@ -44,6 +45,8 @@ public class ArrayUtilEllie {
         for (; a < i; a++) {
             output = output + number[a] + " ";
         }
+        
+        //output
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
         totalcom = compareCount + totalcom;
@@ -51,6 +54,7 @@ public class ArrayUtilEllie {
     }
 
     public static void bubble(int number[], boolean way) {
+        //variables
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
