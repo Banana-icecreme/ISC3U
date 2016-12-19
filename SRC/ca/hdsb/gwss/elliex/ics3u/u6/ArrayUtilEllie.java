@@ -15,14 +15,15 @@ public class ArrayUtilEllie {
     public static int totalswap = 0;
 
     public static void bubble(double number[], boolean way) {
+        //variables
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0, i = number.length;
         String output = "";
-
-        while (cases <= (i - 1)) {
+        
+        while (cases <= (i - 1)) {//sorting by cases
             x = 0;
             y = 1;
-            while (y < i - unnessary) {
-                if (way == true) {
+            while (y < i - unnessary) {//sorting the numbers in a case
+                if (way == true) {//soring order. If way is true, then it's sorted from small to big
                     if (number[x] > number[y]) {
                         swapBubble(number, x, y);
                         swappedCount += 1;
@@ -44,6 +45,8 @@ public class ArrayUtilEllie {
         for (; a < i; a++) {
             output = output + number[a] + " ";
         }
+        
+        //output
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
         totalcom = compareCount + totalcom;
@@ -51,13 +54,14 @@ public class ArrayUtilEllie {
     }
 
     public static void bubble(int number[], boolean way) {
+        //variables
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
             number2[a] = number[a];
             a++;
         }
-        bubble(number2, way);
+        bubble(number2, way);//using the already coded bubble double sort to sort this
         a = 0;
         while (a < i) {
             number[a] = (int) number2[a];
@@ -66,16 +70,18 @@ public class ArrayUtilEllie {
     }
 
     public static void bubble(String number[], boolean way) {
+        //variables
         int a = 0, x, y, cases = 1, unnessary = 0, compareCount = 0, swappedCount = 0, i = number.length;
         String output = "";
 
+        //changing the input letters to uppercase so it's not case sensitive
         for (int n = 0; n < i; n++) {
             number[n] = number[n].toUpperCase();
         }
 
-        for (; cases <= (i - 1); cases++, unnessary++) {
-            for (x = 0, y = 1; y < i - unnessary; x++, y++, compareCount++) {
-                if (way == true) {
+        for (; cases <= (i - 1); cases++, unnessary++) {// counting the cases
+            for (x = 0, y = 1; y < i - unnessary; x++, y++, compareCount++) {//coutnting the letters in each case
+                if (way == true) {//sorting order
                     if (number[x].compareTo(number[y]) > 0) {
                         swapBubble(number, x, y);
                         swappedCount += 1;
@@ -92,6 +98,7 @@ public class ArrayUtilEllie {
         for (; a < i; a++) {
             output = output + number[a] + " ";
         }
+        //output
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + swappedCount);
         sopl(output);
         totalcom = compareCount + totalcom;
@@ -99,6 +106,7 @@ public class ArrayUtilEllie {
     }
 
     public static void swapBubble(double[] number, int x, int y) {
+        //just the swapping process
         double x2 = number[x];
         number[x] = number[y];
         number[y] = x2;
@@ -111,13 +119,14 @@ public class ArrayUtilEllie {
     }
 
     public static void selection(double number[], boolean way) {
+        //variables
         int x, unnessary = 0, compareCount = 0, i = number.length, max;
         String output = "";
 
-        for (int cases = 1; cases <= (i - 1); cases++) {
+        for (int cases = 1; cases <= (i - 1); cases++) {//counting cases
             max = 0;
-            for (x = 1; x < i - unnessary; x++) {
-                if (way == true) {
+            for (x = 1; x < i - unnessary; x++) {//couting and soring the numbers in a case
+                if (way == true) {//sorting order
                     if (number[x] > number[max]) {
                         max = x;
                     }
@@ -132,6 +141,7 @@ public class ArrayUtilEllie {
         for (int a = 0; a < i; a++) {
             output = output + number[a] + " ";
         }
+        //output
         sopl("Number of times compared: " + compareCount + "\nNumber of times swapped: " + (i - 1));
         sopl(output);
         totalcom = compareCount + totalcom;
@@ -139,13 +149,14 @@ public class ArrayUtilEllie {
     }
 
     public static void selection(int number[], boolean way) {
+        //variables
         int a = 0, i = number.length;
         double number2[] = new double[i];
-        while (a < i) {
+        while (a < i) {//chaging the int numbers to double numbers so i can use the double selection method
             number2[a] = number[a];
             a++;
         }
-        selection(number2, way);
+        selection(number2, way); // using the double selection method
         a = 0;
         while (a < i) {
             number[a] = (int) number2[a];
@@ -154,17 +165,19 @@ public class ArrayUtilEllie {
     }
 
     public static void selection(String number[], boolean way) {
+        //variables
         int x, unnessary = 0, cases = 1, compareCount = 0, i = number.length, max;
         String output = "";
 
+        //changing the letters to uppercase to avoid case sensititvity problems
         for (int n = 0; n < i; n++) {
             number[n] = number[n].toUpperCase();
         }
 
-        for (; cases <= (i - 1); cases++) {
+        for (; cases <= (i - 1); cases++) {//counting cases
             max = 0;
-            for (x = 1; x < i - unnessary; x++) {
-                if (way == true) {
+            for (x = 1; x < i - unnessary; x++) {//sorting the numbers in a case
+                if (way == true) {//sorting order
                     if (number[x].compareTo(number[max]) > 0) {
                         max = x;
                     }
@@ -179,6 +192,7 @@ public class ArrayUtilEllie {
         for (int a = 0; a < i; a++) {
             output = output + number[a] + " ";
         }
+        //output
         sopl("Times compared: " + compareCount + "\nTimes swapped: " + (i - 1));
         sopl(output);
         totalcom = compareCount + totalcom;
@@ -186,6 +200,7 @@ public class ArrayUtilEllie {
     }
 
     public static void swapSelection(double[] number, int i, int max, int unnessary) {
+        //swapping process for swapSelection
         double sub;
         sub = number[(i - unnessary) - 1];
         number[(i - unnessary) - 1] = number[max];
@@ -200,10 +215,11 @@ public class ArrayUtilEllie {
     }
 
     public static String printArray(double number[]) {
+        //variables
         int a = 0, i = number.length;
         String output = "";
 
-        while (a < i) {
+        while (a < i) {//plays the entered number array in a loop to display the outputs
             output = output + number[a] + " ";
             a++;
         }
@@ -212,6 +228,7 @@ public class ArrayUtilEllie {
     }
 
     public static String printArray(int number[]) {
+        //same as double printArray
         int a = 0, i = number.length;
         String output = "";
         while (a < i) {
@@ -223,6 +240,7 @@ public class ArrayUtilEllie {
     }
 
     public static String printArray(String number[]) {
+        //same as double printArray
         int a = 0, i = number.length;
         String output = "";
 
@@ -235,12 +253,13 @@ public class ArrayUtilEllie {
     }
 
     public static double max(double[] number) {
+        //variables
         int x, i = number.length;
         double max;
 
         x = 1;
         max = number[0];
-        while (x < i) {
+        while (x < i) {//compares the numbers for the biggest number
             if (number[x] > max) {
                 max = number[x];
             }
@@ -251,6 +270,7 @@ public class ArrayUtilEllie {
     }
 
     public static int max(int[] number) {
+        //varibles
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
@@ -261,9 +281,10 @@ public class ArrayUtilEllie {
     }
 
     public static double average(double number[]) {
+        //varibles
         double total = 0;
         int a = 0, i = number.length;
-        for (; a < i; a++) {
+        for (; a < i; a++) {//adds all the numbers up and divides it by number.length
             total = number[a] + total;
         }
         sopl(total / i);
@@ -271,8 +292,9 @@ public class ArrayUtilEllie {
     }
 
     public static int average(int number[]) {
+        //varibles
         int a = 0, i = number.length, total = 0;
-        for (; a < i; a++) {
+        for (; a < i; a++) {//same as double average
             total = number[a] + total;
         }
         sopl(total / i);
@@ -280,12 +302,13 @@ public class ArrayUtilEllie {
     }
 
     public static double min(double[] number) {
+        //varibles
         int x, i = number.length;
         double min;
 
         x = 1;
         min = number[0];
-        while (x < i) {
+        while (x < i) {//like max but the other way around
             if (number[x] < min) {
                 min = number[x];
             }
@@ -296,19 +319,21 @@ public class ArrayUtilEllie {
     }
 
     public static int min(int[] number) {
+        //varibles
         int a = 0, i = number.length;
         double number2[] = new double[i];
         while (a < i) {
             number2[a] = number[a];
             a++;
         }
-        return (int) min(number2);
+        return (int) min(number2);//uses double min
     }
 
     public static double sum(double[] number) {
+        //varibles
         int a = 0, i = number.length;
         double sum = 0;
-        for (; a < i; a++) {
+        for (; a < i; a++) {//adds everything and displays them
             sum = number[a] + sum;
         }
         sopl(sum);
@@ -316,6 +341,7 @@ public class ArrayUtilEllie {
     }
 
     public static int sum(int[] number) {
+        //varibles
         int a = 0, i = number.length;
         int sum = 0;
         for (; a < i; a++) {
@@ -326,10 +352,11 @@ public class ArrayUtilEllie {
     }
 
     public static int linearSearch(double number[], double search) {
+        //varibles
         int correct = 0, a = 0, com = 1;
-        boolean exsistence = false;
+        boolean exsistence = false; // to see if the searched number is even there at all 
         for (; a < number.length; a++) {
-            if (search == number[a]) {
+            if (search == number[a]) {//checking with each number to see if it's correct
                 correct = a;
                 a = number.length;
                 exsistence = true;
@@ -339,6 +366,7 @@ public class ArrayUtilEllie {
             }
             com++;
         }
+        //output
         sopl("number of comparisons: " + com);
         sopl(search + " is at" + " [" + correct + "].");
         totalcom = com + totalcom;
@@ -346,6 +374,7 @@ public class ArrayUtilEllie {
     }
 
     public static int linearSearch(int number[], int search) {
+        //varibles
         double number2[] = new double[number.length];
         for (int a = 0; a < number.length; a++) {
             number2[a] = number[a];
@@ -354,9 +383,10 @@ public class ArrayUtilEllie {
     }
 
     public static int linearSearch(String number[], String search) {
+        //varibles
         int correct = 0, a = 0, com = 1;
         boolean exsistence = false;
-        for (; a < number.length; a++) {
+        for (; a < number.length; a++) {//same as double linearSearch
             if (search.equalsIgnoreCase(number[a])) {
                 correct = a;
                 a = number.length;
@@ -374,13 +404,14 @@ public class ArrayUtilEllie {
     }
 
     public static int binarySearch(double number[], double search) {
+        //varibles
         int l = 0, r = number.length - 1, mid = (l + r) / 2, com = 1;
-        boolean a = false;
+        boolean a = false;//to see if the searched number is in the array
 
-        if (number[l] < number[r]) {
-            while (search != number[mid] && l < r) {
+        if (number[l] < number[r]) { //this is to check the order the sorted array is sorted
+            while (search != number[mid] && l < r) {//determines if the searched number is gearter than or smaller than the middle number
                 com++;
-                if (search > number[mid]) {
+                if (search > number[mid]) {//cuts the array according to where the searched number is 
                     l = mid + 1;
                 } else {
                     r = mid - 1;
@@ -398,8 +429,8 @@ public class ArrayUtilEllie {
                 mid = (l + r) / 2;
             }
         }
-        if (search != number[mid]) {
-            mid = -1;
+        if (search != number[mid]) {//if the search number is not there
+            mid = -1; 
             com = number.length;
         }
         sopl("number of comparisons: " + com);
@@ -409,6 +440,7 @@ public class ArrayUtilEllie {
     }
 
     public static int binarySearch(int number[], int search) {
+        //varibles
         double number2[] = new double[number.length];
         for (int a = 0; a < number.length; a++) {
             number2[a] = number[a];
@@ -417,13 +449,14 @@ public class ArrayUtilEllie {
     }
 
     public static int binarySearch(String number[], String search) {
+        //varibles
         int l = 0, r = number.length - 1, mid = (l + r) / 2, com = 1;
         boolean a = false;
         search = search.toUpperCase();
-        for (int i = 0; i < number.length; i++) {
+        for (int i = 0; i < number.length; i++) {//converting to upper case letters
             number[i] = number[i].toUpperCase();
         }
-        if (number[l].compareTo(number[r]) < 0) {
+        if (number[l].compareTo(number[r]) < 0) {//it's basically the same as double binarySearch
             while (!search.equals(number[mid]) && l < r) {
                 com++;
                 if (search.compareTo(number[mid]) < 0) {
