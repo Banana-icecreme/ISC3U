@@ -26,8 +26,9 @@ public class Supernatural {
         Element HunterNote1 = new Element("Notes");
         Element HunterName1 = new Element("Name");
         Element HunterNote2 = new Element("Notes");
+        Element HunterNote201 = new Element("Notes");
         Element HunterName2 = new Element("Name");
-        Element Hunters = new Element("Specie");
+        Element Hunters = new Element("Species");
         
         Element AngelNote1 = new Element ("Notes");
         Element AngelRank1 = new Element ("Rank");
@@ -35,11 +36,13 @@ public class Supernatural {
         Element AngelNote2 = new Element ("Notes");
         Element AngelRank2 = new Element ("Rank");
         Element AngelName2 = new Element ("Name");
-        Element Angels = new Element("Specie");
+        Element Angels = new Element("Species");
         
         Element DemonRank1 = new Element ("Rank");
         Element DemonName1 = new Element ("Name");
-        Element Demons = new Element("Specie");
+        Element Demons = new Element("Species");
+        Element DemonRank2 = new Element ("Rank");
+        Element DemonName2 = new Element ("Name");
 
         Document SupernaturalDocument = new Document(rootSupernatural);
         rootSupernatural.appendChild(Hunters);
@@ -52,7 +55,9 @@ public class Supernatural {
         HunterName2.appendChild("Sam Moosechester");
         HunterName2.appendChild(HunterNote2);
         HunterNote2.appendChild("Killing machine #2");
-                
+        HunterName2.appendChild(HunterNote201);
+        HunterNote201.appendChild("Hunter by day Moose by night");
+             
         rootSupernatural.appendChild(Angels);
         Angels.appendChild("Angel");
         Angels.appendChild(AngelName1);
@@ -74,6 +79,10 @@ public class Supernatural {
         DemonName1.appendChild("Crowley");
         DemonName1.appendChild(DemonRank1);
         DemonRank1.appendChild("King of Hell");
+        Demons.appendChild(DemonName2);
+        DemonName2.appendChild("Meg");
+        DemonName2.appendChild(DemonRank2);
+        DemonRank2.appendChild("Depends...");
 
         try {
             Serializer serializer = new Serializer(System.out);
