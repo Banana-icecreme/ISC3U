@@ -201,7 +201,12 @@ public class Courses extends javax.swing.JFrame {
         description.setText("");
         teacher.setText("");
         schoolboard.setText("");
-    }//GEN-LAST:event_ADDActionPerformed
+
+        File file = new File ("course.txt");
+Scanner input = new Scanner (file);
+    }
+
+//GEN-LAST:event_ADDActionPerformed
 
     /**
      * @param args the command line arguments
