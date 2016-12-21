@@ -6,9 +6,14 @@
 package ca.hdsb.gwss.elliex.ics3u.u7;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
+import nu.xom.ParsingException;
 import nu.xom.Serializer;
 
 /**
@@ -19,14 +24,14 @@ public class Courses extends javax.swing.JFrame {
 
     Document doc;
     Element ROOT;
-    
+
     /**
      * Creates new form Courses
      */
     public Courses() {
         initComponents();
         ROOT = new Element("Courses");
-        doc = new Document( ROOT );
+        doc = new Document(ROOT);
     }
 
     /**
@@ -172,12 +177,12 @@ public class Courses extends javax.swing.JFrame {
         String des = description.getText().trim();
         String teach = teacher.getText().trim();
         String board = schoolboard.getText().trim();
-        
+
         Element COURSE = new Element("Code");
         Element DES = new Element("Discription");
         Element TEACH = new Element("Teacher");
         Element BOARD = new Element("SchoolBoard");
-        
+
         ROOT.appendChild(COURSE);
         COURSE.appendChild(course);
         COURSE.appendChild(DES);
@@ -186,7 +191,7 @@ public class Courses extends javax.swing.JFrame {
         TEACH.appendChild(teach);
         COURSE.appendChild(BOARD);
         BOARD.appendChild(board);
-        
+
         try {
             Serializer serializer = new Serializer(System.out);
             serializer.setIndent(4);
@@ -195,15 +200,29 @@ public class Courses extends javax.swing.JFrame {
         } catch (IOException ex) {
             System.err.println(ex);
         }
-        
+
         sopl("");
         code.setText("");
         description.setText("");
         teacher.setText("");
         schoolboard.setText("");
 
-        File file = new File ("course.txt");
-Scanner input = new Scanner (file);
+        File file = new File("courses.txt");
+        if (file.exists()){
+            Builder builder = new Builder();
+            try{
+                ROOT = builder.build(file);
+                doc = ROOT.getRootElement();
+            }
+            catch(ParsingException ex){
+                Logger.getLogger(ROOT.class.getName()).log(Level.SEVERE, null, ex);              
+            }catch (IOException ex){
+                Logger.getLogger(ROOT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            doc = new Element ("Courses");
+            ROOT = new Document (doc);
+        }
     }
 
 //GEN-LAST:event_ADDActionPerformed
