@@ -8,6 +8,7 @@ package ca.hdsb.gwss.elliex.ics3u.u7;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nu.xom.Builder;
@@ -30,8 +31,21 @@ public class Courses extends javax.swing.JFrame {
      */
     public Courses() {
         initComponents();
-        ROOT = new Element("Courses");
-        doc = new Document(ROOT);
+        File file = new File("courses.txt");
+        if (file.exists()) {
+            Builder builder = new Builder();
+            try {
+                doc = builder.build(file);
+                ROOT = doc.getRootElement();
+            } catch (ParsingException ex) {
+                Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            ROOT = new Element("Courses");
+            doc = new Document(doc);
+        }
     }
 
     /**
@@ -207,22 +221,6 @@ public class Courses extends javax.swing.JFrame {
         teacher.setText("");
         schoolboard.setText("");
 
-        File file = new File("courses.txt");
-        if (file.exists()){
-            Builder builder = new Builder();
-            try{
-                ROOT = builder.build(file);
-                doc = ROOT.getRootElement();
-            }
-            catch(ParsingException ex){
-                Logger.getLogger(ROOT.class.getName()).log(Level.SEVERE, null, ex);              
-            }catch (IOException ex){
-                Logger.getLogger(ROOT.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            doc = new Element ("Courses");
-            ROOT = new Document (doc);
-        }
     }
 
 //GEN-LAST:event_ADDActionPerformed
