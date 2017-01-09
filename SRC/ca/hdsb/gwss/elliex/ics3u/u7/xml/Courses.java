@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ca.hdsb.gwss.elliex.ics3u.u7;
+package ca.hdsb.gwss.elliex.ics3u.u7.xml;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import java.io.BufferedWriter;

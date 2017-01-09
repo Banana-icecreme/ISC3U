@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <friend>
+        <name>Arielle</name>
+        <age>Beyond time</age>
+        <gender> Female </gender>
+        <adress>Stark Mansion</adress>
+        <specie>Meramid</specie>
+        <notes>Actually a mermaid</notes>
+    </friend>
+    <friend>
+        <name> Moony</name>
+        <age>15</age>
+        <gender>Female</gender>
+        <adress>The moon</adress>
+        <specie> Bones </specie>
+        <notes> Damn it guys </notes>
+    </friend>
+    <friend>
+        <name> Thor </name>
+        <age> hella old </age>
+        <gender>male</gender>
+        <adress> Asgard</adress>
+        <specie>Aesir</specie>
+        <note> hammer time</note>
+    </friend>
+    <friend>
+        <name>Loki</name>
+        <age>1052</age>
+        <gender>male...most of the time</gender>
+        <adress> Asgard</adress>
+        <specie>Jotun-Aesir</specie>
+        <note>God of Tumblr</note>
+    </friend>
+    <friend>
+        <name>Tony Stark</name>
+        <age>Billionair</age>
+        <gender>Billionair</gender>
+        <adress>Malibu</adress>
+        <specie>Billionair</specie>
+        <notes>Billionair</notes>
+    </friend>
+    <friend>
+        <name>Natasha Romanoff</name>
+        <age>Classified</age>
+        <gender>Classified</gender>
+        <adress>Classified</adress>
+        <specie>Classified</specie>
+        <notes>Classified</notes>
+    </friend>
+</root>
