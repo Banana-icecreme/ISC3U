@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -25,7 +26,7 @@ public class Friends extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Element friends;
-    Document dropdown; 
+    Document Friends; 
     
     public Friends() {
         initComponents();
@@ -34,8 +35,8 @@ public class Friends extends javax.swing.JFrame {
         if (file.exists()) {
             Builder builder = new Builder();
             try {
-                dropdown = builder.build(file);
-                friends = dropdown.getRootElement();
+                Friends = builder.build(file);
+                friends = Friends.getRootElement();
             } catch (ParsingException ex) {
                 Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -44,14 +45,18 @@ public class Friends extends javax.swing.JFrame {
         }
         else {
             friends = new Element ("Friends");
-            dropdown = new Document (friends);
+            Friends = new Document (friends);
         }
         
-        Drop();
+        makeDropDown();
     }
-public void Drop(){
-    
-    
+public void makeDropDown(){
+    DefaultComboBoxModel model = new DefaultComboBoxModel();
+    Elements listOfFriends = friends.getChildElements();
+    for(int i = 0; i < listOfFriends.size(); i++){
+     model.addElement(listOfFriends.get(i).getFirstChildElement("name").getValue());
+    }
+    dropdown.setModel(model);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,16 +204,16 @@ public void Drop(){
 
     private void dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownActionPerformed
         // TODO add your handling code here:
-        Elements childElements = dropdown.getChildElements();
+        Elements childElements = friends.getChildElements();
 
         int index = dropdown.getSelectedIndex();
 
-        Name.setText(childElement.get(index).getFirstChildElement("").getValue());
-        Age.setText(childElement.get(index).getFirstChildElement("").getValue());
-        Gender.setText(childElement.get(index).getFirstChildElement("").getValue());
-        Address.setText(childElement.get(index).getFirstChildElement("").getValue());
-        Specie.setText(childElement.get(index).getFirstChildElement("").getValue());
-        Notes.setText(childElement.get(index).getFirstChildElement("").getValue());
+        Name.setText(childElements.get(index).getFirstChildElement("name").getValue());
+        Age.setText(childElements.get(index).getFirstChildElement("age").getValue());
+        Gender.setText(childElements.get(index).getFirstChildElement("gender").getValue());
+        Address.setText(childElements.get(index).getFirstChildElement("adress").getValue());
+        Specie.setText(childElements.get(index).getFirstChildElement("specie").getValue());
+        Notes.setText(childElements.get(index).getFirstChildElement("notes").getValue());
     }//GEN-LAST:event_dropdownActionPerformed
 
     /**
