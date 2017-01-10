@@ -1,2 +1,56 @@
 <?xml version="1.0"?>
-<Courses><Code>gddg<Discription>dfgd</Discription><Teacher>dfgd</Teacher><SchoolBoard>dgd</SchoolBoard></Code><Code>aaaa<Discription /><Teacher /><SchoolBoard /></Code><Code>ffffff<Discription>ffff</Discription><Teacher /><SchoolBoard /></Code><Course><Code>333dfd</Code><Discription>fsfsf</Discription><Teacher>sdf</Teacher><SchoolBoard>fdss</SchoolBoard></Course><Course><Code>erwer</Code><Discription>werwer</Discription><Teacher>werwer</Teacher><SchoolBoard></SchoolBoard></Course><Course><Code></Code><Discription></Discription><Teacher></Teacher><SchoolBoard></SchoolBoard></Course></Courses>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<friends>
+    <friend>
+        <name>Arielle</name>
+        <age>Beyond time</age>
+        <gender>Female </gender>
+        <adress>Stark Mansion</adress>
+        <specie>Meramid</specie>
+        <notes>Actually a mermaid</notes>
+    </friend>
+    <friend>
+        <name>Moony</name>
+        <age>15</age>
+        <gender>Female</gender>
+        <adress>The moon</adress>
+        <specie>Bones </specie>
+        <notes>Damn it guys </notes>
+    </friend>
+    <friend>
+        <name>Thor </name>
+        <age>hella old </age>
+        <gender>male</gender>
+        <adress>Asgard</adress>
+        <specie>Aesir</specie>
+        <notes>hammer time</notes>
+    </friend>
+    <friend>
+        <name>Loki</name>
+        <age>1052</age>
+        <gender>male...most of the time</gender>
+        <adress>Asgard</adress>
+        <specie>Jotun-Aesir</specie>
+        <notes>God of Tumblr</notes>
+    </friend>
+    <friend>
+        <name>Tony Stark</name>
+        <age>Billionair</age>
+        <gender>Billionair</gender>
+        <adress>Malibu</adress>
+        <specie>Billionair</specie>
+        <notes>Billionair</notes>
+    </friend>
+    <friend>
+        <name>Natasha Romanoff</name>
+        <age>Classified</age>
+        <gender>Classified</gender>
+        <adress>Classified</adress>
+        <specie>Classified</specie>
+        <notes>Classified</notes>
+    </friend>
+<friend><name>1</name><age>Billionair1</age><gender>Billionair1</gender><adress>Malibu1</adress><specie>Billionair1</specie><notes>Billionair1</notes></friend></friends>

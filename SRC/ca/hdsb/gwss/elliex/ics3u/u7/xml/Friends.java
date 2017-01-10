@@ -1,11 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 1. 10. 2017.
+ * Shows friends from xml. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u7.xml;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,19 +17,20 @@ import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 import nu.xom.ParsingException;
+import nu.xom.Serializer;
 
 /**
  *
  * @author 1xuell
  */
-public class Friends extends javax.swing.JFrame {
+public final class Friends extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
     Element friends;
-    Document Friends; 
-    
+    Document Friends;
+
     public Friends() {
         initComponents();
 
@@ -37,27 +40,26 @@ public class Friends extends javax.swing.JFrame {
             try {
                 Friends = builder.build(file);
                 friends = Friends.getRootElement();
-            } catch (ParsingException ex) {
-                Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
+            } catch (ParsingException | IOException ex) {
                 Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            friends = new Element("Friends");
+            Friends = new Document(friends);
         }
-        else {
-            friends = new Element ("Friends");
-            Friends = new Document (friends);
-        }
-        
+
         makeDropDown();
     }
-public void makeDropDown(){
-    DefaultComboBoxModel model = new DefaultComboBoxModel();
-    Elements listOfFriends = friends.getChildElements();
-    for(int i = 0; i < listOfFriends.size(); i++){
-     model.addElement(listOfFriends.get(i).getFirstChildElement("name").getValue());
+
+    public void makeDropDown() {
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        Elements listOfFriends = friends.getChildElements();
+        for (int i = 0; i < listOfFriends.size(); i++) {
+            model.addElement(listOfFriends.get(i).getFirstChildElement("name").getValue());
+        }
+        dropdown.setModel(model);
     }
-    dropdown.setModel(model);
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +84,7 @@ public void makeDropDown(){
         Address = new javax.swing.JTextField();
         SPECIES = new javax.swing.JLabel();
         Notes = new javax.swing.JTextField();
+        add = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -102,6 +105,11 @@ public void makeDropDown(){
         GENDER.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         GENDER.setText("Gender");
 
+        Name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NameFocusGained(evt);
+            }
+        });
         Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameActionPerformed(evt);
@@ -115,14 +123,70 @@ public void makeDropDown(){
             }
         });
 
+        Age.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                AgeFocusGained(evt);
+            }
+        });
+        Age.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgeActionPerformed(evt);
+            }
+        });
+
+        Gender.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                GenderFocusGained(evt);
+            }
+        });
         Gender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenderActionPerformed(evt);
             }
         });
 
+        Specie.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                SpecieFocusGained(evt);
+            }
+        });
+        Specie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SpecieActionPerformed(evt);
+            }
+        });
+
+        Address.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                AddressFocusGained(evt);
+            }
+        });
+        Address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddressActionPerformed(evt);
+            }
+        });
+
         SPECIES.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SPECIES.setText("Specie");
+
+        Notes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                NotesFocusGained(evt);
+            }
+        });
+        Notes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotesActionPerformed(evt);
+            }
+        });
+
+        add.setText("Add");
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,39 +195,47 @@ public void makeDropDown(){
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(NOTES)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Notes, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(GENDER)
-                            .addGap(63, 63, 63)
-                            .addComponent(Gender))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(ADDRESS)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NAME)
-                                .addComponent(AGE))
-                            .addGap(72, 72, 72)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(SPECIES)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Specie, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(165, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NAME)
+                                    .addComponent(AGE))
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Age, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(Name)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(GENDER)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(ADDRESS)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Address, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(SPECIES)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Specie, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(NOTES)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(Notes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(add)
+                        .addGap(94, 94, 94))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,11 +267,11 @@ public void makeDropDown(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_NameActionPerformed
 
     private void GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenderActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_GenderActionPerformed
 
     private void dropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownActionPerformed
@@ -215,6 +287,97 @@ public void makeDropDown(){
         Specie.setText(childElements.get(index).getFirstChildElement("specie").getValue());
         Notes.setText(childElements.get(index).getFirstChildElement("notes").getValue());
     }//GEN-LAST:event_dropdownActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        Element friend = new Element("friend");
+        Element name = new Element("name");
+        Element age = new Element("age");
+        Element gender = new Element("gender");
+        Element adress = new Element("adress");
+        Element specie = new Element("specie");
+        Element notes = new Element("notes");
+
+        friends.appendChild(friend);
+        friend.appendChild(name);
+        friend.appendChild(age);
+        friend.appendChild(gender);
+        friend.appendChild(adress);
+        friend.appendChild(specie);
+        friend.appendChild(notes);
+
+        name.appendChild(Name.getText().trim());
+        age.appendChild(Age.getText().trim());
+        gender.appendChild(Gender.getText().trim());
+        adress.appendChild(Address.getText().trim());
+        specie.appendChild(Specie.getText().trim());
+        notes.appendChild(Notes.getText().trim());
+
+        try {
+            Serializer serializer = new Serializer(System.out);
+            serializer.setIndent(4);
+            serializer.setMaxLength(64);
+            serializer.write(Friends);
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+        try {
+            FileWriter file = new FileWriter("Friends.xml");
+            BufferedWriter writer = new BufferedWriter(file);
+            writer.write(Friends.toXML());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        makeDropDown();
+        
+        Name.setText("");
+        Age.setText("");
+        Gender.setText("");
+        Address.setText("");
+        Specie.setText("");
+        Notes.setText("");
+    }//GEN-LAST:event_addActionPerformed
+
+    private void AgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeActionPerformed
+        
+    }//GEN-LAST:event_AgeActionPerformed
+
+    private void AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressActionPerformed
+        
+    }//GEN-LAST:event_AddressActionPerformed
+
+    private void SpecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpecieActionPerformed
+        
+    }//GEN-LAST:event_SpecieActionPerformed
+
+    private void NotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotesActionPerformed
+      
+    }//GEN-LAST:event_NotesActionPerformed
+
+    private void NameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NameFocusGained
+       Name.setText("");
+    }//GEN-LAST:event_NameFocusGained
+
+    private void AgeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AgeFocusGained
+Age.setText("");     
+    }//GEN-LAST:event_AgeFocusGained
+
+    private void AddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AddressFocusGained
+Address.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressFocusGained
+
+    private void GenderFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_GenderFocusGained
+Gender.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_GenderFocusGained
+
+    private void SpecieFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SpecieFocusGained
+Specie.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_SpecieFocusGained
+
+    private void NotesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NotesFocusGained
+Notes.setText("");     // TODO add your handling code here:
+    }//GEN-LAST:event_NotesFocusGained
 
     /**
      * @param args the command line arguments
@@ -265,6 +428,7 @@ public void makeDropDown(){
     private javax.swing.JTextField Notes;
     private javax.swing.JLabel SPECIES;
     private javax.swing.JTextField Specie;
+    private javax.swing.JButton add;
     private javax.swing.JComboBox<String> dropdown;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JScrollPane jScrollPane1;

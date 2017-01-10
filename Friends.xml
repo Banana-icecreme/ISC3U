@@ -1,43 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-
-<Friends>
+<friends>
     <friend>
         <name>Arielle</name>
         <age>Beyond time</age>
-        <gender> Female </gender>
+        <gender>Female </gender>
         <adress>Stark Mansion</adress>
         <specie>Meramid</specie>
         <notes>Actually a mermaid</notes>
     </friend>
     <friend>
-        <name> Moony</name>
+        <name>Moony</name>
         <age>15</age>
         <gender>Female</gender>
         <adress>The moon</adress>
-        <specie> Bones </specie>
-        <notes> Damn it guys </notes>
+        <specie>Bones </specie>
+        <notes>Damn it guys </notes>
     </friend>
     <friend>
-        <name> Thor </name>
-        <age> hella old </age>
+        <name>Thor </name>
+        <age>hella old </age>
         <gender>male</gender>
-        <adress> Asgard</adress>
+        <adress>Asgard</adress>
         <specie>Aesir</specie>
-        <note> hammer time</note>
+        <notes>hammer time</notes>
     </friend>
     <friend>
         <name>Loki</name>
         <age>1052</age>
         <gender>male...most of the time</gender>
-        <adress> Asgard</adress>
+        <adress>Asgard</adress>
         <specie>Jotun-Aesir</specie>
-        <note>God of Tumblr</note>
+        <notes>God of Tumblr</notes>
     </friend>
     <friend>
         <name>Tony Stark</name>
@@ -46,8 +44,8 @@ and open the template in the editor.
         <adress>Malibu</adress>
         <specie>Billionair</specie>
         <notes>Billionair</notes>
-    </friend>
-    <friend>
+    </friend> 
+   <friend>
         <name>Natasha Romanoff</name>
         <age>Classified</age>
         <gender>Classified</gender>
@@ -55,4 +53,4 @@ and open the template in the editor.
         <specie>Classified</specie>
         <notes>Classified</notes>
     </friend>
-</Friends>
+<friend><name>Steve Rogers</name><age>96</age><gender>Male</gender><adress>United States of America</adress><specie>Superhuman</specie><notes>Born on July 4, 1920</notes></friend><friend><name>Clint Barton</name><age>Classified</age><gender>Male</gender><adress>Classified</adress><specie>Human</specie><notes>Job: Sassin</notes></friend></friends>

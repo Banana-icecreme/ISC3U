@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 1. 10. 2017.
+ * Searches for words in tags in xml. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u7.xml;
 
