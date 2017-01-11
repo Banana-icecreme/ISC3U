@@ -30,7 +30,7 @@ public class SearchXml {
 
         try {
 
-            File file = new File("XML.xml");
+            File file = new File("animal.xml");
 
             Builder bob = new Builder();
             Document doc = bob.build(file);
