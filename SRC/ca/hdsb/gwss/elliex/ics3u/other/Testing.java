@@ -14,12 +14,10 @@ public class Testing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int i = 0;
         String str = "a, b, c";
-        StringTokenizer token = new StringTokenizer(str,",",true);
-        while (i < 5) {
+        StringTokenizer token = new StringTokenizer(str,",a");
+        while (token.hasMoreTokens()) {
                 System.out.println(token.nextToken());
-                i++;
             }
     }
 }

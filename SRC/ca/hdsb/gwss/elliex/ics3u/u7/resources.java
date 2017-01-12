@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 1. 12. 2016.
+ * References and notes for unit 7. 
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.u7;
 
@@ -40,7 +40,7 @@ public class resources {
     public static void Tokenizer() {
         //tokenizer splits a string
         String a = "a, b, c";
-        StringTokenizer token = new StringTokenizer(a, ",", true);
+        StringTokenizer token = new StringTokenizer(a, ",a", false);
         //true means the , will be included as a token. 
         //if false or nothing, it means the , will not be included
         //the default , is space. So if nothing is put there, then it will 
@@ -48,15 +48,12 @@ public class resources {
 
         //** even if there is only one space between ','
         //the space will still be counted as a token 
-        for (int i = 0; token.hasMoreTokens(); i++) {
+        while (token.hasMoreTokens()) {
             sopl(token.nextToken());
         }
         //this will display:
-        //a
-        //,
-        //b
-        //,
-        //c
+        // b
+        // c
 
         //sop will display them all in a line just like before it was split
         //if nextToken() found not token, it will reutrn "NoSuchElementExpection"
@@ -65,6 +62,8 @@ public class resources {
     }
 
     public static void CreatingXML() {
+        //xml stands for Extensible Markup Language
+
         //Document creates the document of the XML
         Element rootNodeName = new Element("rootTag");
         Document documentName = new Document(rootNodeName);
@@ -250,16 +249,16 @@ public class resources {
         //it's like closing a book after you finished readin/writing/whatever
         //with it. 
     }
-    
-    public static void ReadingfilesThatAreLikeTxt() throws IOException{
+
+    public static void ReadingfilesThatAreLikeTxt() throws IOException {
         //note the "throws IOException" above, you need it for PrintWriter ^
-        
-        Scanner input = new Scanner ("file.txt");
-        
-        while (input.hasNext()){
+
+        Scanner input = new Scanner("file.txt");
+
+        while (input.hasNext()) {
             sopl(input.nextLine());
         }
-        
+
         input.close();
         //close the file after reading it
     }

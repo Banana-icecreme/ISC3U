@@ -33,14 +33,9 @@ public class life {
         NumberFormat nej = NumberFormat.getNumberInstance();
         nej.setMinimumFractionDigits(0);
         nej.setMaximumFractionDigits(0);
-        String ability = nej.format((Math.random() * 10));
-        String weakness = nej.format((Math.random() * 10));
+        String ability = nej.format((Math.random() * 11));
+        String weakness = nej.format((Math.random() * 11));
         switch (ability) {
-            case "0":
-            case "1":
-            case "2":
-                ability = "You are normal.";
-                break;
             case "3":
                 ability = "You can manipulate air or any form of gas.";
                 break;
@@ -62,6 +57,11 @@ public class life {
             case "9":
                 ability = "You are extremely smart. Your iq is easily over 180.";
                 break;
+            case "10":
+                ability = "You can shapeshift";
+                break;
+            default:
+                ability = "You are normal.";
         }
         return ability;
     }
