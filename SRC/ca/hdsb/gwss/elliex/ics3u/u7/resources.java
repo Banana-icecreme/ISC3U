@@ -61,7 +61,7 @@ public class resources {
         //this will stop it when there are no more tokens to be displayed
     }
 
-    public static void CreatingXML() {
+    public static void CreatingXMLInJava() {
         //xml stands for Extensible Markup Language
 
         //Document creates the document of the XML
