@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <questions>
+        <question>
+            What does XML stand for?
+        </question>
+        <rightAns>
+            Extensible Markup Language
+        </rightAns>
+        <ans>
+            External Markup Language
+        </ans>
+        <ans>
+            Extensible Markup Link 
+        </ans>
+        <ans>
+            External Markup Link
+        </ans>
+    </questions>
+    <questions>
+        <question>
+            What does http stand for?
+        </question>
+        <rightAns>
+            HyperText Transfer Protocol
+        </rightAns>
+        <ans>
+            Hyper Text Time Pass
+        </ans>
+        <ans>
+            Hyper Text Transfer Pass
+        </ans>
+        <ans>
+            HyperText Transfer pass
+        </ans>
+    </questions>
+    <questions>
+        <question>
+            When was Java created?
+        </question>
+        <rightAns>
+            1995
+        </rightAns>
+        <ans>
+            1996
+        </ans>
+        <ans>
+            2000
+        </ans>
+        <ans>
+            1991
+        </ans>
+    </questions>
+    <questions>
+        <question>
+            How many binary digits in a byte?
+        </question>
+        <rightAns>
+            8
+        </rightAns>
+        <ans>
+            4
+        </ans>
+        <ans>
+            9
+        </ans>
+        <ans>
+            16
+        </ans>
+    </questions>
+    <questions>
+        <question>
+            What is the logic gate symbol for or?
+        </question>
+        <rightAns>
+            ||
+        </rightAns>
+        <ans>
+            &amp;&amp;
+        </ans>
+        <ans>
+            +
+        </ans>
+        <ans>
+            |+|
+        </ans>
+    </questions>
+        <questions>
+        <question>
+            Who created Java?
+        </question>
+        <rightAns>
+            James Gosling
+        </rightAns>
+        <ans>
+            Jimmy Java
+        </ans>
+        <ans>
+            Jack Thomson 
+        </ans>
+        <ans>
+            John Java
+        </ans>
+    </questions>
+        <questions>
+        <question>
+            What is the method used to find the length of a String?
+        </question>
+        <rightAns>
+            .length()
+        </rightAns>
+        <ans>
+            .length
+        </ans>
+        <ans>
+            .StringLength()
+        </ans>
+        <ans>
+            .StringLength
+        </ans>
+    </questions>
+</root>

@@ -226,7 +226,7 @@ public class resources {
     }
 
     public static void SearchingXML() {
-        //see SearchXml.java under u7.xml
+        //see AnimalSearchXml.java under u7.xml
     }
 
     public static void WritingfilesThatAreLikeTxt() throws IOException {
