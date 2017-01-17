@@ -8,8 +8,7 @@ and open the template in the editor.
 
 <root>
     <questions>
-        <question>
-            What does XML stand for?
+        <question>What does XML stand for?
         </question>
         <rightAns>
             Extensible Markup Language
@@ -25,8 +24,7 @@ and open the template in the editor.
         </ans>
     </questions>
     <questions>
-        <question>
-            What does http stand for?
+        <question>What does http stand for?
         </question>
         <rightAns>
             HyperText Transfer Protocol
@@ -42,8 +40,7 @@ and open the template in the editor.
         </ans>
     </questions>
     <questions>
-        <question>
-            When was Java created?
+        <question>When was Java created?
         </question>
         <rightAns>
             1995
@@ -59,8 +56,7 @@ and open the template in the editor.
         </ans>
     </questions>
     <questions>
-        <question>
-            How many binary digits in a byte?
+        <question>How many binary digits in a byte?
         </question>
         <rightAns>
             8
@@ -76,8 +72,7 @@ and open the template in the editor.
         </ans>
     </questions>
     <questions>
-        <question>
-            What is the logic gate symbol for or?
+        <question>What is the logic gate symbol for or?
         </question>
         <rightAns>
             ||
@@ -92,9 +87,8 @@ and open the template in the editor.
             |+|
         </ans>
     </questions>
-        <questions>
-        <question>
-            Who created Java?
+    <questions>
+        <question>Who created Java?
         </question>
         <rightAns>
             James Gosling
@@ -109,9 +103,8 @@ and open the template in the editor.
             John Java
         </ans>
     </questions>
-        <questions>
-        <question>
-            What is the method used to find the length of a String?
+    <questions>
+        <question>What is the method used to find the length of a String?
         </question>
         <rightAns>
             .length()
