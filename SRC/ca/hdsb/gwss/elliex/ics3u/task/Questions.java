@@ -5,20 +5,19 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.task;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import ca.hdsb.gwss.elliex.ics3u.u7.xml.Courses;
 import java.io.File;
 import java.io.IOException;
-import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
-import nu.xom.Node;
 import nu.xom.ParsingException;
-import org.w3c.dom.NodeList;
 
 /**
  *
@@ -31,12 +30,12 @@ public class Questions extends javax.swing.JFrame {
      */
     Element root;
     Document doc;
+    int right, wrong, number;
 
     public Questions() {
         initComponents();
         String[] arrayQ = new String[7];
-        String[] RightAns = new String[7];
-        String[] arrayA = new String[3];
+        String[] ans = new String[4];
         File file = new File("questions.xml");
         Builder builder = new Builder();
         try {
@@ -45,15 +44,34 @@ public class Questions extends javax.swing.JFrame {
             Elements questions = root.getChildElements();
             for (int i = 0; i < questions.size(); i++) {
                 arrayQ[i] = (questions.get(i).getFirstChildElement("question").getValue());
-                //RightAns[i] = (questions.get(i).getFirstChildElement("rightAns").getValue());
             }
             int questionNumber = (int) (Math.random() * 8);
             int AnsPosition = (int) (Math.random() * 4);
-            Question.setText(arrayQ[questionNumber]);
+            int AnsPosition2 = (int) (Math.random() * 4);
+            List num = new ArrayList();
             for (int i = 0; i < 4; i++) {
-               arrayA[i] = (questions.get(questionNumber).getFirstChildElement("ans").getValue());
+                //num[i] = (int) (Math.random() * 4); 
+                num.add(i);
             }
-            a.setText("answewr");
+            //Collections.shuffle(num);
+//            while (num[0] + num[1] + num[2] + num[3] != 6) {
+//                for (int u = 0; u < 4; u++) {
+//                num[u] = (int) (Math.random() * 4);
+//                }
+//            }
+            //System.out.println(num);
+            //Integer[] num1 = num.toArray(new Integer[0]);
+            //int[] numArray = ArrayUtils.toPrimitive(num);
+            
+            Question.setText(arrayQ[questionNumber]);
+            ans[0] = (questions.get(questionNumber).getFirstChildElement("rightAns").getValue());
+            ans[1] = (questions.get(questionNumber).getFirstChildElement("ans1").getValue());
+            ans[2] = (questions.get(questionNumber).getFirstChildElement("ans2").getValue());
+            ans[3] = (questions.get(questionNumber).getFirstChildElement("ans3").getValue());
+            a.setText(ans[AnsPosition]);
+            b.setText(ans[1]);
+            c.setText(ans[2]);
+            d.setText(ans[3]);
         } catch (ParsingException | IOException ex) {
             Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -123,7 +141,7 @@ public class Questions extends javax.swing.JFrame {
             }
         });
 
-        a.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        a.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         a.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         GroupOfButtons.add(B);
@@ -150,13 +168,13 @@ public class Questions extends javax.swing.JFrame {
             }
         });
 
-        b.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        b.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        d.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        d.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         d.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        c.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        c.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         c.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Answer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -180,30 +198,30 @@ public class Questions extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Correct, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(Submit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Exit))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(229, 229, 229)
                                         .addComponent(CorrectAnswers))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(52, 52, 52)
                                         .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 1, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Submit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Exit))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                    .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Correct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Wrong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(C)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -235,28 +253,27 @@ public class Questions extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)
-                        .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(B)
+                    .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(C)
+                    .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Exit)
                             .addComponent(Submit))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(B)
-                            .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(D)
-                            .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(D)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 

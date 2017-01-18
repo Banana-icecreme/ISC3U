@@ -8,115 +8,87 @@ and open the template in the editor.
 
 <root>
     <questions>
-        <question>What does XML stand for?
+        <question> What does XML stand for?
         </question>
-        <rightAns>
-            Extensible Markup Language
+        <rightAns> Extensible Markup Language
         </rightAns>
-        <ans>
-            External Markup Language
-        </ans>
-        <ans>
-            Extensible Markup Link 
-        </ans>
-        <ans>
-            External Markup Link
-        </ans>
+        <ans1> External Markup Language
+        </ans1>
+        <ans2> Extensible Markup Link 
+        </ans2>
+        <ans3> External Markup Link
+        </ans3>
     </questions>
     <questions>
-        <question>What does http stand for?
+        <question> What does http stand for?
         </question>
-        <rightAns>
-            HyperText Transfer Protocol
+        <rightAns> HyperText Transfer Protocol
         </rightAns>
-        <ans>
-            Hyper Text Time Pass
-        </ans>
-        <ans>
-            Hyper Text Transfer Pass
-        </ans>
-        <ans>
-            HyperText Transfer pass
-        </ans>
+        <ans1> Hyper Text Time Pass
+        </ans1>
+        <ans2> Hyper Text Transfer Pass
+        </ans2>
+        <ans3> HyperText Transfer pass
+        </ans3>
     </questions>
     <questions>
-        <question>When was Java created?
+        <question> When was Java created?
         </question>
-        <rightAns>
-            1995
+        <rightAns> 1995
         </rightAns>
-        <ans>
-            1996
-        </ans>
-        <ans>
-            2000
-        </ans>
-        <ans>
-            1991
-        </ans>
+        <ans1> 1996
+        </ans1>
+        <ans2> 2000
+        </ans2>
+        <ans3> 1991
+        </ans3>
     </questions>
     <questions>
         <question>How many binary digits in a byte?
         </question>
-        <rightAns>
-            8
+        <rightAns> 8
         </rightAns>
-        <ans>
-            4
-        </ans>
-        <ans>
-            9
-        </ans>
-        <ans>
-            16
-        </ans>
+        <ans1> 4
+        </ans1>
+        <ans2> 9
+        </ans2>
+        <ans3> 16
+        </ans3>
     </questions>
     <questions>
         <question>What is the logic gate symbol for or?
         </question>
-        <rightAns>
-            ||
+        <rightAns> ||
         </rightAns>
-        <ans>
-            &amp;&amp;
-        </ans>
-        <ans>
-            +
-        </ans>
-        <ans>
-            |+|
-        </ans>
+        <ans1> &amp;&amp;
+        </ans1>
+        <ans2> +
+        </ans2>
+        <ans3> |+|
+        </ans3>
     </questions>
     <questions>
-        <question>Who created Java?
+        <question> Who created Java?
         </question>
-        <rightAns>
-            James Gosling
+        <rightAns> James Gosling
         </rightAns>
-        <ans>
-            Jimmy Java
-        </ans>
-        <ans>
-            Jack Thomson 
-        </ans>
-        <ans>
-            John Java
-        </ans>
+        <ans1> Jimmy Java
+        </ans1>
+        <ans2> Jack Thomson 
+        </ans2>
+        <ans3> John Java
+        </ans3>
     </questions>
     <questions>
-        <question>What is the method used to find the length of a String?
+        <question> What is the method used to find the length of a String?
         </question>
-        <rightAns>
-            .length()
+        <rightAns> .length()
         </rightAns>
-        <ans>
-            .length
-        </ans>
-        <ans>
-            .StringLength()
-        </ans>
-        <ans>
-            .StringLength
-        </ans>
+        <ans1> .length
+        </ans1>
+        <ans2> .StringLength()
+        </ans2>
+        <ans3> .StringLength
+        </ans3>
     </questions>
 </root>
