@@ -5,10 +5,12 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.task;
 
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import ca.hdsb.gwss.elliex.ics3u.u7.xml.Courses;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,53 +31,68 @@ public class Questions extends javax.swing.JFrame {
      * Creates new form questions
      */
     Element root;
+    Elements questions;
     Document doc;
-    int right, wrong, number;
+    static int right = 0, wrong = 0, rightArray = 0, number = 1;
+    int[] arrayQues;
+    static String rightAns;
 
     public Questions() {
         initComponents();
-        String[] arrayQ = new String[7];
-        String[] ans = new String[4];
+        List<Integer> ques = new ArrayList<>();
+
         File file = new File("questions.xml");
         Builder builder = new Builder();
         try {
             doc = builder.build(file);
             root = doc.getRootElement();
-            Elements questions = root.getChildElements();
-            for (int i = 0; i < questions.size(); i++) {
-                arrayQ[i] = (questions.get(i).getFirstChildElement("question").getValue());
+            questions = root.getChildElements();
+
+            for (int i = 0; i < 7; i++) {
+                ques.add(i);
             }
-            int questionNumber = (int) (Math.random() * 8);
-            int AnsPosition = (int) (Math.random() * 4);
-            int AnsPosition2 = (int) (Math.random() * 4);
-            List num = new ArrayList();
-            for (int i = 0; i < 4; i++) {
-                //num[i] = (int) (Math.random() * 4); 
-                num.add(i);
+            Collections.shuffle(ques);
+
+            arrayQues = new int[ques.size()];
+            for (int i = 0; i < ques.size(); i++) {
+                arrayQues[i] = ques.get(i);
             }
-            //Collections.shuffle(num);
-//            while (num[0] + num[1] + num[2] + num[3] != 6) {
-//                for (int u = 0; u < 4; u++) {
-//                num[u] = (int) (Math.random() * 4);
-//                }
-//            }
-            //System.out.println(num);
-            //Integer[] num1 = num.toArray(new Integer[0]);
-            //int[] numArray = ArrayUtils.toPrimitive(num);
-            
-            Question.setText(arrayQ[questionNumber]);
-            ans[0] = (questions.get(questionNumber).getFirstChildElement("rightAns").getValue());
-            ans[1] = (questions.get(questionNumber).getFirstChildElement("ans1").getValue());
-            ans[2] = (questions.get(questionNumber).getFirstChildElement("ans2").getValue());
-            ans[3] = (questions.get(questionNumber).getFirstChildElement("ans3").getValue());
-            a.setText(ans[AnsPosition]);
-            b.setText(ans[1]);
-            c.setText(ans[2]);
-            d.setText(ans[3]);
+
+            random(questions, 0, arrayQues);
+
         } catch (ParsingException | IOException ex) {
             Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
+    public void random(Elements questions, int u, int[] arrayQues) {
+        String[] ans = new String[4];
+        String Questions = (questions.get(arrayQues[u]).getFirstChildElement("question").getValue());
+        ans[0] = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
+        rightAns = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
+        ans[1] = (questions.get(arrayQues[u]).getFirstChildElement("ans1").getValue());
+        ans[2] = (questions.get(arrayQues[u]).getFirstChildElement("ans2").getValue());
+        ans[3] = (questions.get(arrayQues[u]).getFirstChildElement("ans3").getValue());
+
+        List<String> num = new ArrayList<>();
+        num.addAll(Arrays.asList(ans));
+        Collections.shuffle(num);
+
+        for (int i = 0; i < num.size(); i++) {
+            ans[i] = num.get(i);
+        }
+        Question.setText(Questions);
+        a.setText(ans[0]);
+        b.setText(ans[1]);
+        c.setText(ans[2]);
+        d.setText(ans[3]);
+
+        for (int i = 0; i < 4; i++) {
+            if (ans[i].equals(rightAns)) {
+                rightArray = i;
+                sopl(i);
+            }
+        }
     }
 
     /**
@@ -116,7 +133,7 @@ public class Questions extends javax.swing.JFrame {
             }
         });
 
-        Question.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Question.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Question.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         CorrectAnswers.setText("Correct Answers");
@@ -189,6 +206,7 @@ public class Questions extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Question, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,39 +216,38 @@ public class Questions extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(229, 229, 229)
-                                        .addComponent(CorrectAnswers))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(52, 52, 52)
-                                        .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 1, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(Submit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Exit))
+                                .addGap(229, 229, 229)
+                                .addComponent(CorrectAnswers)
+                                .addGap(0, 9, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(96, 96, 96)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Correct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Wrong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(Wrong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(53, 53, 53)
+                                        .addComponent(Submit))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Exit))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(C)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Question, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CorrectAnswers1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(CorrectAnswers1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Answer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -256,25 +273,29 @@ public class Questions extends javax.swing.JFrame {
                         .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(B)
                     .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(C)
-                    .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addComponent(Submit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Exit)
-                            .addComponent(Submit))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Exit))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(D)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(C)
+                            .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(D))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -289,16 +310,25 @@ public class Questions extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        this.dispose();
-        new Final().setVisible(true);
-// TODO add your handling code here:
-        //if (A.isSelected()) {
-        //B.setEnabled(false);
-        //C.setEnabled(false);
-        //D.setEnabled(false);
-        //}
-        //radiobutton.setEnable(true);
-
+        if (number < 6) {
+            if ((A.isSelected() && rightArray == 0) || (B.isSelected() && rightArray == 1) || (C.isSelected() && rightArray == 2) || (D.isSelected() && rightArray == 3)) {
+                right++;
+                Answer.setText("");
+            } else {
+                wrong++;
+                Answer.setText(rightAns);
+            }
+            Correct.setText(right + "");
+            Wrong.setText(wrong + "");
+        }
+        if (number < 5) {
+            random(questions, number, arrayQues);
+        }
+        number++;
+        if (number == 6) {
+            this.dispose();
+            new Final().setVisible(true);
+        }
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
