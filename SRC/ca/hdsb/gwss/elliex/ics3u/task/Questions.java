@@ -66,7 +66,7 @@ public class Questions extends javax.swing.JFrame {
     }
 
     public void random(Elements questions, int u, int[] arrayQues) {
-        String[] ans = new String[4];
+        String[] ans = new String[4]; 
         String Questions = (questions.get(arrayQues[u]).getFirstChildElement("question").getValue());
         ans[0] = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
         rightAns = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
