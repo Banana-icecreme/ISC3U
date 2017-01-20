@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 1, 20, 2017
+ * Animal data base with search xml.
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.task;
 
@@ -10,12 +10,34 @@ package ca.hdsb.gwss.elliex.ics3u.task;
  * @author 1xuell
  */
 public class Final extends javax.swing.JFrame {
-
+public static int idk = 0;
     /**
      * Creates new form Final
      */
-    public Final() {
+    public Final(int right) {
+        int wrong = 5-right;
         initComponents();
+        Right.setText(" " + right);
+        Wrong.setText(" " + wrong);
+        switch(right){
+            case 1: 
+                Message.setText(" Some more practice may be helpful.");
+                break;
+            case 2:
+                Message.setText(" Ehhh.....");
+                break;
+            case 3:
+                Message.setText(" You pass.");
+                break;
+            case 4:
+                Message.setText(" Not bad");
+                break;
+            case 5:
+                Message.setText(" Woah, you're like a wizard or something");
+                break;
+            default: 
+                Message.setText(" You may want to press the restart button.");
+    }
     }
 
     /**
@@ -177,7 +199,6 @@ public class Final extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Final().setVisible(true);
             }
         });
     }

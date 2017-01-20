@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Ellie Xu             
+ * 1, 20, 2017
+ * Animal data base with search xml.
+ * Version 1.0. 
  */
 package ca.hdsb.gwss.elliex.ics3u.task;
 
@@ -30,54 +30,58 @@ public class Questions extends javax.swing.JFrame {
     /**
      * Creates new form questions
      */
+    //variables
     Element root;
     Elements questions;
     Document doc;
-    static int right = 0, wrong = 0, rightArray = 0, number = 1;
+    static int right = 0, wrong = 0, rightArray = 0, number = 1, submit = 0;
     int[] arrayQues;
     static String rightAns;
 
     public Questions() {
+        //more variables
         initComponents();
         List<Integer> ques = new ArrayList<>();
-
         File file = new File("questions.xml");
         Builder builder = new Builder();
         try {
+            //reading the file contaning all da questions
             doc = builder.build(file);
             root = doc.getRootElement();
             questions = root.getChildElements();
-
+            //Adding numbers 1 - 7 to a list to shuffle, then giving it to array arrayQues
+            //so in the random() method, the data from a random 1 - 7 questions will be displayed. 
             for (int i = 0; i < 7; i++) {
                 ques.add(i);
             }
             Collections.shuffle(ques);
-
             arrayQues = new int[ques.size()];
             for (int i = 0; i < ques.size(); i++) {
                 arrayQues[i] = ques.get(i);
             }
-
             random(questions, 0, arrayQues);
-
         } catch (ParsingException | IOException ex) {
             Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void random(Elements questions, int u, int[] arrayQues) {
-        String[] ans = new String[4]; 
+        //made a method for this so I don't have to copy and paste everything
+        //variable
+        String[] ans = new String[4];
+        //getting the data
         String Questions = (questions.get(arrayQues[u]).getFirstChildElement("question").getValue());
         ans[0] = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
         rightAns = (questions.get(arrayQues[u]).getFirstChildElement("rightAns").getValue());
         ans[1] = (questions.get(arrayQues[u]).getFirstChildElement("ans1").getValue());
         ans[2] = (questions.get(arrayQues[u]).getFirstChildElement("ans2").getValue());
         ans[3] = (questions.get(arrayQues[u]).getFirstChildElement("ans3").getValue());
-
+        
+        //the following is basically giving List num all the data in the ans array, 
+        //shuffling it, and giving it back to ans to display it.
         List<String> num = new ArrayList<>();
         num.addAll(Arrays.asList(ans));
         Collections.shuffle(num);
-
         for (int i = 0; i < num.size(); i++) {
             ans[i] = num.get(i);
         }
@@ -86,11 +90,11 @@ public class Questions extends javax.swing.JFrame {
         b.setText(ans[1]);
         c.setText(ans[2]);
         d.setText(ans[3]);
-
+        
+        //checking to see which of the shuffled answers is the right answer.
         for (int i = 0; i < 4; i++) {
             if (ans[i].equals(rightAns)) {
                 rightArray = i;
-                sopl(i);
             }
         }
     }
@@ -122,6 +126,9 @@ public class Questions extends javax.swing.JFrame {
         c = new javax.swing.JLabel();
         Answer = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Next = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,55 +206,60 @@ public class Questions extends javax.swing.JFrame {
 
         jLabel1.setText("Correct Answer");
 
+        Next.setText("Next");
+        Next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Click sumbit then next. If next is pressed first, you will get a point for wrong answer.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Question, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(A)
-                                .addComponent(B, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(D))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(229, 229, 229)
-                                .addComponent(CorrectAnswers)
-                                .addGap(0, 9, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(96, 96, 96)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Correct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Wrong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(Submit))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Exit))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(C)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CorrectAnswers1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Question, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Answer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Answer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CorrectAnswers1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CorrectAnswers, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Exit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Next))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(A)
+                                        .addComponent(B, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(D))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(d, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(c, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(b, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(C)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Correct, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Submit)
+                            .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -256,13 +268,11 @@ public class Questions extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(Question, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CorrectAnswers)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CorrectAnswers)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Correct, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Correct, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(A))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CorrectAnswers1)
@@ -273,14 +283,9 @@ public class Questions extends javax.swing.JFrame {
                         .addComponent(Wrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(B)
                     .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(Submit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Exit))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(C)
                             .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -290,12 +295,23 @@ public class Questions extends javax.swing.JFrame {
                                 .addComponent(D))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addComponent(d, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Submit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Next)
+                    .addComponent(Exit))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(21, 21, 21))
+                    .addComponent(jLabel1)
+                    .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -310,24 +326,22 @@ public class Questions extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        if (number < 6) {
-            if ((A.isSelected() && rightArray == 0) || (B.isSelected() && rightArray == 1) || (C.isSelected() && rightArray == 2) || (D.isSelected() && rightArray == 3)) {
-                right++;
-                Answer.setText("");
-            } else {
-                wrong++;
-                Answer.setText(rightAns);
+        if (submit == 0) {
+            //submit is there to check if the submit button has been pressed or not
+            if (number < 6) {
+                if ((A.isSelected() && rightArray == 0) || (B.isSelected() && rightArray == 1) || (C.isSelected() && rightArray == 2) || (D.isSelected() && rightArray == 3)) {
+                    right++;
+                    message.setText("Correct!");
+                } else {
+                    wrong++;
+                    Answer.setText(rightAns);
+                    message.setText("Wrong!");
+                }
+                Correct.setText(right + "");
+                Wrong.setText(wrong + "");
             }
-            Correct.setText(right + "");
-            Wrong.setText(wrong + "");
-        }
-        if (number < 5) {
-            random(questions, number, arrayQues);
-        }
-        number++;
-        if (number == 6) {
-            this.dispose();
-            new Final().setVisible(true);
+            Submit.setEnabled(false);
+            submit = 1;
         }
     }//GEN-LAST:event_SubmitActionPerformed
 
@@ -342,6 +356,31 @@ public class Questions extends javax.swing.JFrame {
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CActionPerformed
+
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+        // TODO add your handling code here:
+        Answer.setText("");
+        if (submit == 0) {
+            //if submit is not pressed, then I assume the user doesn't know the answer
+            //and wishes to skip it
+            wrong++;
+            Wrong.setText(wrong + "");
+        }
+        if (number < 5) {
+            random(questions, number, arrayQues);
+        } else {
+            this.dispose();
+            new Final(right).setVisible(true);
+            //reseting everything in case the user decides to restart this on the Final gui
+            number = 0;
+            wrong = 0;
+            right = 0;
+        }
+        message.setText("");
+        number++;
+        Submit.setEnabled(true);
+        submit = 0;
+    }//GEN-LAST:event_NextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,6 +429,7 @@ public class Questions extends javax.swing.JFrame {
     private javax.swing.JRadioButton D;
     private javax.swing.JButton Exit;
     private javax.swing.ButtonGroup GroupOfButtons;
+    private javax.swing.JButton Next;
     private javax.swing.JLabel Question;
     private javax.swing.JButton Submit;
     private javax.swing.JLabel Wrong;
@@ -398,5 +438,7 @@ public class Questions extends javax.swing.JFrame {
     private javax.swing.JLabel c;
     private javax.swing.JLabel d;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel message;
     // End of variables declaration//GEN-END:variables
 }
