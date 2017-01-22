@@ -7,11 +7,9 @@ package ca.hdsb.gwss.elliex.ics3u.u7;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import ca.hdsb.gwss.elliex.ics3u.u7.xml.Courses;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nu.xom.Builder;

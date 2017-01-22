@@ -44,7 +44,7 @@ and open the template in the editor.
         </ans3>
     </questions>
     <questions>
-        <question>How many binary digits in a byte?
+        <question> How many binary digits in a byte?
         </question>
         <rightAns> 8
         </rightAns>
@@ -56,7 +56,7 @@ and open the template in the editor.
         </ans3>
     </questions>
     <questions>
-        <question>What is the logic gate symbol for or?
+        <question> What is the logic gate symbol for or?
         </question>
         <rightAns> ||
         </rightAns>
