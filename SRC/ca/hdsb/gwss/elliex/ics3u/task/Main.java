@@ -62,7 +62,7 @@ public class Main extends javax.swing.JFrame {
 
         Title2.setBackground(new java.awt.Color(255, 255, 255));
         Title2.setForeground(new java.awt.Color(255, 255, 255));
-        Title2.setText("Multiple choice ICS3U questions");
+        Title2.setText("Multiple choice questions");
 
         MadeBy.setForeground(new java.awt.Color(255, 255, 255));
         MadeBy.setText("A program made by Ellie");
@@ -88,11 +88,10 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                             .addComponent(exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(Title2))
-                    .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(MadeBy)))
+                        .addGap(139, 139, 139)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MadeBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(BackgroundLayout.createSequentialGroup()
                 .addContainerGap()
@@ -142,7 +141,7 @@ public class Main extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         this.dispose();
-        new Questions().setVisible(true);
+        new Classes().setVisible(true);
     }//GEN-LAST:event_startActionPerformed
 
     /**

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <questions>
+        <question> What is the Hulk's alternate alias?
+        </question>
+        <rightAns> Bruce Banner
+        </rightAns>
+        <ans1> Bruce Wayne
+        </ans1>
+        <ans2> Tony Stark
+        </ans2>
+        <ans3> Steve Rogers
+        </ans3>
+    </questions>
+    <questions>
+        <question> Who is older? Thor or Loki?
+        </question>
+        <rightAns> Thor
+        </rightAns>
+        <ans1> Loki
+        </ans1>
+        <ans2> It's unknown
+        </ans2>
+        <ans3> They are the same age
+        </ans3>
+    </questions>
+    <questions>
+        <question> Who is Clint Barton?
+        </question>
+        <rightAns> Hawkeye
+        </rightAns>
+        <ans1> Falcon
+        </ans1>
+        <ans2> Black Widow
+        </ans2>
+        <ans3> Black Panther
+        </ans3>
+    </questions>
+    <questions>
+        <question> What is Doctor Strange's surname?
+        </question>
+        <rightAns> Strange
+        </rightAns>
+        <ans1> Spencer
+        </ans1>
+        <ans2> Stevenson
+        </ans2>
+        <ans3> He no longer has a last name
+        </ans3>
+    </questions>
+    <questions>
+        <question> When is Steve Roger's birthday?
+        </question>
+        <rightAns> July 4
+        </rightAns>
+        <ans1> October 25
+        </ans1>
+        <ans2> August 12
+        </ans2>
+        <ans3> March 9
+        </ans3>
+    </questions>
+    <questions>
+        <question> Which actor played Loki?
+        </question>
+        <rightAns> Tom Hiddleston
+        </rightAns>
+        <ans1> Chris Evans
+        </ans1>
+        <ans2> Chris Hemsworth
+        </ans2>
+        <ans3> Mark Ruffalo
+        </ans3>
+    </questions>
+    <questions>
+        <question> Who is Tony Stark's father?
+        </question>
+        <rightAns> Howard Stark
+        </rightAns>
+        <ans1> Thomas Stark
+        </ans1>
+        <ans2> James Stark
+        </ans2>
+        <ans3> Will Stark
+        </ans3>
+    </questions>
+</root>

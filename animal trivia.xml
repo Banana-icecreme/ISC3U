@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <questions>
+        <question> What is the fastest snake?
+        </question>
+        <rightAns> Black Mamba
+        </rightAns>
+        <ans1> Rattlesnake
+        </ans1>
+        <ans2> King Cobra
+        </ans2>
+        <ans3> Corn snake
+        </ans3>
+    </questions>
+    <questions>
+        <question> What is the largest extant animal?
+        </question>
+        <rightAns> Blue Whale
+        </rightAns>
+        <ans1> African Bush Elephant
+        </ans1>
+        <ans2> Sperm Whale
+        </ans2>
+        <ans3> Humpback Whale
+        </ans3>
+    </questions>
+    <questions>
+        <question> Which following bird is in the same class as the crow?
+        </question>
+        <rightAns> Blue Jay
+        </rightAns>
+        <ans1> Cuckoos
+        </ans1>
+        <ans2> Kingfisher
+        </ans2>
+        <ans3> Swallow
+        </ans3>
+    </questions>
+    <questions>
+        <question> Polar bears feed mainly on what animal?
+        </question>
+        <rightAns> Seals
+        </rightAns>
+        <ans1> Penguins
+        </ans1>
+        <ans2> Reindeer
+        </ans2>
+        <ans3> Arctic fox
+        </ans3>
+    </questions>
+    <questions>
+        <question> What is a group of rhinoceros called?
+        </question>
+        <rightAns> A crash
+        </rightAns>
+        <ans1> A herd
+        </ans1>
+        <ans2> A group
+        </ans2>
+        <ans3> A swarm
+        </ans3>
+    </questions>
+    <questions>
+        <question> The Alaskan Malamute is a type of what?
+        </question>
+        <rightAns> Dog
+        </rightAns>
+        <ans1> Wolf
+        </ans1>
+        <ans2> Bear
+        </ans2>
+        <ans3> Bird
+        </ans3>
+    </questions>
+    <questions>
+        <question> What is the fastest fish in the ocean?
+        </question>
+        <rightAns> Sailfish
+        </rightAns>
+        <ans1> Great White Shark
+        </ans1>
+        <ans2> Tarpon
+        </ans2>
+        <ans3> Bonefish
+        </ans3>
+    </questions>
+</root>
