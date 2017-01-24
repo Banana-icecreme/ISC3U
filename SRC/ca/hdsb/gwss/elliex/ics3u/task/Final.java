@@ -21,10 +21,10 @@ public static int idk = 0;
         Wrong.setText(" " + wrong);
         switch(right){
             case 1: 
-                Message.setText(" Some more practice may be helpful.");
+                Message.setText(" You shall not pass.");
                 break;
             case 2:
-                Message.setText(" Ehhh.....");
+                Message.setText(" Some more practice may be helpful.");
                 break;
             case 3:
                 Message.setText(" You pass.");
