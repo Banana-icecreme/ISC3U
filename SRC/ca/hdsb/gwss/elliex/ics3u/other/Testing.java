@@ -2,22 +2,7 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import ca.hdsb.gwss.elliex.ics3u.u7.xml.Courses;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import nu.xom.Builder;
-import nu.xom.Document;
-import nu.xom.Element;
-import nu.xom.Elements;
-import nu.xom.ParsingException;
+import static ca.hdsb.gwss.elliex.ics3u.other.QuadraticFormula.quadraticFormula;
 
 /**
  *
@@ -30,6 +15,6 @@ public class Testing {
      */
   
     public static void main(String[] args) {
-        
+        quadraticFormula(2,3,1);
     }
 }

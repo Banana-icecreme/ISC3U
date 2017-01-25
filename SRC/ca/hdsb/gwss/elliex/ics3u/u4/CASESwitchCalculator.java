@@ -20,8 +20,7 @@ public class CASESwitchCalculator {
      */
     public static void main(String[] args) {
         // variabels
-        int num;
-        double a, b, c;
+        double a, b, c, num;
         //objects
         Scanner input = new Scanner(System.in);
         NumberFormat nej = NumberFormat.getNumberInstance();
@@ -35,7 +34,7 @@ public class CASESwitchCalculator {
         System.out.println(" Type 1 for Addition\n Type 2 for Subtraction\n Type 3 for Multiplication"
                 + "\n Type 4 for Division\n Type 5 to Exit");
         num = input.nextInt();
-        switch (num) {
+        switch ((int) num) {
             case 1:
                 c = a + b;
                 System.out.println(a + " + " + b + " = " + nej.format(c));
