@@ -3,6 +3,8 @@
 package ca.hdsb.gwss.elliex.ics3u.other;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.QuadraticFormula.quadraticFormula;
+import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -13,8 +15,9 @@ public class Testing {
     /**
      * @param args the command line arguments
      */
-  
     public static void main(String[] args) {
-        quadraticFormula(2,3,1);
+          for (int i = 0; i < 10; i++){
+          sopl((int) (Math.random()* 6));
+          }
     }
 }
