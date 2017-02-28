@@ -20,10 +20,10 @@ public class QuestionsAndAnswers {
      */
     public static void main(String[] args) {
         // Questions and Answers
-        String name; 
-        int age = 16; 
+        String name;
+        int age = 16;
         ///Objects
-        Scanner input = new Scanner (System.in);
+        Scanner input = new Scanner(System.in);
         ///Example
         System.out.println("What it your name?");
         name = input.nextLine();
@@ -31,27 +31,18 @@ public class QuestionsAndAnswers {
         System.out.println(" ");
         System.out.println("How old are you?");
         age = input.nextInt();
-        System.out.println( age + " cool");
-        
+        System.out.println(age + " cool");
+
         //money
         double a = 232132;
-        ///Objects
-        NumberFormat currency 
-                = NumberFormat.getCurrencyInstance();
-        NumberFormat decimal
-                = NumberFormat.getNumberInstance();
+        //Objects
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        NumberFormat decimal = NumberFormat.getNumberInstance();
         decimal.setMinimumFractionDigits(1);
         decimal.setMaximumFractionDigits(5);
         System.out.println(" ");
-        System.out.println(currency.format(a)); 
-                
-                
-        
-       
-       
-       
-        
-                
+        System.out.println(currency.format(a));
+
     }
-    
+
 }
