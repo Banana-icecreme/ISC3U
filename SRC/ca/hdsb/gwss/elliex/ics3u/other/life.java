@@ -19,9 +19,9 @@ public class life {
     /**
      * @param args the command line arguments
      */
+    public static String ability, weakness = null, name = null;
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String name;
         sopl("What is your name?");
         name = input.nextLine();
         sopl("Your supernatural ability and weakness is...");
@@ -29,24 +29,23 @@ public class life {
         NumberFormat nej = NumberFormat.getNumberInstance();
         nej.setMinimumFractionDigits(0);
         nej.setMaximumFractionDigits(0);
-        String ability = nej.format((Math.random() * 11));
-        ability(ability, 1);
-        if (Integer.parseInt(ability) < 9) {
-            String weakness = nej.format((Math.random() * 5));
-            ability(weakness, 2);
+        String a = nej.format((Math.random() * 11));
+        ability(a, 1);
+        if (Integer.parseInt(a) < 9) {
+            String w = nej.format((Math.random() * 5));
+            ability(w, 2);
         }
     }
 
     public static void ability(String number, int a) {
-        String ability, weakness = null;
         switch (number) {
             case "0":
                 ability = "You can manipulate air or any form of gas,";
-                weakness = "But you havea deadly allergy to garlic and a case of Spectrophobia.";
+                weakness = "But you have a deadly allergy to garlic.";
                 break;
             case "1":
                 ability = "You can manipulate water. Doesn't matter what state it is in,";
-                weakness = "But you suffer from a rare case of Aquagenic urticaria.";
+                weakness = "But you are an orphan.";
                 break;
             case "2":
                 ability = "You can manipulate fire and any form of energy that is in the form of heat,";
@@ -54,14 +53,14 @@ public class life {
                 break;
             case "3":
                 ability = "You can manipulate any inorganic minerals that are found in the earth,";
-                weakness = "But you easily get sick, and have skin that is easily brunt from sunlight.";
+                weakness = "But you easily get sick, and have pale skin that is easily brunt from sunlight.";
                 break;
             case "4":
                 ability = "You have the power of telepathicness,";
                 weakness = "But you have hemophilia.";
                 break;
             case "5":
-                ability = "You create things out of nothing. Although, you are not telekinetic,";
+                ability = "You create things out of nothing. Not to be confused with telekinetic,";
                 weakness = "But you are physically weak, including conditions such as asthma.";
                 break;
             case "6":
@@ -71,10 +70,10 @@ public class life {
                 ability = "You can shapeshift,";
                 break;
             case "8":
-                ability = "Anything you touch turns to stone,";
+                ability = "You can speak any language, including animal languages,";
                 break;
             default:
-                ability = "You are normal.";
+                ability = "You are normal.\n...At least you don't have any major weaknesses.";
         }
         if (a == 1) {
             sopl(ability);

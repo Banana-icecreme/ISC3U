@@ -7,7 +7,7 @@ package ca.hdsb.gwss.elliex.ics3u.u7;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.selectionSort;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -55,7 +55,7 @@ public class file {
     }
 
     public static void sort(String[] data) {
-        selection(data, true);
+        selectionSort(data, true);
     }
 
     public static void tokenizer() throws FileNotFoundException {

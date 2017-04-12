@@ -7,13 +7,11 @@ package ca.hdsb.gwss.elliex.ics3u.u6;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.binarySearch;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.bubble;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.linearSearch;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.printArray;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.totalcom;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.totalswap;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.binarySearch;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.bubbleSort;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.linearSearch;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.printArray;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.selectionSort;
 import java.text.NumberFormat;
 import java.util.Random;
 
@@ -80,13 +78,9 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
         sopl("\nSORT ORDER: " + order);
-        bubble(number, way);
+        bubbleSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 
     public static void bubbleSort2(int number[], int search, boolean way) {
@@ -99,13 +93,9 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
         sopl("\nSORT ORDER: " + order);
-        bubble(number, way);
+        bubbleSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 
     public static void bubbleSort2(String number[], String search, boolean way) {
@@ -118,13 +108,9 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
         sopl("\nSORT ORDER: " + order);
-        bubble(number, way);
+        bubbleSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 
     public static void selectionSort2(double number[], double search, boolean way) {
@@ -137,13 +123,9 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");
         sopl("\nSORT ORDER: " + order);
-        selection(number, way);
+        selectionSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 
     public static void selectionSort2(int number[], int search, boolean way) {
@@ -156,13 +138,9 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");
         sopl("\nSORT ORDER: " + order);
-        selection(number, way);
+        selectionSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 
     public static void selectionSort2(String number[], String search, boolean way) {
@@ -175,12 +153,8 @@ public class SequentialSearch {
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");
         sopl("\nSORT ORDER: " + order);
-        selection(number, way);
+        selectionSort(number, way);
         sopl("\nBINARY SEARCH FOR " + search + ":");
         binarySearch(number, search);
-        sopl("\nTOTAL NUMBER OF COMPARISONS: " + totalcom);
-        sopl("TOTAL NUMBER OF SWAPS MADE: " + totalswap);
-        totalswap = 0;
-        totalcom = 0;
     }
 }

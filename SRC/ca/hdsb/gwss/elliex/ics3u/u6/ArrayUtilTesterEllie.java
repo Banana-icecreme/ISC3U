@@ -7,15 +7,12 @@ package ca.hdsb.gwss.elliex.ics3u.u6;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sop;
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.average;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.binarySearch;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.bubble;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.linearSearch;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.max;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.min;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.printArray;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.selection;
-import static ca.hdsb.gwss.elliex.ics3u.u6.ArrayUtilEllie.sum;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.binarySearch;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.bubbleSort;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.linearSearch;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.math;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.printArray;
+import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.selectionSort;
 import java.text.NumberFormat;
 import java.util.Random;
 
@@ -29,14 +26,14 @@ public class ArrayUtilTesterEllie {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        bubbleTest();
-//        selectionTest();
-//        minTest();
-//        maxTest();
-//        averageTest();
+        bubbleTest();
+        selectionTest();
+        minTest();
+       maxTest();
+        averageTest();
         sumTest();
-//        linearSearchTest();
-//        binarySearchTest();
+        linearSearchTest();
+        binarySearchTest();
     }
 
     public static boolean bubbleTest() {
@@ -69,11 +66,11 @@ public class ArrayUtilTesterEllie {
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
-        bubble(dataint, true);
+        bubbleSort(dataint, true);
         sopl("\nDouble: ");
-        bubble(datadouble, true);
+        bubbleSort(datadouble, true);
         sopl("\nString: ");
-        bubble(datastring, true);
+        bubbleSort(datastring, true);
 
         //CONFIRM
         for (int i = 1; i < dataint.length; i++) {
@@ -81,7 +78,7 @@ public class ArrayUtilTesterEllie {
                 passedTest = false;
             }
         }
-        assert passedTest == true;
+//        assert passedTest == true;
         sopl("\nTEST CASE #1A RESULTS - passed = " + passedTest);
         return passedTest;
     }
@@ -116,11 +113,11 @@ public class ArrayUtilTesterEllie {
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
-        selection(dataint, true);
+        selectionSort(dataint, true);
         sopl("\nDouble: ");
-        selection(datadouble, true);
+        selectionSort(datadouble, true);
         sopl("\nString: ");
-        selection(datastring, true);
+        selectionSort(datastring, true);
 
         //CONFIRM
         for (int i = 1; i < dataint.length; i++) {
@@ -128,7 +125,7 @@ public class ArrayUtilTesterEllie {
                 passedTest = false;
             }
         }
-        assert passedTest == true;
+//        assert passedTest == true;
         sopl("\nTEST CASE #2A RESULTS - passed = " + passedTest);
         return passedTest;
     }
@@ -161,9 +158,9 @@ public class ArrayUtilTesterEllie {
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
-        mini = min(dataint);
+        mini = math(dataint, "min");
         sopl("\nDouble: ");
-        mind = min(datadouble);
+        mind = math(datadouble, "min");
 
         //CONFIRM
         for (int i = 0; i < dataint.length; i++) {
@@ -205,9 +202,9 @@ public class ArrayUtilTesterEllie {
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
-        maxi = max(dataint);
+        maxi = math(dataint, "max");
         sopl("\nDouble: ");
-        maxd = max(datadouble);
+        maxd = math(datadouble, "max");
 
         //CONFIRM
         for (int i = 0; i < dataint.length; i++) {
@@ -249,9 +246,9 @@ public class ArrayUtilTesterEllie {
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
-        avei = average(dataint);
+        avei = math(dataint, "average");
         sopl("\nDouble: ");
-        aved = Double.parseDouble(nej.format(average(datadouble)));
+        aved = Double.parseDouble(nej.format(math(datadouble, "average")));
 
         //CONFIRM
         for (int i = 0; i < dataint.length; i++) {
@@ -296,14 +293,16 @@ public class ArrayUtilTesterEllie {
         sopl("\nDATA GOING UP BY: " + upby);
         sop("\nDATA BEFORE: \nInt: ");
         printArray(dataint);
-        sop("Double: ");
+        sop("\nDouble: ");
         printArray(datadouble);
 
         // SORT DATA
-        sopl("\nDATA AFTER: \nInt: ");
-        sumi = sum(dataint);
-        sopl("\nDouble: ");
-        sumd = sum(datadouble);
+        sumi = math(dataint, "sum");
+        sumd = math(datadouble, "sum");
+        math(datadouble, "sum");
+        sopl("\n\nDATA AFTER: \nInt: " + sumi);
+        sopl("Double: " + sumd);
+        
 
         //CONFIRM
         for (int i = 0; i < dataint.length; i++) {
@@ -395,9 +394,9 @@ public class ArrayUtilTesterEllie {
             datastring[a] = (char) (r.nextInt(26) + 'a') + "";
         }
         sopl("");
-        selection(dataint, true);
-        selection(datadouble, true);
-        selection(datastring, true);
+        selectionSort(dataint, true);
+        selectionSort(datadouble, true);
+        selectionSort(datastring, true);
 
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
