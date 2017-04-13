@@ -29,47 +29,47 @@ public class life {
         NumberFormat nej = NumberFormat.getNumberInstance();
         nej.setMinimumFractionDigits(0);
         nej.setMaximumFractionDigits(0);
-        String a = nej.format((Math.random() * 11));
+        int a = Integer.parseInt(nej.format((Math.random() * 11)));
         ability(a, 1);
-        if (Integer.parseInt(a) < 9) {
-            String w = nej.format((Math.random() * 5));
+        if (a < 9) {
+            int w = Integer.parseInt(nej.format((Math.random() * 5)));
             ability(w, 2);
         }
     }
 
-    public static void ability(String number, int a) {
+    public static void ability(int number, int a) {
         switch (number) {
-            case "0":
+            case 0:
                 ability = "You can manipulate air or any form of gas,";
                 weakness = "But you have a deadly allergy to garlic.";
                 break;
-            case "1":
+            case 1:
                 ability = "You can manipulate water. Doesn't matter what state it is in,";
                 weakness = "But you are an orphan.";
                 break;
-            case "2":
+            case 2:
                 ability = "You can manipulate fire and any form of energy that is in the form of heat,";
                 weakness = "But moonlight is deadly to you.";
                 break;
-            case "3":
+            case 3:
                 ability = "You can manipulate any inorganic minerals that are found in the earth,";
                 weakness = "But you easily get sick, and have pale skin that is easily brunt from sunlight.";
                 break;
-            case "4":
+            case 4:
                 ability = "You have the power of telepathicness,";
                 weakness = "But you have hemophilia.";
                 break;
-            case "5":
+            case 5:
                 ability = "You create things out of nothing. Not to be confused with telekinetic,";
                 weakness = "But you are physically weak, including conditions such as asthma.";
                 break;
-            case "6":
+            case 6:
                 ability = "You are extremely smart. Your iq is easily over 180,";
                 break;
-            case "7":
+            case 7:
                 ability = "You can shapeshift,";
                 break;
-            case "8":
+            case 8:
                 ability = "You can speak any language, including animal languages,";
                 break;
             default:
@@ -78,7 +78,7 @@ public class life {
         if (a == 1) {
             sopl(ability);
         } else {
-            sopl(weakness);
+            sopl(weakness); 
         }
     }
 }

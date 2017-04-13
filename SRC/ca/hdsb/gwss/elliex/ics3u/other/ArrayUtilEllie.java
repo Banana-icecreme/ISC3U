@@ -139,7 +139,6 @@ public class ArrayUtilEllie {
 
     public static void selectionSort(String number[], boolean way) {
         int x, unnessary = 0, cases = 1, i = number.length, max;
-
         for (; cases <= (i - 1); cases++) {//counting cases
             max = 0;
             for (x = 1; x < i - unnessary; x++) {//sorting the numbers in a case
