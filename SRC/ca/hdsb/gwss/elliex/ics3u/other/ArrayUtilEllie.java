@@ -6,7 +6,7 @@
 package ca.hdsb.gwss.elliex.ics3u.other;
 
 import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Collections;
 import java.util.List;
 
