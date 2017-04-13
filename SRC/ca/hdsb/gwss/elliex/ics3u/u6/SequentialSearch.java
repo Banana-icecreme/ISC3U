@@ -10,7 +10,6 @@ import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.binarySearch;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.bubbleSort;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.linearSearch;
-import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.printArray;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.selectionSort;
 import java.text.NumberFormat;
 import java.util.Random;
@@ -73,7 +72,7 @@ public class SequentialSearch {
         sopl("---------DOUBLE---------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
@@ -88,7 +87,7 @@ public class SequentialSearch {
         sopl("----------INT----------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
@@ -103,7 +102,7 @@ public class SequentialSearch {
         sopl("---------STRING---------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nBUBBLE SORT: ");
@@ -118,7 +117,7 @@ public class SequentialSearch {
         sopl("-----------DOUBLE-----------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");
@@ -133,7 +132,7 @@ public class SequentialSearch {
         sopl("------------INT------------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");
@@ -148,7 +147,7 @@ public class SequentialSearch {
         sopl("----------STRING----------");
         order(way);
         sopl("\nORIGINAL ARRAY: ");
-        printArray(number);
+        sopl(number);
         sopl("\nLINEAR SEARCH FOR " + search + ":");
         linearSearch(number, search);
         sop("\nSELECTION SORT: ");

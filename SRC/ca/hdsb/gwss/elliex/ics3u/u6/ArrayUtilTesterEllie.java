@@ -11,7 +11,6 @@ import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.binarySearch;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.bubbleSort;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.linearSearch;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.math;
-import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.printArray;
 import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.selectionSort;
 import java.text.NumberFormat;
 import java.util.Random;
@@ -58,11 +57,11 @@ public class ArrayUtilTesterEllie {
         }
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
         sop("String: ");
-        printArray(datastring);
+        sopl(datastring);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
@@ -105,11 +104,11 @@ public class ArrayUtilTesterEllie {
         }
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
         sop("String: ");
-        printArray(datastring);
+        sopl(datastring);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
@@ -152,9 +151,9 @@ public class ArrayUtilTesterEllie {
 
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
@@ -196,9 +195,9 @@ public class ArrayUtilTesterEllie {
         // DISPLAY ARRAY
         System.out.println("\nDATA BEFORE: ");
         sop("Int: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
@@ -240,9 +239,9 @@ public class ArrayUtilTesterEllie {
 
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
@@ -292,9 +291,9 @@ public class ArrayUtilTesterEllie {
         // DISPLAY ARRAY
         sopl("\nDATA GOING UP BY: " + upby);
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("\nDouble: ");
-        printArray(datadouble);
+        sopl(datadouble);
 
         // SORT DATA
         sumi = math(dataint, "sum");
@@ -343,11 +342,11 @@ public class ArrayUtilTesterEllie {
 
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
         sop("String: ");
-        printArray(datastring);
+        sopl(datastring);
 
         // SORT DATA
         System.out.println("\nDATA AFTER: ");
@@ -400,11 +399,11 @@ public class ArrayUtilTesterEllie {
 
         // DISPLAY ARRAY
         sop("\nDATA BEFORE: \nInt: ");
-        printArray(dataint);
+        sopl(dataint);
         sop("Double: ");
-        printArray(datadouble);
+        sopl(datadouble);
         sop("String: ");
-        printArray(datastring);
+        sopl(datastring);
 
         // SORT DATA
         sopl("\nDATA AFTER: \nInt: ");
