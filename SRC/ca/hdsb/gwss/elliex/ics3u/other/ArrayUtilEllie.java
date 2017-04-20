@@ -283,13 +283,11 @@ public class ArrayUtilEllie {
 
     public static String toUpperCase(String a) {
         a = a.toUpperCase();
-        sopl(a);
         return a;
     }
 
     public static String toLowerCase(String a) {
         a = a.toLowerCase();
-        sopl(a);
         return a;
     }
 }

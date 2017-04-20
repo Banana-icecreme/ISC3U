@@ -2,10 +2,17 @@
  */
 package ca.hdsb.gwss.elliex.ics3u.other;
 
-import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.bubbleSort;
-import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.shuffleArray;
-import static ca.hdsb.gwss.elliex.ics3u.other.ArrayUtilEllie.toUpperCase;
-import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
+import ca.hdsb.gwss.elliex.ics3u.u7.xml.Courses;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.ParsingException;
 
 /**
  *
@@ -13,22 +20,45 @@ import static ca.hdsb.gwss.elliex.ics3u.other.SOPL.sopl;
  */
 public class Testing {
 
+    public static Element root;
+    public static Document email;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        String array[] = new String[6];
-//        array[0] = "a";
-//        array[1] = "b";
-//        array[2] = "z";
-//        array[3] = "c";
-//        array[4] = "d";
-//        array[5] = "A";
-//        shuffleArray(array);
-//        sopl(array);
-//        bubbleSort(array, true);
-//        sopl(array);
-toUpperCase("were the DHS’s actions justified? ");
-
+        xml();
+        write("ddf");
     }
+
+    public static void xml() {
+        File file = new File("Marcus email.xml");
+        if (file.exists()) {
+            Builder builder = new Builder();
+            try {
+                email = builder.build(file);
+                root = email.getRootElement();
+            } catch (ParsingException | IOException ex) {
+                Logger.getLogger(Courses.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            root = new Element("Friends");
+            email = new Document(root);
+        }
+    }
+
+    public static void write(String text) {
+        Element newMail = new Element("new");
+        newMail.appendChild(text);
+        root.appendChild(newMail);
+        try {
+            FileWriter file2 = new FileWriter("Marcus email.xml");
+            BufferedWriter writer = new BufferedWriter(file2);
+            writer.write(email.toXML());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
